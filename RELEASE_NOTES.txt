@@ -1,0 +1,14 @@
+
+
+# Hausdorff 0.2.0 - Known Issues 
+
+
+1. Tokenizer caching has been removed as it was causing a bug. This should be reinstated if performance is an issue
+3. processing-instruction(name) NodeTest is not yet implemented
+4. General performance enhancements
+5. Error handling - need more useful messages
+
+
+# FOL differences from the w3c spec
+
+1. No DTD features are supported. i.e. implicit attributes or anything that e4x does not do automatically

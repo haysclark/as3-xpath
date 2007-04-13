@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns="http://purl.org/rss/1.0/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+    <channel rdf:about="http://weblogs.macromedia.com/mxna/xml">
+        <title>Search Results For &apos;xpath flash&apos;</title>
+        <link>http://weblogs.macromedia.com/mxna/xml</link>
+        <description>Search Results For &apos;xpath flash&apos;</description>
+
+        <items>
+            <rdf:Seq>
+
+					<rdf:li rdf:resource="http://www.trajiklyhip.com/blog/index.cfm/2006/9/12/Flex-Web-Services-Question"/>
+
+					<rdf:li rdf:resource="http://www.biskero.org/?p=799"/>
+
+					<rdf:li rdf:resource="http://weblogs.macromedia.com/emmy/archives/2006/09/linux_player_in.cfm"/>
+
+					<rdf:li rdf:resource="http://blog.digitalbackcountry.com/?p=497"/>
+
+					<rdf:li rdf:resource="http://blog.digitalbackcountry.com/?p=497"/>
+
+					<rdf:li rdf:resource="http://www.coldhardflash.com/2006/09/flash-course-in-venice.html"/>
+
+					<rdf:li rdf:resource="http://aralbalkan.com/730"/>
+
+
+					<rdf:li rdf:resource="http://aralbalkan.com/729"/>
+
+					<rdf:li rdf:resource="http://www.adobe.com/cfusion/knowledgebase/index.cfm?id=b62ce659&amp;pss=rss_flashplayer_b62ce659"/>
+
+					<rdf:li rdf:resource="http://www.adobe.com/support/security/bulletins/apsb06-11.html"/>
+
+					<rdf:li rdf:resource="http://www.adobe.com/cfusion/knowledgebase/index.cfm?id=3d2855d6&amp;pss=rss_flex_3d2855d6"/>
+
+					<rdf:li rdf:resource="http://www.flashmagazine.com/1299.htm"/>
+
+					<rdf:li rdf:resource="http://www.flashmagazine.com/1298.htm"/>
+
+					<rdf:li rdf:resource="http://aralbalkan.com/728"/>
+
+					<rdf:li rdf:resource="http://community.sgdotnet.org/blogs/shunjie/archive/2006/09/12/How-to-Wow-with-Flash.aspx"/>
+
+            </rdf:Seq>
+
+        </items>
+    </channel>
+
+        <item rdf:about="http://www.trajiklyhip.com/blog/index.cfm/2006/9/12/Flex-Web-Services-Question">
+            <title>Flex Web Services Question</title>
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112249&amp;nextPage=http%3A%2F%2Fwww%2Etrajiklyhip%2Ecom%2Fblog%2Findex%2Ecfm%2F2006%2F9%2F12%2FFlex%2DWeb%2DServices%2DQuestion</link>
+            <description><![CDATA[I've been doing a good bit of work in Flex 2 lately and I've run into some interesting scenarios with Web Services and CFMX 6.1. Let me preface this by saying I firmly believe many of my issues would not be issues if the hosting server (not this site) was on CFMX 7.0.2. Why? Because I could use Flash Remoting instead of Web Services to hook Flex 2 to my CFC's. Anyhow, I'm working on this real simple application and I've run into issues where things I would normally do in AS2 in terms of calling CFC's via Flash Remoting]]></description>
+
+            <dc:subject>Flex</dc:subject>
+            <dc:creator>TrajiklyHip</dc:creator>
+            <dc:date>2006-09-12T23:36:26.0-00:00</dc:date>
+            <dc:identifier>138208CBD8D8A14548B1422F1B1FD213</dc:identifier>
+        </item>
+
+        <item rdf:about="http://www.biskero.org/?p=799">
+            <title>Nokia E62 on sale from Cingular</title>
+
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112245&amp;nextPage=http%3A%2F%2Fwww%2Ebiskero%2Eorg%2F%3Fp%3D799</link>
+            <description><![CDATA[The Nokia E62 will be on sale from Cingular on September 29th for $150. This is the same phone as the Nokia E61 but without WCDMA and Wi-Fi. In any case is Flash Lite 1.1 enabled. Here several news, Mobileburn, Mobilemedia, Allaboutsymbian. Alessandro]]></description>
+            <dc:subject>Flash</dc:subject>
+            <dc:creator>Biskero</dc:creator>
+            <dc:date>2006-09-12T22:41:30.0-00:00</dc:date>
+
+            <dc:identifier>6BAD9B7ECB9386B4B3FC468363880CF9</dc:identifier>
+        </item>
+
+        <item rdf:about="http://weblogs.macromedia.com/emmy/archives/2006/09/linux_player_in.cfm">
+            <title>Linux player in action - a Flashforward sneak!</title>
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112242&amp;nextPage=http%3A%2F%2Fweblogs%2Emacromedia%2Ecom%2Femmy%2Farchives%2F2006%2F09%2Flinux%5Fplayer%5Fin%2Ecfm</link>
+            <description><![CDATA[It's late in the day, so you've probably already caught wind of the first public showing of an early version of the Linux Flash Player 9 during the keynote at Flashforward Austin. Garrett Nantz of Big Spaceship showed off the...]]></description>
+
+            <dc:subject>Flash,Adobe (Formerly Macromedia)</dc:subject>
+            <dc:creator>Emmy Huang</dc:creator>
+            <dc:date>2006-09-12T22:14:31.0-00:00</dc:date>
+            <dc:identifier>73196ACD65EBDA98CA4F55B0A9874016</dc:identifier>
+        </item>
+
+        <item rdf:about="http://blog.digitalbackcountry.com/?p=497">
+            <title>The Best Apollo Information Out There</title>
+
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112240&amp;nextPage=http%3A%2F%2Fblog%2Edigitalbackcountry%2Ecom%2F%3Fp%3D497</link>
+            <description><![CDATA[It sounds like Adobe is letting the floodgates open with new information at Flash Forward this year. There are just so many cool things going on that it must be non stop news down there in Austin. Just to give you an example, I&#8217;ve got a copy of IMs that I woke up to this [...]]]></description>
+            <dc:subject>Flash,Flex</dc:subject>
+            <dc:creator>Digital Backcountry</dc:creator>
+            <dc:date>2006-09-12T22:12:08.0-00:00</dc:date>
+            <dc:identifier>E1D065804F878D082396B6C0B75BE221</dc:identifier>
+        </item>
+
+        <item rdf:about="http://blog.digitalbackcountry.com/?p=497">
+            <title>The Best Apollo Information Out There</title>
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112241&amp;nextPage=http%3A%2F%2Fblog%2Edigitalbackcountry%2Ecom%2F%3Fp%3D497</link>
+            <description><![CDATA[It sounds like Adobe is letting the floodgates open with new information at Flash Forward this year. There are just so many cool things going on that it must be non stop news down there in Austin. Just to give you an example, I&#8217;ve got a copy of IMs that I woke up to this [...]]]></description>
+            <dc:subject>Flash,Flex</dc:subject>
+            <dc:creator>Digital Backcountry</dc:creator>
+            <dc:date>2006-09-12T22:12:08.0-00:00</dc:date>
+            <dc:identifier>E1D065804F878D082396B6C0B75BE221</dc:identifier>
+        </item>
+
+        <item rdf:about="http://www.coldhardflash.com/2006/09/flash-course-in-venice.html">
+            <title>Flash Course in Venice</title>
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112222&amp;nextPage=http%3A%2F%2Fwww%2Ecoldhardflash%2Ecom%2F2006%2F09%2Fflash%2Dcourse%2Din%2Dvenice%2Ehtml</link>
+            <description><![CDATA[Tomorrow and Saturday in Venice, California at the Rich Media Institute, you can take part in the Flash Character Design and Animation training course. It's hosted by two members of the Cold Hard Flash community, Warren Fuller and Dave Wolfe. It's a full-day course, and those in attendance will learn about "the essentials of character animation production techniques, from rigging characters, to]]></description>
+            <dc:subject>Flash</dc:subject>
+            <dc:creator>Cold, Hard Flash</dc:creator>
+            <dc:date>2006-09-12T20:13:41.0-00:00</dc:date>
+
+            <dc:identifier>6F2B0304B2540960BA29DA26B0E1998D</dc:identifier>
+        </item>
+
+        
+
+        <item rdf:about="http://aralbalkan.com/730">
+            <title>Chris Orwig on Teaching Flash Website Design/Development</title>
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112218&amp;nextPage=http%3A%2F%2Faralbalkan%2Ecom%2F730</link>
+            <description><![CDATA[Chris Orwig is a great speaker. I first met Chris at FlashForward Seattle, earlier this year, and hugely enjoyed his session on creating a photo portfolio. He has the wonderful ability to make subjects interesting by using humour and inspirational analogies. I just sat through his talk on Teaching Flash Website Design/Development and it was [...]]]></description>
+            <dc:subject>Flash</dc:subject>
+            <dc:creator>Aral Balkan</dc:creator>
+            <dc:date>2006-09-12T19:53:59.0-00:00</dc:date>
+            <dc:identifier>11ACB3854979D3CF21520656DC499AD9</dc:identifier>
+        </item><item rdf:about="http://aralbalkan.com/729">
+            <title>Daniel Dura on Apollo</title>
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112215&amp;nextPage=http%3A%2F%2Faralbalkan%2Ecom%2F729</link>
+            <description><![CDATA[Some notes from the session: Project is in early development Individual items/features subject to change Accurate as of today (he's showing the latest build from last night) Not mock-up, etc. Everything he's showing us is working version What is Apollo? Apollo is a cross-OS runtime for building RIAs. Leverage skills in Flash, Flex, HTML, Ajax to build and deploy desktop RIAs. [...]]]></description>
+            <dc:subject>Flash</dc:subject>
+            <dc:creator>Aral Balkan</dc:creator>
+            <dc:date>2006-09-12T19:38:54.0-00:00</dc:date>
+            <dc:identifier>1733C4DA1111E4C63550F3ED55E09AA0</dc:identifier>
+        </item>
+
+        <item rdf:about="http://www.adobe.com/cfusion/knowledgebase/index.cfm?id=b62ce659&amp;pss=rss_flashplayer_b62ce659">
+            <title>Upgrading the Flash Authoring Tool with the Flash Player 9 Security Release</title>
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112207&amp;nextPage=http%3A%2F%2Fwww%2Eadobe%2Ecom%2Fcfusion%2Fknowledgebase%2Findex%2Ecfm%3Fid%3Db62ce659%26pss%3Drss%5Fflashplayer%5Fb62ce659</link>
+            <description><![CDATA[(TechNote) The Flash Player 9 Security Release is an update of the Flash Player that addresses various security-related concerns of the player. For more information regarding the update see the Adobe Flash Player security advisory APSB06-11. Updated versions of the player are being provided for the Flash authoring tool.]]></description>
+
+            <dc:subject>Flash,Adobe (Formerly Macromedia)</dc:subject>
+            <dc:creator>Macromedia Product Notification</dc:creator>
+            <dc:date>2006-09-12T19:24:23.0-00:00</dc:date>
+            <dc:identifier>B1AB853E9BE0B54156FDD34974F1C4B0</dc:identifier>
+        </item>
+
+        <item rdf:about="http://www.adobe.com/support/security/bulletins/apsb06-11.html">
+            <title>Multiple Vulnerabilities in Adobe Flash Player 8.0.24.0 and Earlier Versions</title>
+
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112208&amp;nextPage=http%3A%2F%2Fwww%2Eadobe%2Ecom%2Fsupport%2Fsecurity%2Fbulletins%2Fapsb06%2D11%2Ehtml</link>
+            <description><![CDATA[(Security bulletin) Critical vulnerabilities have been identified in Flash Player 8.0.24.0 and earlier versions that could allow an attacker who successfully exploits these vulnerabilities to take control of the affected system. A malicious SWF file must be loaded in Flash Player by the end user for an attacker to exploit these vulnerabilities. It is recommended that users update to the most current version of Flash Player available for their platform.]]></description>
+            <dc:subject>Flash,Adobe (Formerly Macromedia)</dc:subject>
+            <dc:creator>Macromedia Product Notification</dc:creator>
+            <dc:date>2006-09-12T19:24:23.0-00:00</dc:date>
+
+            <dc:identifier>97AA380AE20F72C0CAE2C05ADFF13C73</dc:identifier>
+        </item>
+
+        <item rdf:about="http://www.adobe.com/cfusion/knowledgebase/index.cfm?id=3d2855d6&amp;pss=rss_flex_3d2855d6">
+            <title>Updated Debug Flash Player 7 for Flex 1.5 and Flex Builder 1.5</title>
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112204&amp;nextPage=http%3A%2F%2Fwww%2Eadobe%2Ecom%2Fcfusion%2Fknowledgebase%2Findex%2Ecfm%3Fid%3D3d2855d6%26pss%3Drss%5Fflex%5F3d2855d6</link>
+            <description><![CDATA[(TechNote - updated) Due to a recent update to Flash Player 7, we are releasing an update to the debug version of the Flash Player 7 that ships with Flex 1.5 and Flex Builder 1.5.]]></description>
+
+            <dc:subject>Flex,Adobe (Formerly Macromedia)</dc:subject>
+            <dc:creator>Macromedia Product Notification</dc:creator>
+            <dc:date>2006-09-12T19:16:21.0-00:00</dc:date>
+            <dc:identifier>6C623506B6FEC92E38D5E5BB75EFB2C9</dc:identifier>
+        </item>
+
+        <item rdf:about="http://www.flashmagazine.com/1299.htm">
+            <title>Flash Forward day 2</title>
+
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112181&amp;nextPage=http%3A%2F%2Fwww%2Eflashmagazine%2Ecom%2F1299%2Ehtm</link>
+            <description><![CDATA[Day 2 begins with the keynote by Kevin Lynch. This is usually the keynote where new products are shown, so everyone is here.]]></description>
+            <dc:subject>Flash</dc:subject>
+            <dc:creator>Flash Magazine</dc:creator>
+            <dc:date>2006-09-12T16:38:29.0-00:00</dc:date>
+
+            <dc:identifier>5067651D3975B7C7354570BA0DAA5C00</dc:identifier>
+        </item>
+
+        <item rdf:about="http://www.flashmagazine.com/1298.htm">
+            <title>LipSync MX v2</title>
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112182&amp;nextPage=http%3A%2F%2Fwww%2Eflashmagazine%2Ecom%2F1298%2Ehtm</link>
+            <description><![CDATA[Still Lip-Syncing your Flash animations by hand? You've got way too much time on your hands. Why not book a holiday, see your family for a change and maybe check out LipSync MX. This handy little tool has a pretty good go at automating this time-consuming process for you.]]></description>
+
+            <dc:subject>Flash</dc:subject>
+            <dc:creator>Flash Magazine</dc:creator>
+            <dc:date>2006-09-12T16:38:29.0-00:00</dc:date>
+            <dc:identifier>49BD32A061F07A88529EDB459F18E5BC</dc:identifier>
+        </item>
+
+        <item rdf:about="http://aralbalkan.com/728">
+            <title>FlashForward Austin Days 1 &amp; 2</title>
+
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112180&amp;nextPage=http%3A%2F%2Faralbalkan%2Ecom%2F728</link>
+            <description><![CDATA[I arrived in Austin on Sunday for FlashForward and had a great time presenting my Head Start Flex 2 workshop yesterday. Right now I&#8217;m sitting in on Kevin Lynch&#8217;s keynote and they&#8217;re showing a couple of firsts. Big Spaceship just demoed their latest site for Nike using the Flash 9 Player on Linux. The site contains [...]]]></description>
+            <dc:subject>Flash</dc:subject>
+            <dc:creator>Aral Balkan</dc:creator>
+            <dc:date>2006-09-12T16:38:22.0-00:00</dc:date>
+            <dc:identifier>570727F07C75F8BF24250150CE7B9FFC</dc:identifier>
+        </item>
+
+        <item rdf:about="http://community.sgdotnet.org/blogs/shunjie/archive/2006/09/12/How-to-Wow-with-Flash.aspx">
+            <title>How to Wow with Flash</title>
+            <link>http://weblogs.macromedia.com/mxna/controller.cfm?handler=PostHandler&amp;action=click&amp;postId=112174&amp;nextPage=http%3A%2F%2Fcommunity%2Esgdotnet%2Eorg%2Fblogs%2Fshunjie%2Farchive%2F2006%2F09%2F12%2FHow%2Dto%2DWow%2Dwith%2DFlash%2Easpx</link>
+            <description><![CDATA[I have just bought this book &#39;How to Wow with Flash&#39;. Basically I am attracted to the tips and techniques its offers and the way it is being written in a casual way. I particularly like the chapter by Chris Georgenes where he reveal the techniques he used in his character animations. I was hoping to get Total Training for Flex 2 too. Its review has been very good so far and the only thing that lies between me and pressing the &#39;Add to Cart&#39; button is only its $149 price tag. But after hearing the various reviews, I believe]]></description>
+            <dc:subject>Flash</dc:subject>
+            <dc:creator>Shunjie&apos;s Blog</dc:creator>
+            <dc:date>2006-09-12T16:14:55.0-00:00</dc:date>
+
+            <dc:identifier>C5315758DDA8F33C1A5D51DF02D2EC1E</dc:identifier>
+        </item>
+
+</rdf:RDF>
+
+
+
