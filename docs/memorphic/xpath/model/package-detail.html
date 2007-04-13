@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<title>memorphic.xpath.model Summary</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'memorphic.xpath.model Package - Adobe ActionScript 3.0 Library - xpath-as3';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../index.html?memorphic/xpath/model/package-detail.html&amp;memorphic/xpath/model/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Package&nbsp;memorphic.xpath.model</td><td align="right" id="subNav" class="titleTableSubNav"><a href="package-detail.html#interfaceSummary">Interfaces</a>&nbsp;| <a href="package-detail.html#classSummary">Classes</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Package memorphic.xpath.model"); titleBar_setSubNav(false,false,false,false,false,false,false,false,false,false,false,true,true,false);}
+--></script>
+<div class="MainContent">
+<br>
+<br>
+<hr>
+<a name="interfaceSummary"></a>
+<div class="summaryTableTitle">Interfaces</div>
+<table class="summaryTable" cellspacing="0" cellpadding="3">
+<tr>
+<th>&nbsp;</th><th width="30%">Interface</th><th width="70%">Description</th>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><i><a href="IExpression.html">IExpression</a></i></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><i><a href="INodeTest.html">INodeTest</a></i></td><td class="summaryTableLastCol">
+  2.3 Node Tests
+  
+  Every axis has a principal node type.</td>
+</tr>
+</table>
+<a name="classSummary"></a>
+<div class="summaryTableTitle">Classes</div>
+<table class="summaryTable" cellspacing="0" cellpadding="3">
+<tr>
+<th>&nbsp;</th><th width="30%">Class</th><th width="70%">Description</th>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="Axis.html">Axis</a></td><td class="summaryTableLastCol">
+  [From the spec]
+  
+  2.2 Axes
+  
+  The following axes are available:
+  
+   - the child axis contains the children of the context node
+   - the descendant axis contains the descendants of the context node; a descendant is a child 
+    or a child of a child and so on; thus the descendant axis never contains attribute or 
+    namespace nodes
+   - the parent axis contains the parent of the context node, if there is one
+   - the ancestor axis contains the ancestors of the context node; the ancestors of the context 
+    node consist of the parent of context node and the parent's parent and so on; thus, the 
+    ancestor axis will always include the root node, unless the context node is the root node
+   - the following-sibling axis contains all the following siblings of the context node; if the 
+    context node is an attribute node or namespace node, the following-sibling axis is empty
+   - the preceding-sibling axis contains all the preceding siblings of the context node; if the 
+    context node is an attribute node or namespace node, the preceding-sibling axis is empty
+   - the following axis contains all nodes in the same document as the context node that are 
+    after the context node in document order, excluding any descendants and excluding 
+    attribute nodes and namespace nodes
+   - the preceding axis contains all nodes in the same document as the context node that are 
+    before the context node in document order, excluding any ancestors and excluding attribute 
+    nodes and namespace nodes
+   - the attribute axis contains the attributes of the context node; the axis will be empty 
+    unless the context node is an element
+   - the namespace axis contains the namespace nodes of the context node; the axis will be empty 
+    unless the context node is an element
+   - the self axis contains just the context node itself
+   - the descendant-or-self axis contains the context node and the descendants of the context node
+   - the ancestor-or-self axis contains the context node and the ancestors of the context node; 
+    thus, the ancestor axis will always include the root node
+  
+  NOTE: The ancestor, descendant, following, preceding and self axes partition a document (ignoring 
+  attribute and namespace nodes): they do not overlap and together they contain all the nodes in 
+  the document.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="AxisNames.html">AxisNames</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="BinaryOperation.html">BinaryOperation</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="FilterExpr.html">FilterExpr</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="FunctionCall.html">FunctionCall</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="LocationPath.html">LocationPath</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="NameTest.html">NameTest</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="NodeTypes.html">NodeTypes</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="NodeTypeTest.html">NodeTypeTest</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="Operators.html">Operators</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="PathExpr.html">PathExpr</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="Predicate.html">Predicate</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="PredicateList.html">PredicateList</a></td><td class="summaryTableLastCol">
+  A list of predicates, extracted into its own class to avoid duplicating the same
+  functionality in two places: Step and FilterExpr.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="PrimitiveValue.html">PrimitiveValue</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="QueryRoot.html">QueryRoot</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="StandardFunctions.html">StandardFunctions</a></td><td class="summaryTableLastCol">
+   See http://www.w3.org/TR/xpath#corelib
+  
+  These are all of the standard functions that you can use in an XPath query, as defined
+  by the spec.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="StandardNamespaces.html">StandardNamespaces</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="Step.html">Step</a></td><td class="summaryTableLastCol">
+  
+  [From spec]
+  
+  2.1 Location Steps
+  
+  A location step has three parts:
+  
+   - an axis, which specifies the tree relationship between the nodes selected by the location step and 
+    the context node,
+   - a node test, which specifies the node type and expanded-name of the nodes selected by the location 
+    step, and
+   - zero or more predicates, which use arbitrary expressions to further refine the set of nodes selected 
+    by the location step.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="TypeConversions.html">TypeConversions</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="VariableReference.html">VariableReference</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="XPathContext.html">XPathContext</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+</table>
+<p></p>
+<div>
+<p></p>
+<center class="copyright">
+<footer> 
+</footer>
+</center>
+</div>
+</div>
+</body>
+</html>
+<!-- -->

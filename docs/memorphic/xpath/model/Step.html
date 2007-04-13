@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<meta content="Step,memorphic.xpath.model.Step,ABBREVIATED_DESC_OR_SELF,ABBREVIATED_SELF,ABBREVIATED_PARENT,ABBREVIATED_CHILD,selectXMLList" name="keywords">
+<title>memorphic.xpath.model.Step</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Step - Adobe ActionScript 3.0 Library - xpath-as3';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../index.html?memorphic/xpath/model/Step.html&amp;memorphic/xpath/model/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Step</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Step"); titleBar_setSubNav(true,false,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">memorphic.xpath.model</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class Step</td>
+</tr>
+</table>
+<p></p>
+  
+  [From spec]
+  
+  2.1 Location Steps
+  
+  A location step has three parts:
+  
+   - an axis, which specifies the tree relationship between the nodes selected by the location step and 
+    the context node,
+   - a node test, which specifies the node type and expanded-name of the nodes selected by the location 
+    step, and
+   - zero or more predicates, which use arbitrary expressions to further refine the set of nodes selected 
+    by the location step.
+  
+  The syntax for a location step is the axis name and node test separated by a double colon, followed by 
+  zero or more expressions each in square brackets. For example, in child::para[position()=1], child is 
+  the name of the axis, para is the node test and [position()=1] is a predicate.
+  
+  The node-set selected by the location step is the node-set that results from generating an initial 
+  node-set from the axis and node-test, and then filtering that node-set by each of the predicates in turn.
+  
+  The initial node-set consists of the nodes having the relationship to the context node specified by the 
+  axis, and having the node type and expanded-name specified by the node test. For example, a location step 
+  descendant::para selects the para element descendants of the context node: descendant specifies that each 
+  node in the initial node-set must be a descendant of the context; para specifies that each node in the 
+  initial node-set must be an element named para. The available axes are described in [2.2 Axes]. The 
+  available node tests are described in [2.3 Node Tests]. The meaning of some node tests is dependent on 
+  the axis.
+  
+  The initial node-set is filtered by the first predicate to generate a new node-set; this new node-set is 
+  then filtered using the second predicate, and so on. The final node-set is the node-set selected by the 
+  location step. The axis affects how the expression in each predicate is evaluated and so the semantics of 
+  a predicate is defined with respect to an axis. See [2.4 Predicates].
+  
+  Location Steps
+  
+    [4] Step ::= 
+      AxisSpecifier NodeTest Predicate
+      | AbbreviatedStep 
+  
+    [5] AxisSpecifier ::=
+      AxisName '::' 
+      | AbbreviatedAxisSpecifier
+  
+    
+  
+  Since we have added constants for common use-case abbreviated syntax, all properties are private to
+  enforce immutibility.
+  <p></p>
+<br>
+<hr>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Step()">Step</a>(axis:<a href="Axis.html">Axis</a>, nodeTest:<a href="INodeTest.html">INodeTest</a>, predicateList:<a href="PredicateList.html">PredicateList</a>)</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Step</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#selectXMLList()">selectXMLList</a>(context:<a href="XPathContext.html">XPathContext</a>):XMLList</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Step</td>
+</tr>
+</table>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ABBREVIATED_CHILD">ABBREVIATED_CHILD</a> : <a href="../model/Step.html">Step</a>
+<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">Step</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ABBREVIATED_DESC_OR_SELF">ABBREVIATED_DESC_OR_SELF</a> : <a href="../model/Step.html">Step</a>
+<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">Step</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ABBREVIATED_PARENT">ABBREVIATED_PARENT</a> : <a href="../model/Step.html">Step</a>
+<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">Step</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ABBREVIATED_SELF">ABBREVIATED_SELF</a> : <a href="../model/Step.html">Step</a>
+<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">Step</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Step()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Step</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Step(axis:<a href="Axis.html">Axis</a>, nodeTest:<a href="INodeTest.html">INodeTest</a>, predicateList:<a href="PredicateList.html">PredicateList</a>)</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">axis</span>:<a href="Axis.html">Axis</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">nodeTest</span>:<a href="INodeTest.html">INodeTest</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">predicateList</span>:<a href="PredicateList.html">PredicateList</a></code></td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="selectXMLList()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">selectXMLList</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function selectXMLList(context:<a href="XPathContext.html">XPathContext</a>):XMLList</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>XMLList</code></td>
+</tr>
+</table>
+</div>
+<a name="constantDetail"></a>
+<div class="detailSectionHeader">Constant detail</div>
+<a name="ABBREVIATED_CHILD"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ABBREVIATED_CHILD</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ABBREVIATED_CHILD:<a href="../model/Step.html">Step</a></code>
+</div>
+<a name="ABBREVIATED_DESC_OR_SELF"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ABBREVIATED_DESC_OR_SELF</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ABBREVIATED_DESC_OR_SELF:<a href="../model/Step.html">Step</a></code>
+</div>
+<a name="ABBREVIATED_PARENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ABBREVIATED_PARENT</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ABBREVIATED_PARENT:<a href="../model/Step.html">Step</a></code>
+</div>
+<a name="ABBREVIATED_SELF"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ABBREVIATED_SELF</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ABBREVIATED_SELF:<a href="../model/Step.html">Step</a></code>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright">
+<footer> 
+</footer>
+</center>
+</div>
+</body>
+</html>
+<!-- -->

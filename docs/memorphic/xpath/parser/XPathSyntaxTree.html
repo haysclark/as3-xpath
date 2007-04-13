@@ -1,0 +1,1319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<meta content="XPathSyntaxTree,memorphic.xpath.parser.XPathSyntaxTree,LOCATION_PATH,ABSOLUTE_LOCATION_PATH,RELATIVE_LOCATION_PATH,STEP,AXIS_SPECIFIER,NODE_TEST,PREDICATE,PREDICATE_EXPR,ABBREVIATED_ABSOLUTE_LOCATION_PATH,ABBREVIATED_RELATIVE_LOCATION_PATH,ABBREVIATED_STEP,ABBREVIATED_AXIS_SPECIFIER,EXPR,PRIMARY_EXPR,FUNCTION_CALL,ARGUMENT,UNION_EXPR,PATH_EXPR,FILTER_EXPR,OR_EXPR,AND_EXPR,EQUALITY_EXP,RELATIONAL_EXP,ADDITIVE_EXPR,MULTIPLICATIVE_EXPR,UNARY_EXPR,QNAME,NAME_TEST,getTree,LocationPath,AbsoluteLocationPath,RelativeLocationPath,Step,AxisSpecifier,NodeTest,Predicate,PredicateExpr,AbbreviatedAbsoluteLocationPath,AbbreviatedRelativeLocationPath,AbbreviatedStep,AbbreviatedAxisSpecifier,Expr,PrimaryExpr,FunctionCall,Argument,UnionExpr,PathExpr,FilterExpr,OrExpr,AndExpr,EqualityExpr,RelationalExpr,AdditiveExpr,MultiplicativeExpr,UnaryExpr,ruleMatched,ruleMatched,ruleMatched" name="keywords">
+<title>memorphic.xpath.parser.XPathSyntaxTree</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'XPathSyntaxTree - Adobe ActionScript 3.0 Library - xpath-as3';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../index.html?memorphic/xpath/parser/XPathSyntaxTree.html&amp;memorphic/xpath/parser/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;XPathSyntaxTree</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class XPathSyntaxTree"); titleBar_setSubNav(true,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">memorphic.xpath.parser</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class XPathSyntaxTree</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">XPathSyntaxTree <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../images/inherit-arrow.gif"> <a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+</table>
+<p></p>
+  NOTE: All methods in the "rule" namespace are XPath lexical and grammar rules taken from
+  W3C XPath 1.0 Recommendation at http://www.w3.org/TR/xpath
+  or from the W3C XML Namespaces 1.0 recommendation http://www.w3.org/TR/REC-xml-names/
+  
+  The appropriate specification snippets are shown above each method
+    TODO: some optimizations:
+   - where logic is unaffected, re-order the tests to check most common (or quickest) matches first
+  <p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a><a name="protectedPropertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedProperty" id="hideInheritedProtectedProperty">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedProperty');" href="#protectedPropertySummary" class="showHideLink"><img src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Properties</a>
+</div>
+<div class="showInheritedProtectedProperty" id="showInheritedProtectedProperty">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedProperty');" href="#protectedPropertySummary" class="showHideLink"><img src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Properties</a>
+</div>
+</div>
+<table id="summaryTableProtectedProperty" class="summaryTable hideInheritedProtectedProperty" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../parser/SyntaxTree.html#lastMatchedToken">lastMatchedToken</a> : <a href="../../parser/Token.html">Token</a>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../parser/SyntaxTree.html#stack">stack</a> : Array<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../parser/SyntaxTree.html#token">token</a> : <a href="../../parser/Token.html">Token</a>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../parser/SyntaxTree.html#tokenizer">tokenizer</a> : <a href="../../parser/Tokenizer.html">Tokenizer</a>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#XPathSyntaxTree()">XPathSyntaxTree</a>(tokenizer:<a href="XPathTokenizer.html">XPathTokenizer</a>)</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getTree()">getTree</a>():<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#reset()">reset</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+</table>
+</div>
+<a name="protectedMethodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Protected Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedProtectedMethod" id="hideInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(false,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Protected Methods</a>
+</div>
+<div class="showInheritedProtectedMethod" id="showInheritedProtectedMethod">
+<a onclick="javascript:setInheritedVisible(true,'ProtectedMethod');" href="#protectedMethodSummary" class="showHideLink"><img src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Protected Methods</a>
+</div>
+</div>
+<table id="summaryTableProtectedMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#createTreeItem()">createTreeItem</a>(type:String, children:Array, sourceIndex:int):<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>
+</div>
+<div class="summaryTableDescription">
+      </div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#didntMatch()">didntMatch</a>():Boolean</div>
+<div class="summaryTableDescription">
+   Return from a rule function by calling this method, to indicate that the rule did
+   not match.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#discardToken()">discardToken</a>():void</div>
+<div class="summaryTableDescription">
+      </div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#firstUnmatchedToken()">firstUnmatchedToken</a>():<a href="../../parser/Token.html">Token</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#getState()">getState</a>():<a href="../../parser/SyntaxTreeState.html">SyntaxTreeState</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#lookAhead()">lookAhead</a>(howFar:int = 1):<a href="../../parser/Token.html">Token</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#match()">match</a>():Boolean</div>
+<div class="summaryTableDescription">
+   Return match() to break out of a rule function to indicate that the rule matched.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#nextToken()">nextToken</a>():<a href="../../parser/Token.html">Token</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#restartRule()">restartRule</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#restoreState()">restoreState</a>(state:<a href="../../parser/SyntaxTreeState.html">SyntaxTreeState</a>):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#ruleMatched()">ruleMatched</a>(item:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>):void</div>
+<div class="summaryTableDescription">
+   [37] NameTest ::=
+     '
+     | NCName ':' '
+     | QName
+    
+   </div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#ruleMatched()">ruleMatched</a>(item:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>):void</div>
+<div class="summaryTableDescription">
+   From my understanding...</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#ruleMatched()">ruleMatched</a>(item:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>):void</div>
+<div class="summaryTableDescription">
+   
+   </div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#skipAhead()">skipAhead</a>(howFar:int):void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#startRule()">startRule</a>(ruleName:String):void</div>
+<div class="summaryTableDescription">
+   Indicate that a new rule has begun executing.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+<tr class="hideInheritedProtectedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#verifyTree()">verifyTree</a>():void</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
+</table>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ABBREVIATED_ABSOLUTE_LOCATION_PATH">ABBREVIATED_ABSOLUTE_LOCATION_PATH</a> : String = "AbbreviatedAbsoluteLocationPath"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ABBREVIATED_AXIS_SPECIFIER">ABBREVIATED_AXIS_SPECIFIER</a> : String = "AbbreviatedAxisSpecifier"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ABBREVIATED_RELATIVE_LOCATION_PATH">ABBREVIATED_RELATIVE_LOCATION_PATH</a> : String = "AbbreviatedRelativeLocationPath"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ABBREVIATED_STEP">ABBREVIATED_STEP</a> : String = "AbbreviatedStep"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ABSOLUTE_LOCATION_PATH">ABSOLUTE_LOCATION_PATH</a> : String = "AbsoluteLocationPath"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ADDITIVE_EXPR">ADDITIVE_EXPR</a> : String = "AdditiveExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#AND_EXPR">AND_EXPR</a> : String = "AndExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ARGUMENT">ARGUMENT</a> : String = "Argument"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#AXIS_SPECIFIER">AXIS_SPECIFIER</a> : String = "AxisSpecifier"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#EQUALITY_EXP">EQUALITY_EXP</a> : String = "EqualityExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#EXPR">EXPR</a> : String = "Expr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FILTER_EXPR">FILTER_EXPR</a> : String = "FilterExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#FUNCTION_CALL">FUNCTION_CALL</a> : String = "FunctionCall"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#LOCATION_PATH">LOCATION_PATH</a> : String = "LocationPath"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#MULTIPLICATIVE_EXPR">MULTIPLICATIVE_EXPR</a> : String = "MultiplicativeExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#NAME_TEST">NAME_TEST</a> : String = "NameTest"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#NODE_TEST">NODE_TEST</a> : String = "NodeTest"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#OR_EXPR">OR_EXPR</a> : String = "OrExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#PATH_EXPR">PATH_EXPR</a> : String = "PathExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#PREDICATE">PREDICATE</a> : String = "Predicate"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#PREDICATE_EXPR">PREDICATE_EXPR</a> : String = "PredicateExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#PRIMARY_EXPR">PRIMARY_EXPR</a> : String = "PrimaryExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#QNAME">QNAME</a> : String = "QName"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#RELATIONAL_EXP">RELATIONAL_EXP</a> : String = "RelationalExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#RELATIVE_LOCATION_PATH">RELATIVE_LOCATION_PATH</a> : String = "RelativeLocationPath"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#STEP">STEP</a> : String = "Step"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#UNARY_EXPR">UNARY_EXPR</a> : String = "UnaryExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#UNION_EXPR">UNION_EXPR</a> : String = "UnionExpr"<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="XPathSyntaxTree()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">XPathSyntaxTree</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function XPathSyntaxTree(tokenizer:<a href="XPathTokenizer.html">XPathTokenizer</a>)</code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">tokenizer</span>:<a href="XPathTokenizer.html">XPathTokenizer</a></code></td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="AbbreviatedAbsoluteLocationPath()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AbbreviatedAbsoluteLocationPath</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function AbbreviatedAbsoluteLocationPath():Boolean</code><p>
+   [10] AbbreviatedAbsoluteLocationPath ::=
+      '//' RelativeLocationPath
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="AbbreviatedAxisSpecifier()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AbbreviatedAxisSpecifier</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function AbbreviatedAxisSpecifier():Boolean</code><p>
+   [13] AbbreviatedAxisSpecifier ::=
+         '</p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="AbbreviatedRelativeLocationPath()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AbbreviatedRelativeLocationPath</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function AbbreviatedRelativeLocationPath():Boolean</code><p>
+   [11] AbbreviatedRelativeLocationPath ::=
+      RelativeLocationPath '//' Step
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="AbbreviatedStep()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AbbreviatedStep</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function AbbreviatedStep():Boolean</code><p>
+   [12] AbbreviatedStep ::=
+         '.'
+      | '..'
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="AbsoluteLocationPath()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AbsoluteLocationPath</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function AbsoluteLocationPath():Boolean</code><p>
+   [2] AbsoluteLocationPath ::=
+      '/' RelativeLocationPath?
+      | AbbreviatedAbsoluteLocationPath
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="AdditiveExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AdditiveExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function AdditiveExpr():Boolean</code><p>
+   [25] AdditiveExpr ::=
+        MultiplicativeExpr
+      | AdditiveExpr '+' MultiplicativeExpr
+      | AdditiveExpr '-' MultiplicativeExpr
+   
+   which is equivalent to:
+      MultiplicativeExpr ( ('+' | '-') MultiplicativeExpr)   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="AndExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AndExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function AndExpr():Boolean</code><p>
+   [22] AndExpr ::=
+      EqualityExpr
+      | AndExpr 'and' EqualityExpr
+   
+   which is equivalent to:
+      EqualityExpr ( 'and' EqualityExpr )   
+   ...at the loss of associativity enforcement. 
+   Associativity is left-right and is enforced in the parser now.
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="Argument()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Argument</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function Argument():Boolean</code><p>
+   [17] Argument ::=
+      Expr
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="AxisSpecifier()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AxisSpecifier</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function AxisSpecifier():Boolean</code><p>
+   [5] AxisSpecifier ::=
+      AxisName '::'
+      | AbbreviatedAxisSpecifier
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="EqualityExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">EqualityExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function EqualityExpr():Boolean</code><p>
+   [23] EqualityExpr ::=
+      RelationalExpr
+      | EqualityExpr '=' RelationalExpr
+      | EqualityExpr '!=' RelationalExpr
+   
+   which is equivalent to:
+      RelationalExpr ( ( '=' | '!=' ) RelationalExpr )   
+   ...at the loss of associativity enforcement. 
+   Associativity is left-right and is enforced in the parser now.
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="Expr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Expr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function Expr():Boolean</code><p>
+   [14] Expr ::=
+      OrExpr
+   
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="FilterExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FilterExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function FilterExpr():Boolean</code><p>
+   [20] FilterExpr ::=
+       PrimaryExpr
+       | FilterExpr Predicate
+   
+   which is equivalent to:
+     PrimaryExpr Predicate   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="FunctionCall()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FunctionCall</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function FunctionCall():Boolean</code><p>
+   [16] FunctionCall ::=
+      FunctionName '(' ( Argument ( ',' Argument ))? ')'
+   
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="getTree()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getTree</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function getTree():<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a></code>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a></code></td>
+</tr>
+</table>
+</div>
+<a name="LocationPath()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">LocationPath</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function LocationPath():Boolean</code><p>
+   [1] LocationPath ::=
+      RelativeLocationPath
+      | AbsoluteLocationPath
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="MultiplicativeExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MultiplicativeExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function MultiplicativeExpr():Boolean</code><p>
+   [26] MultiplicativeExpr ::=
+      UnaryExpr
+      | MultiplicativeExpr MultiplyOperator UnaryExpr
+      | MultiplicativeExpr 'div' UnaryExpr
+      | MultiplicativeExpr 'mod' UnaryExpr
+   
+   which is equivalent to:
+      UnaryExpr ((MultiplyOperator | 'div' | 'mod') UnaryExpr)   
+   ...at the loss of associativity enforcement. 
+   Associativity is left-right and is enforced in the parser now.
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="NodeTest()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">NodeTest</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function NodeTest():Boolean</code><p>
+   [7] NodeTest ::=
+      NameTest
+      | NodeType '(' ')'
+      | 'processing-instruction' '(' Literal ')'
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="OrExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">OrExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function OrExpr():Boolean</code><p>
+   [21] OrExpr ::=
+      AndExpr
+      | OrExpr 'or' AndExpr
+   
+   which is (almost) equivalent to:
+      AndExpr ( 'or' AndExpr )   
+   ...at the loss of associativity enforcement. 
+   Associativity is left-right and is enforced in the parser now.
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="PathExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">PathExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function PathExpr():Boolean</code><p>
+   [19] PathExpr ::=
+      LocationPath
+      | FilterExpr
+      | FilterExpr '/' RelativeLocationPath
+      | FilterExpr '//' RelativeLocationPath
+   
+   which is equivalent to:
+      LocationPath
+      | FilterExpr ( ('/' | '//' ) RelativeLocationPath )?
+   
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="Predicate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Predicate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function Predicate():Boolean</code><p>
+   [8] Predicate ::=
+      '[' PredicateExpr ']'
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="PredicateExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">PredicateExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function PredicateExpr():Boolean</code><p>
+   [9] PredicateExpr ::=
+      Expr
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="PrimaryExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">PrimaryExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function PrimaryExpr():Boolean</code><p>
+   [15] PrimaryExpr ::=
+      VariableReference
+      | '(' Expr ')'
+      | Literal
+      | Number
+      | FunctionCall
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="RelationalExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">RelationalExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function RelationalExpr():Boolean</code><p>
+   [24] RelationalExpr ::=
+      AdditiveExpr
+      | RelationalExpr '<' AdditiveExpr
+      | RelationalExpr '>' AdditiveExpr
+      | RelationalExpr '<=' AdditiveExpr
+      | RelationalExpr '>=' AdditiveExpr
+   
+   which is equivalent to:
+      AdditiveExpr ( ( '<' | '>' | '<=' | '>=') AdditiveExpr)   
+   
+   ...at the loss of associativity enforcement. 
+   Associativity is left-right and is enforced in the parser now.
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="RelativeLocationPath()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">RelativeLocationPath</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function RelativeLocationPath():Boolean</code><p>
+   [3]  RelativeLocationPath ::=
+        Step
+      | RelativeLocationPath '/' Step
+      | AbbreviatedRelativeLocationPath
+   
+   
+   which is equivalent to :
+        (Step | AbbreviatedRelativeLocationPath) ('/' Step)   
+   which is equivalent to:
+        Step (('/' | '//') Step)   
+   
+   Some unpleasantness was required to make sure that "/" is discarded, but "//" is left intact
+   so that it can be expanded later (to /descendent-or-self::node()/)
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="ruleMatched()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ruleMatched</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function ruleMatched(item:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>):void</code><p>
+   [37] NameTest ::=
+     '
+     | NCName ':' '
+     | QName
+    
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../parser/XPathSyntaxTree.html#createToken()" target="">createToken()</a>
+</div>
+</div>
+<a name="ruleMatched()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ruleMatched</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function ruleMatched(item:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>):void</code><p>
+   From my understanding...
+   
+     QName ::= 
+      NCName ':' NCName
+      | NCName
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a></code></td>
+</tr>
+</table>
+</div>
+<a name="ruleMatched()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ruleMatched</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protected override function ruleMatched(item:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>):void</code><p>
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">item</span>:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a></code></td>
+</tr>
+</table>
+</div>
+<a name="Step()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Step</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function Step():Boolean</code><p>
+   [4] Step ::=
+      AxisSpecifier NodeTest Predicate      | AbbreviatedStep
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="UnaryExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">UnaryExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function UnaryExpr():Boolean</code><p>
+   [27] UnaryExpr ::=
+      UnionExpr
+      | '-' UnaryExpr
+   
+   which is equivalent to:
+      UnionExpr | '-' UnionExpr
+   
+   XXX: I am slightly not sure about this simplification - something feels dodgy...
+   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="UnionExpr()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">UnionExpr</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rule function UnionExpr():Boolean</code><p>
+   [18] UnionExpr ::=
+      PathExpr
+      | UnionExpr '|' PathExpr
+   
+   which is equivalent to:
+     PathExpr ('|' PathExpr)   </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="constantDetail"></a>
+<div class="detailSectionHeader">Constant detail</div>
+<a name="ABBREVIATED_ABSOLUTE_LOCATION_PATH"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ABBREVIATED_ABSOLUTE_LOCATION_PATH</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ABBREVIATED_ABSOLUTE_LOCATION_PATH:String = "AbbreviatedAbsoluteLocationPath"</code>
+</div>
+<a name="ABBREVIATED_AXIS_SPECIFIER"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ABBREVIATED_AXIS_SPECIFIER</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ABBREVIATED_AXIS_SPECIFIER:String = "AbbreviatedAxisSpecifier"</code>
+</div>
+<a name="ABBREVIATED_RELATIVE_LOCATION_PATH"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ABBREVIATED_RELATIVE_LOCATION_PATH</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ABBREVIATED_RELATIVE_LOCATION_PATH:String = "AbbreviatedRelativeLocationPath"</code>
+</div>
+<a name="ABBREVIATED_STEP"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ABBREVIATED_STEP</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ABBREVIATED_STEP:String = "AbbreviatedStep"</code>
+</div>
+<a name="ABSOLUTE_LOCATION_PATH"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ABSOLUTE_LOCATION_PATH</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ABSOLUTE_LOCATION_PATH:String = "AbsoluteLocationPath"</code>
+</div>
+<a name="ADDITIVE_EXPR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ADDITIVE_EXPR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ADDITIVE_EXPR:String = "AdditiveExpr"</code>
+</div>
+<a name="AND_EXPR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AND_EXPR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const AND_EXPR:String = "AndExpr"</code>
+</div>
+<a name="ARGUMENT"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ARGUMENT</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const ARGUMENT:String = "Argument"</code>
+</div>
+<a name="AXIS_SPECIFIER"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AXIS_SPECIFIER</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const AXIS_SPECIFIER:String = "AxisSpecifier"</code>
+</div>
+<a name="EQUALITY_EXP"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">EQUALITY_EXP</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const EQUALITY_EXP:String = "EqualityExpr"</code>
+</div>
+<a name="EXPR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">EXPR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const EXPR:String = "Expr"</code>
+</div>
+<a name="FILTER_EXPR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FILTER_EXPR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FILTER_EXPR:String = "FilterExpr"</code>
+</div>
+<a name="FUNCTION_CALL"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FUNCTION_CALL</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const FUNCTION_CALL:String = "FunctionCall"</code>
+</div>
+<a name="LOCATION_PATH"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">LOCATION_PATH</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const LOCATION_PATH:String = "LocationPath"</code>
+</div>
+<a name="MULTIPLICATIVE_EXPR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MULTIPLICATIVE_EXPR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const MULTIPLICATIVE_EXPR:String = "MultiplicativeExpr"</code>
+</div>
+<a name="NAME_TEST"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">NAME_TEST</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const NAME_TEST:String = "NameTest"</code>
+</div>
+<a name="NODE_TEST"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">NODE_TEST</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const NODE_TEST:String = "NodeTest"</code>
+</div>
+<a name="OR_EXPR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">OR_EXPR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const OR_EXPR:String = "OrExpr"</code>
+</div>
+<a name="PATH_EXPR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">PATH_EXPR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const PATH_EXPR:String = "PathExpr"</code>
+</div>
+<a name="PREDICATE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">PREDICATE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const PREDICATE:String = "Predicate"</code>
+</div>
+<a name="PREDICATE_EXPR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">PREDICATE_EXPR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const PREDICATE_EXPR:String = "PredicateExpr"</code>
+</div>
+<a name="PRIMARY_EXPR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">PRIMARY_EXPR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const PRIMARY_EXPR:String = "PrimaryExpr"</code>
+</div>
+<a name="QNAME"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">QNAME</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const QNAME:String = "QName"</code>
+</div>
+<a name="RELATIONAL_EXP"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">RELATIONAL_EXP</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const RELATIONAL_EXP:String = "RelationalExpr"</code>
+</div>
+<a name="RELATIVE_LOCATION_PATH"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">RELATIVE_LOCATION_PATH</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const RELATIVE_LOCATION_PATH:String = "RelativeLocationPath"</code>
+</div>
+<a name="STEP"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">STEP</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const STEP:String = "Step"</code>
+</div>
+<a name="UNARY_EXPR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">UNARY_EXPR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const UNARY_EXPR:String = "UnaryExpr"</code>
+</div>
+<a name="UNION_EXPR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">UNION_EXPR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const UNION_EXPR:String = "UnionExpr"</code>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright">
+<footer> 
+</footer>
+</center>
+</div>
+</body>
+</html>
+<!-- -->

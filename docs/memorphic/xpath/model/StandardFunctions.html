@@ -1,0 +1,990 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<meta content="StandardFunctions,memorphic.xpath.model.StandardFunctions,last,position,count,id,name,string,concat,contains,substring,translate,boolean,not,lang,number,sum,floor,ceiling,round,print" name="keywords">
+<title>memorphic.xpath.model.StandardFunctions</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'StandardFunctions - Adobe ActionScript 3.0 Library - xpath-as3';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">API Documentation</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../index.html?memorphic/xpath/model/StandardFunctions.html&amp;memorphic/xpath/model/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;StandardFunctions</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class StandardFunctions"); titleBar_setSubNav(false,false,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">memorphic.xpath.model</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public dynamic  class StandardFunctions</td>
+</tr>
+</table>
+<p></p>
+   See http://www.w3.org/TR/xpath#corelib
+  
+  These are all of the standard functions that you can use in an XPath query, as defined
+  by the spec. You can add more custom functions via the <code>XPathContext.functions</code>
+  property.
+  <p></p>
+<br>
+<hr>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#StandardFunctions()">StandardFunctions</a>()</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#boolean()">boolean</a>(context:<a href="XPathContext.html">XPathContext</a>, obj:*):Boolean</div>
+<div class="summaryTableDescription">
+   The boolean function converts its argument to a boolean as follows:
+   
+    - a number is true if and only if it is neither positive or negative zero nor NaN
+    - a node-set is true if and only if it is non-empty
+    - a string is true if and only if its length is non-zero
+    - an object of a type other than the four basic types is converted to a boolean in a way that is 
+     dependent on that type
+   
+   </div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#ceiling()">ceiling</a>(context:<a href="XPathContext.html">XPathContext</a>, num:*):Number</div>
+<div class="summaryTableDescription">
+   The ceiling function returns the smallest (closest to negative infinity) number that is not less than 
+   the argument and that is an integer.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#concat()">concat</a>(context:<a href="XPathContext.html">XPathContext</a>, s1:*, s2:*, ... rest):String</div>
+<div class="summaryTableDescription">
+   The concat function returns the string concatenation of its arguments.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#contains()">contains</a>(context:<a href="XPathContext.html">XPathContext</a>, a:*, b:*):Boolean</div>
+<div class="summaryTableDescription">
+   The contains function returns true if the first argument string contains the second argument string, 
+   and otherwise returns false.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#count()">count</a>(context:<a href="XPathContext.html">XPathContext</a>, nodeSet:XMLList):int</div>
+<div class="summaryTableDescription">
+    Returns the number of nodes in the argument node-set.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#floor()">floor</a>(context:<a href="XPathContext.html">XPathContext</a>, num:*):Number</div>
+<div class="summaryTableDescription">
+   The floor function returns the largest (closest to positive infinity) number that is not greater than 
+   the argument and that is an integer.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#id()">id</a>(context:<a href="XPathContext.html">XPathContext</a>, idArg:Object):XMLList</div>
+<div class="summaryTableDescription">
+    Selects elements by their unique ID (see [5.2.1 Unique IDs]).</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#lang()">lang</a>(context:<a href="XPathContext.html">XPathContext</a>, langSymbol:*):Boolean</div>
+<div class="summaryTableDescription">
+   The lang function returns true or false depending on whether the language of the context node as specified 
+   by xml:lang attributes is the same as or is a sublanguage of the language specified by the argument string.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#last()">last</a>(context:<a href="XPathContext.html">XPathContext</a>):int</div>
+<div class="summaryTableDescription">
+    Returns a number equal to the context size from the expression evaluation context.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#name()">name</a>(context:<a href="XPathContext.html">XPathContext</a>, nodeSet:XMLList = null):String</div>
+<div class="summaryTableDescription">
+   The name function returns a string containing a QName representing the expanded-name of the node in the 
+   argument node-set that is first in document order.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#not()">not</a>(context:<a href="XPathContext.html">XPathContext</a>, obj:*):Boolean</div>
+<div class="summaryTableDescription">
+   The not function returns true if its argument is false, and false otherwise.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#number()">number</a>(context:<a href="XPathContext.html">XPathContext</a>, num:*):Number</div>
+<div class="summaryTableDescription">
+   The number function converts its argument to a number as follows: 
+   
+    - a string that consists of optional whitespace followed by an optional minus sign followed by a 
+     Number followed by whitespace is converted to the IEEE 754 number that is nearest (according to 
+     the IEEE 754 round-to-nearest rule) to the mathematical value represented by the string; any other 
+     string is converted to NaN
+    - boolean true is converted to 1; boolean false is converted to 0
+    - a node-set is first converted to a string as if by a call to the string function and then converted 
+     in the same way as a string argument
+    - an object of a type other than the four basic types is converted to a number in a way that is 
+     dependent on that type
+    - If the argument is omitted, it defaults to a node-set with the context node as its only member.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#position()">position</a>(context:<a href="XPathContext.html">XPathContext</a>):int</div>
+<div class="summaryTableDescription">
+    Returns a number equal to the context position from the expression evaluation context.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#print()">print</a>(context:<a href="XPathContext.html">XPathContext</a>, message:*):Boolean</div>
+<div class="summaryTableDescription">
+   Used for debugging purposes.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#round()">round</a>(context:<a href="XPathContext.html">XPathContext</a>, num:*):Number</div>
+<div class="summaryTableDescription">
+   The round function returns the number that is closest to the argument and that is an integer.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#string()">string</a>(context:<a href="XPathContext.html">XPathContext</a>, arg:Object = null):String</div>
+<div class="summaryTableDescription">
+   The string function converts an object to a string as follows:
+   
+   A node-set is converted to a string by returning the string-value of the node in the node-set that is 
+   first in document order.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#substring()">substring</a>(context:<a href="XPathContext.html">XPathContext</a>, string:*, from:*, length:* = null):String</div>
+<div class="summaryTableDescription">
+   The substring function returns the substring of the first argument starting at the position specified 
+   in the second argument with length specified in the third argument.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#sum()">sum</a>(context:<a href="XPathContext.html">XPathContext</a>, nodeSet:XMLList):Number</div>
+<div class="summaryTableDescription">
+   The sum function returns the sum, for each node in the argument node-set, of the result of converting 
+   the string-values of the node to a number.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#translate()">translate</a>(context:<a href="XPathContext.html">XPathContext</a>, str1:*, str2:*, str3:*):String</div>
+<div class="summaryTableDescription">
+   The translate function returns the first argument string with occurrences of characters in the second 
+   argument string replaced by the character at the corresponding position in the third argument string.</div>
+</td><td class="summaryTableOwnerCol">StandardFunctions</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="StandardFunctions()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">StandardFunctions</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function StandardFunctions()</code>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="boolean()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">boolean</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function boolean(context:<a href="XPathContext.html">XPathContext</a>, obj:*):Boolean</code><p>
+   The boolean function converts its argument to a boolean as follows:
+   
+    - a number is true if and only if it is neither positive or negative zero nor NaN
+    - a node-set is true if and only if it is non-empty
+    - a string is true if and only if its length is non-zero
+    - an object of a type other than the four basic types is converted to a boolean in a way that is 
+     dependent on that type
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">obj</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="TypeConversions.html#toBoolean" target="">TypeConversions.toBoolean</a>
+</div>
+</div>
+<a name="ceiling()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ceiling</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function ceiling(context:<a href="XPathContext.html">XPathContext</a>, num:*):Number</code><p>
+   The ceiling function returns the smallest (closest to negative infinity) number that is not less than 
+   the argument and that is an integer.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">num</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code></td>
+</tr>
+</table>
+</div>
+<a name="concat()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">concat</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function concat(context:<a href="XPathContext.html">XPathContext</a>, s1:*, s2:*, ... rest):String</code><p>
+   The concat function returns the string concatenation of its arguments.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">s1</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">s2</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code>... <span class="label">rest</span></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
+</tr>
+</table>
+</div>
+<a name="contains()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">contains</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function contains(context:<a href="XPathContext.html">XPathContext</a>, a:*, b:*):Boolean</code><p>
+   The contains function returns true if the first argument string contains the second argument string, 
+   and otherwise returns false.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">a</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">b</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="count()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">count</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function count(context:<a href="XPathContext.html">XPathContext</a>, nodeSet:XMLList):int</code><p>
+    Returns the number of nodes in the argument node-set.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">nodeSet</span>:XMLList</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>int</code></td>
+</tr>
+</table>
+</div>
+<a name="floor()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">floor</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function floor(context:<a href="XPathContext.html">XPathContext</a>, num:*):Number</code><p>
+   The floor function returns the largest (closest to positive infinity) number that is not greater than 
+   the argument and that is an integer.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">num</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code></td>
+</tr>
+</table>
+</div>
+<a name="id()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">id</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function id(context:<a href="XPathContext.html">XPathContext</a>, idArg:Object):XMLList</code><p>
+    Selects elements by their unique ID (see [5.2.1 Unique IDs]). When the argument to id is of type node-set, 
+   then the result is the union of the result of applying id to the string-value of each of the nodes in the 
+   argument node-set. When the argument to id is of any other type, the argument is converted to a string as 
+   if by a call to the string function; the string is split into a whitespace-separated list of tokens 
+   (whitespace is any sequence of characters matching the production S); the result is a node-set containing 
+   the elements in the same document as the context node that have a unique ID equal to any of the tokens in 
+   the list.
+        id("foo") selects the element with unique ID foo
+   
+     id("foo")/child::para[position()=5] selects the fifth para child of the element with unique ID foo
+   
+   
+   Contrary to the spec, I have permitted id to reside in any namespace, as opposed to xml:id, which does not
+   reflect the vast majority of usage. TODO: Perhaps this could be made into an optional feature via a flag? 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">idArg</span>:Object</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>XMLList</code></td>
+</tr>
+</table>
+</div>
+<a name="lang()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">lang</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function lang(context:<a href="XPathContext.html">XPathContext</a>, langSymbol:*):Boolean</code><p>
+   The lang function returns true or false depending on whether the language of the context node as specified 
+   by xml:lang attributes is the same as or is a sublanguage of the language specified by the argument string. 
+   The language of the context node is determined by the value of the xml:lang attribute on the context node, 
+   or, if the context node has no xml:lang attribute, by the value of the xml:lang attribute on the nearest 
+   ancestor of the context node that has an xml:lang attribute. If there is no such attribute, then lang 
+   returns false. If there is such an attribute, then lang returns true if the attribute value is equal to the 
+   argument ignoring case, or if there is some suffix starting with - such that the attribute value is equal 
+   to the argument ignoring that suffix of the attribute value and ignoring case. For example, lang("en") 
+   would return true if the context node is any of these five elements:
+   
+   <para xml:lang="en"/>
+   <div xml:lang="en"><para/></div>
+   <para xml:lang="EN"/>
+   <para xml:lang="en-us"/>
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">langSymbol</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="last()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">last</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function last(context:<a href="XPathContext.html">XPathContext</a>):int</code><p>
+    Returns a number equal to the context size from the expression evaluation context. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>int</code></td>
+</tr>
+</table>
+</div>
+<a name="name()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">name</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function name(context:<a href="XPathContext.html">XPathContext</a>, nodeSet:XMLList = null):String</code><p>
+   The name function returns a string containing a QName representing the expanded-name of the node in the 
+   argument node-set that is first in document order. The QName must represent the expanded-name with respect 
+   to the namespace declarations in effect on the node whose expanded-name is being represented. Typically, 
+   this will be the QName that occurred in the XML source. This need not be the case if there are namespace 
+   declarations in effect on the node that associate multiple prefixes with the same namespace. However, an 
+   implementation may include information about the original prefix in its representation of nodes; in this 
+   case, an implementation can ensure that the returned string is always the same as the QName used in the 
+   XML source. If the argument node-set is empty or the first node has no expanded-name, an empty string is 
+   returned. If the argument it omitted, it defaults to a node-set with the context node as its only member.
+   
+   NOTE: The string returned by the name function will be the same as the string returned by the local-name 
+   function except for element nodes and attribute nodes.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">nodeSet</span>:XMLList</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
+</tr>
+</table>
+</div>
+<a name="not()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">not</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function not(context:<a href="XPathContext.html">XPathContext</a>, obj:*):Boolean</code><p>
+   The not function returns true if its argument is false, and false otherwise.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">obj</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="number()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">number</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function number(context:<a href="XPathContext.html">XPathContext</a>, num:*):Number</code><p>
+   The number function converts its argument to a number as follows: 
+   
+    - a string that consists of optional whitespace followed by an optional minus sign followed by a 
+     Number followed by whitespace is converted to the IEEE 754 number that is nearest (according to 
+     the IEEE 754 round-to-nearest rule) to the mathematical value represented by the string; any other 
+     string is converted to NaN
+    - boolean true is converted to 1; boolean false is converted to 0
+    - a node-set is first converted to a string as if by a call to the string function and then converted 
+     in the same way as a string argument
+    - an object of a type other than the four basic types is converted to a number in a way that is 
+     dependent on that type
+    - If the argument is omitted, it defaults to a node-set with the context node as its only member.
+   
+   NOTE: The number function should not be used for conversion of numeric data occurring in an element in 
+   an XML document unless the element is of a type that represents numeric data in a language-neutral format 
+   (which would typically be transformed into a language-specific format for presentation to a user). In 
+   addition, the number function cannot be used unless the language-neutral format used by the element is 
+   consistent with the XPath syntax for a Number.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">num</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="TypeConversions.html#toNumber" target="">TypeConversions.toNumber</a>
+</div>
+</div>
+<a name="position()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">position</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function position(context:<a href="XPathContext.html">XPathContext</a>):int</code><p>
+    Returns a number equal to the context position from the expression evaluation context. 
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>int</code></td>
+</tr>
+</table>
+</div>
+<a name="print()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">print</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function print(context:<a href="XPathContext.html">XPathContext</a>, message:*):Boolean</code><p>
+   Used for debugging purposes. The print() function traces a message to the Flash log. Since this function
+   will be used in predicate conditions, it returns the message (which would normally evaluate to "true").
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">message</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Boolean</code></td>
+</tr>
+</table>
+</div>
+<a name="round()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">round</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function round(context:<a href="XPathContext.html">XPathContext</a>, num:*):Number</code><p>
+   The round function returns the number that is closest to the argument and that is an integer. If there 
+   are two such numbers, then the one that is closest to positive infinity is returned. If the argument is 
+   NaN, then NaN is returned. If the argument is positive infinity, then positive infinity is returned. If 
+   the argument is negative infinity, then negative infinity is returned. If the argument is positive zero, 
+   then positive zero is returned. If the argument is negative zero, then negative zero is returned. If the 
+   argument is less than zero, but greater than or equal to -0.5, then negative zero is returned.
+   
+   NOTE: For these last two cases, the result of calling the round function is not the same as the result 
+   of adding 0.5 and then calling the floor function.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">num</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code></td>
+</tr>
+</table>
+</div>
+<a name="string()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">string</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function string(context:<a href="XPathContext.html">XPathContext</a>, arg:Object = null):String</code><p>
+   The string function converts an object to a string as follows:
+   
+   A node-set is converted to a string by returning the string-value of the node in the node-set that is 
+   first in document order. If the node-set is empty, an empty string is returned.
+   A number is converted to a string as follows
+    o NaN is converted to the string NaN
+    o positive zero is converted to the string 0    
+    o negative zero is converted to the string 0     
+    o positive infinity is converted to the string Infinity
+    o negative infinity is converted to the string -Infinity
+    o if the number is an integer, the number is represented in decimal form as a Number with no decimal 
+     point and no leading zeros, preceded by a minus sign (-) if the number is negative
+    o otherwise, the number is represented in decimal form as a Number including a decimal point with at least 
+     one digit before the decimal point and at least one digit after the decimal point, preceded by a minus 
+     sign (-) if the number is negative; there must be no leading zeros before the decimal point apart 
+     possibly from the one required digit immediately before the decimal point; beyond the one required 
+     digit after the decimal point there must be as many, but only as many, more digits as are needed to 
+     uniquely distinguish the number from all other IEEE 754 numeric values.
+   
+   The boolean false value is converted to the string false. The boolean true value is converted to the 
+   string true.
+   
+   An object of a type other than the four basic types is converted to a string in a way that is dependent 
+   on that type. 
+   
+   If the argument is omitted, it defaults to a node-set with the context node as its only member.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">arg</span>:Object</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
+</tr>
+</table>
+</div>
+<a name="substring()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">substring</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function substring(context:<a href="XPathContext.html">XPathContext</a>, string:*, from:*, length:* = null):String</code><p>
+   The substring function returns the substring of the first argument starting at the position specified 
+   in the second argument with length specified in the third argument. For example, substring("12345",2,3) 
+   returns "234". If the third argument is not specified, it returns the substring starting at the 
+   position specified in the second argument and continuing to the end of the string. For example, 
+   substring("12345",2) returns "2345".
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">string</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">from</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">length</span>:*</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
+</tr>
+</table>
+</div>
+<a name="sum()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sum</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function sum(context:<a href="XPathContext.html">XPathContext</a>, nodeSet:XMLList):Number</code><p>
+   The sum function returns the sum, for each node in the argument node-set, of the result of converting 
+   the string-values of the node to a number.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">nodeSet</span>:XMLList</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code></td>
+</tr>
+</table>
+</div>
+<a name="translate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">translate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function translate(context:<a href="XPathContext.html">XPathContext</a>, str1:*, str2:*, str3:*):String</code><p>
+   The translate function returns the first argument string with occurrences of characters in the second 
+   argument string replaced by the character at the corresponding position in the third argument string. For 
+   example, translate("bar","abc","ABC") returns the string BAr. If there is a character in the second 
+   argument string with no character at a corresponding position in the third argument string (because the 
+   second argument string is longer than the third argument string), then occurrences of that character in 
+   the first argument string are removed. For example, translate("--aaa--","abc-","ABC") returns "AAA". If a 
+   character occurs more than once in the second argument string, then the first occurrence determines the 
+   replacement character. If the third argument string is longer than the second argument string, then excess 
+   characters are ignored.
+   
+   NOTE: The translate function is not a sufficient solution for case conversion in all languages. A future 
+   version of XPath may provide additional functions for case conversion.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">context</span>:<a href="XPathContext.html">XPathContext</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">str1</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">str2</span>:*</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">str3</span>:*</code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright">
+<footer> 
+</footer>
+</center>
+</div>
+</body>
+</html>
+<!-- -->
