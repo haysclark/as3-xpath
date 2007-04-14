@@ -53,34 +53,32 @@ package memorphic.xpath.model
 			
 		public function filter(nodeList:XMLList, baseContext:XPathContext):XMLList
 		{
-
-			var contextLength:int = nodeList.length();
+			var n:int = predicates.length;
+			var context:XPathContext = baseContext.copy(false);
+			for(var i:int=0; i<n; i++){
+				nodeList = filterByPredicate(nodeList, context, predicates[i] as Predicate);
+			}
+			return nodeList;
+		}
+		
+		
+		private function filterByPredicate(nodeList:XMLList, baseContext:XPathContext, predicate:Predicate):XMLList
+		{
 			var result:XMLList = new XMLList();
 			var node:XML;
-			var context:XPathContext;
+			var context:XPathContext = baseContext;
+			var contextLength:int = nodeList.length();
 			for(var i:int=0; i<contextLength; i++){
 				node = nodeList[i];
-				context = baseContext.copy(false);
+				// context = baseContext.copy(false);
 				context.contextNode = node;
 				context.contextPosition = i;
 				context.contextSize = contextLength;
-				if(testPredicates(context)){
+				if(predicate.test(context)){
 					result += node;
 				}
 			}
 			return result;
-		}
-		
-		
-		private function testPredicates(context:XPathContext):Boolean
-		{
-			var n:int = predicates.length;
-			for(var i:int=0; i<n; i++){
-				if(!Predicate(predicates[i]).test(context)){
-					return false;
-				}
-			}
-			return true;
 		}
 
 	}

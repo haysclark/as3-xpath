@@ -41,14 +41,14 @@ package memorphic.xpath.model
 		
 		private var feed:XML;
 		private var cds:XML;
-		private var bbc:XML;
+		private var reg:XML;
 		private var xpath:XPathQuery;
 		
 		public override function setUp():void
 		{
 			feed = XMLData.adobeBlogsRDF;
 			cds = XMLData.cdCatalogXML;
-			bbc = XMLData.registerHTML;
+			reg = XMLData.registerHTML;
 			var context:XPathContext = new XPathContext();
 			context.namespaces.rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
 			context.namespaces.dc = "http://purl.org/dc/elements/1.1/";
@@ -280,12 +280,15 @@ package memorphic.xpath.model
 		
 		public function testNormalizeSpace():void
 		{
-			//xpath = new XPathQuery("//div[@class='Hit']/div[attribute::class]");
-			//xpath = new XPathQuery("substring('12345',2)");
-			xpath = new XPathQuery("//div[1]");
-		//	assertEquals("result should match example in spec", "White lion cubs on display", xpath.exec(bbc));
-		trace(xpath.exec(bbc));
-			
+			xpath = new XPathQuery("normalize-space(//div[@class='Hit' and contains(h3, 'Apollo')][1]/div[@class='Abstract'])");
+			xpath.context.openAllNamespaces = true;
+			assertEquals("result should have spaces removed",
+					"There was a bit of a buzz in the air on Monday when Adobe rolled out " + 
+					"the first public alpha release of its Apollo desktop internet application " + 
+					"client – along with a whole truckload of developer tools and documentation. " + 
+					"Apollo is an interesting proposition, a platform that mixes Flash (though you " + 
+					"do need to use code that's …", xpath.exec(reg));
+
 		}
 	}
 }
