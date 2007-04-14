@@ -280,14 +280,23 @@ package memorphic.xpath.model
 		
 		public function testNormalizeSpace():void
 		{
+			var result:String;
+			xpath = new XPathQuery("normalize-space(' \t\n I had      my\r\r\r\n spaces  removed        \n\t\n')");
+			result = xpath.exec(null);
+			assertTrue("0 result should be string", result is String);
+			assertEquals("1 result should have spaces removed",
+					"I had my spaces removed", result); 
+					
 			xpath = new XPathQuery("normalize-space(//div[@class='Hit' and contains(h3, 'Apollo')][1]/div[@class='Abstract'])");
 			xpath.context.openAllNamespaces = true;
-			assertEquals("result should have spaces removed",
+			result = xpath.exec(reg);
+			assertTrue("1 result should be string", result is String);
+			assertEquals("1 result should have spaces removed",
 					"There was a bit of a buzz in the air on Monday when Adobe rolled out " + 
 					"the first public alpha release of its Apollo desktop internet application " + 
 					"client – along with a whole truckload of developer tools and documentation. " + 
 					"Apollo is an interesting proposition, a platform that mixes Flash (though you " + 
-					"do need to use code that's …", xpath.exec(reg));
+					"do need to use code that's …", result);
 
 		}
 	}
