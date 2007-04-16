@@ -25,7 +25,7 @@ package memorphic.xpath.model
 				xmlIsRoot = (xml == xmlRoot);
 			} 
 			
-			var documentWrapper:XML = <parent-of-root/>;
+			var documentWrapper:XML = <xml-document/>;
 			documentWrapper.appendChild(xmlRoot);
 			
 			var xmlParent:XML = xmlIsRoot ? documentWrapper : xml.parent();

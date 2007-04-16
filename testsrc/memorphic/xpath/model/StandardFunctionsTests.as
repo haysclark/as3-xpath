@@ -42,6 +42,7 @@ package memorphic.xpath.model
 		private var feed:XML;
 		private var cds:XML;
 		private var reg:XML;
+		private var menu:XML;
 		private var xpath:XPathQuery;
 		
 		public override function setUp():void
@@ -49,6 +50,7 @@ package memorphic.xpath.model
 			feed = XMLData.adobeBlogsRDF;
 			cds = XMLData.cdCatalogXML;
 			reg = XMLData.registerHTML;
+			menu = XMLData.foodMenuXML;
 			var context:XPathContext = new XPathContext();
 			context.namespaces.rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
 			context.namespaces.dc = "http://purl.org/dc/elements/1.1/";
@@ -278,6 +280,22 @@ package memorphic.xpath.model
 		}
 		
 		
+		public function testStringLength():void
+		{
+			xpath = new XPathQuery("string-length($str)");
+			xpath.context.variables.str = "";
+			assertEquals("0. Length should be correct", 0, xpath.exec(null));
+			xpath.context.variables.str = "12345";
+			assertEquals("1. Length should be correct", 5, xpath.exec(null));
+			xpath.context.variables.str = 3.12345;
+			assertEquals("2. Length should be correct", 7, xpath.exec(null));
+			
+			xpath = new XPathQuery("//food/name[string-length() = string-length('French Toast')]");
+			assertEquals("3. Testing no-args", 'French Toast', xpath.exec(menu));
+			
+		}
+		
+		
 		public function testNormalizeSpace():void
 		{
 			var result:String;
@@ -298,6 +316,56 @@ package memorphic.xpath.model
 					"Apollo is an interesting proposition, a platform that mixes Flash (though you " + 
 					"do need to use code that's …", result);
 
+		}
+		
+		
+		public function testTranslate():void
+		{
+			// testing to example at http://www.zvon.org/xxl/XSLTreference/OutputExamples/example_2_57_frame.html
+			var x:XML = <AAA > <BBB>bbb </BBB>  <CCC>ccc </CCC> </AAA>;
+			xpath = new XPathQuery("translate('ABCABCABC',$a1,$a2)");
+			xpath.context.variables.a1 = 'AB';
+			xpath.context.variables.a2 = 'XY';
+			assertEquals("1", "XYCXYCXYC", xpath.exec(x));
+			xpath.context.variables.a1 = 'ABC';
+			xpath.context.variables.a2 = 'XY';
+			assertEquals("2", "XYXYXY", xpath.exec(x));
+			xpath.context.variables.a1 = 'AB';
+			xpath.context.variables.a2 = 'XYZ';
+			assertEquals("3", "XYCXYCXYC", xpath.exec(x));
+			xpath.context.variables.a1 = 'ABC';
+			xpath.context.variables.a2 = 'XXX';
+			assertEquals("4", "XXXXXXXXX", xpath.exec(x));
+			
+			// From http://developer.mozilla.org/en/docs/XPath:Functions:translate
+			xpath = new XPathQuery("translate('The quick brown fox.', 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')");
+			assertEquals("5", "THE QUICK BROWN FOX.", xpath.exec(null));
+			xpath = new XPathQuery("translate('The quick brown fox.', 'brown', 'red')");
+			assertEquals("5", "The quick red fdx.", xpath.exec(null));
+			
+		}
+		
+		
+		public function testBools():void
+		{
+			xpath = new XPathQuery("true()");
+			assertEquals("1", true, xpath.exec(null));
+			xpath = new XPathQuery("false()");
+			assertEquals("2", false, xpath.exec(null));
+			xpath = new XPathQuery("false()=true()");
+			assertEquals("3", false, xpath.exec(null));
+			xpath = new XPathQuery("not(true())");
+			assertEquals("4", false, xpath.exec(null));
+			xpath = new XPathQuery("not(false())");
+			assertEquals("5", true, xpath.exec(null));
+			
+			var values:Array = 	[1,		0,		-1,		NaN, 	2,		{},		"",		" ", 	"true", "false",true, false];
+			var results:Array = [true,	false,	true, 	false,	true,	true,	false,	true, 	true, 	true, 	true, false];
+			xpath = new XPathQuery("boolean($test)");
+			for(var i:int=0; i<values.length; i++){
+				xpath.context.variables.test = values[i];
+				assertEquals("a"+i, results[i], xpath.exec(null));
+			}
 		}
 	}
 }

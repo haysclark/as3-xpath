@@ -103,10 +103,10 @@ package memorphic.xpath.model
 		{
 			if(a is Boolean){
 				return a as Boolean;
-			}else if(a is Number){
-				return a != 0;
-			}else if(a is String){
-				return a != "";
+			//}else if(a is Number){
+			//	return Boolean(a);
+			//}else if(a is String){
+			//	return a != "";
 			}else if(a is XMLList){
 				return XMLList(a).length() > 0;
 			}else if(a is XML){
