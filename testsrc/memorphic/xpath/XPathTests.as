@@ -181,8 +181,28 @@ package memorphic.xpath {
 		
 		public function testVariables():void
 		{
-			var vars:Object 
+			var menu:XML = XMLData.foodMenuXML;
+			var context:XPathContext = new XPathContext();
+			context.variables = {a:1};
+			var xpath:XPathQuery = new XPathQuery("breakfast-menu/food[$a]/name/text()", context);
+			assertEquals("1 let's see if this works?", "Belgian Waffles", xpath.exec(menu));
+			
+			XPathQuery.defaultContext.variables.a = 1;
+			xpath = new XPathQuery("breakfast-menu/food[$a]/name/text()");
+			assertEquals("2 let's see if this works?", "Belgian Waffles", xpath.exec(menu));
+			
+			delete XPathQuery.defaultContext.variables.a;
+			xpath = new XPathQuery("breakfast-menu/food[$a]/name/text()");
+			var error:Error = null;
+			try{
+				 xpath.exec(menu);
+			}catch(e:ReferenceError){
+				error = e;
+			}
+			assertNotNull("3 This should throw an error because no variable", error);
+			
 		}
+
 
 
 		public function testFilterExpr():void

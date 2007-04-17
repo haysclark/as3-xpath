@@ -38,7 +38,6 @@ package memorphic.xpath
 	import memorphic.xpath.model.QueryRoot;
 	import memorphic.xpath.model.XPathContext;
 	import memorphic.xpath.parser.XPathParser;
-	import flash.net.XMLSocket;
 	
 	/**
 	 *	
@@ -54,9 +53,12 @@ package memorphic.xpath
 		public static var defaultContext:XPathContext = new XPathContext();
 	
 
-		
+		/**
+		 * 
+		 */ 
 		public var context:XPathContext;
 		
+	
 		
 		
 		/**
@@ -121,11 +123,8 @@ package memorphic.xpath
 		 * @return The result of executing the XPath statement. If the statement is a Path expression, this will be an XMLList
 		 * 
 		 */		
-		public function exec(xml:XML, context:XPathContext=null):*
+		public function exec(xml:XML):*
 		{
-			if(!context){
-				context = this.context;
-			}
 			return expression.execRoot(xml, context);
 		}
 		

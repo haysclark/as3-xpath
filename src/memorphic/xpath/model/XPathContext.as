@@ -43,6 +43,7 @@ package memorphic.xpath.model
 		internal static var defaultFunctions:Object = new StandardFunctions();
 		
 		
+		
 		/**
 		 * A table of variable references to use inside XPath statements.
 		 * 
@@ -133,11 +134,17 @@ package memorphic.xpath.model
 		/**
 		 * 
 		 * @param name Can be a String or QName
-		 * 
+		 * @throws ReferenceError if the variable is not found
 		 */		 
 		internal function getVariable(name:*):Object
 		{
-			return variables[name];
+			var value:* = variables[name];
+			if(value == null){
+				// XXX: this is problematic. Can't use hasOwnProperty() because only string args are supported and we need to allow QNames
+				// but null is a legitimate (though unlikely) value. Need to work this out...
+				throw new ReferenceError("There is no variable '" + name + "'.");
+			}
+			return value;
 		}
 		
 

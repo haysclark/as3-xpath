@@ -33,11 +33,11 @@
 package memorphic.xpath.parser
 {
 	
+	import memorphic.parser.ParseError;
 	import memorphic.parser.Token;
+	import memorphic.parser.TokenMetrics;
 	import memorphic.parser.TokenPattern;
 	import memorphic.parser.Tokenizer;
-	import memorphic.parser.ParseError;
-	import memorphic.parser.TokenMetrics;
 	import memorphic.xpath.model.AxisNames;
 	import memorphic.xpath.model.NodeTypes;
 	import memorphic.xpath.model.Operators;

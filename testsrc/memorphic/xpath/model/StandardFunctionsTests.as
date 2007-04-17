@@ -366,6 +366,11 @@ package memorphic.xpath.model
 				xpath.context.variables.test = values[i];
 				assertEquals("a"+i, results[i], xpath.exec(null));
 			}
+			
+			xpath = new XPathQuery("boolean(//a/b/c)");
+			assertFalse("empty node set should be false", xpath.exec(cds));
+			xpath = new XPathQuery("boolean(//CD)");
+			assertTrue("non-empty node set should be true", xpath.exec(cds));
 		}
 	}
 }

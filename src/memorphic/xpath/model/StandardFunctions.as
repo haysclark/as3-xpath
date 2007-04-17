@@ -543,9 +543,9 @@ package memorphic.xpath.model
 			if(!contextLang){
 				return false;
 			}
-			if(lan == contextLang){
-				return true;
-			}else if(contextLang.substr(0,lan.length+1) == lan + "-"){
+			if(lan == contextLang
+				|| contextLang.substr(0,lan.length+1) == lan + "-"
+			){
 				return true;
 			}
 			return false;
