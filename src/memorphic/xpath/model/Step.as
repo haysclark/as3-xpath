@@ -138,17 +138,18 @@ package memorphic.xpath.model
 		
 		
 		
-		private function filterByNodeTest(axis:XMLList, context:XPathContext):XMLList
+		private function filterByNodeTest(nodeSet:XMLList, context:XPathContext):XMLList
 		{
 			var result:XMLList = new XMLList();
 			var axisNode:XML;
-			var axisLength:int = axis.length();
+			var axisLength:int = nodeSet.length();
 			
-			var nodeTestContext:XPathContext;
+//			var nodeTestContext:XPathContext = context.copy(false);
+			// tests show we can re-use the same context instance
+			var nodeTestContext:XPathContext = context;
 			
 			for (var i:int=0; i<axisLength; i++){
-				axisNode = axis[i];
-				nodeTestContext = context.copy(false);
+				axisNode = nodeSet[i];
 				nodeTestContext.contextNode = axisNode;
 				nodeTestContext.contextPosition = i;
 				nodeTestContext.contextSize = axisLength;

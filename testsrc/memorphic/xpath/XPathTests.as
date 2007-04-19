@@ -45,6 +45,12 @@ package memorphic.xpath {
 		
 			TestResult.rethrowErrors = true;
 		
+		private var cds:XML;
+		private var menu:XML;
+		private var xhtml:XML;
+		private var register:XML;
+		private var rdf:XML;
+		
 	    public function XPathTests( methodName:String = null) {
 			super( methodName );
         }
@@ -53,19 +59,42 @@ package memorphic.xpath {
 		public override function setUp():void
 		{
 			XPathQuery.defaultContext = new XPathContext();
+			cds = XMLData.cdCatalogXML;
+			menu = XMLData.foodMenuXML;
+			xhtml = XMLData.adobeHomeXHTML;
+			rdf = XMLData.adobeBlogsRDF;
+			register = XMLData.registerHTML;
 		}
 		
 		public override function tearDown():void
 		{
+			// after each test, make sure it hasn't affected the XML itself
+			checkXMLUnaffected();
+			
+			cds = null;
+			menu = null;
+			xhtml = null;
+			rdf = null;
+			register = null;
 			
 		}
 
 
+
+		private function checkXMLUnaffected():void
+		{
+			assertEquals("test should not change the XML data", XMLData.adobeBlogsRDF.toXMLString(), rdf.toXMLString());
+			assertEquals("test should not change the XML data", XMLData.adobeHomeXHTML.toXMLString(), xhtml.toXMLString());
+			assertEquals("test should not change the XML data", XMLData.cdCatalogXML.toXMLString(), cds.toXMLString());
+			assertEquals("test should not change the XML data", XMLData.foodMenuXML.toXMLString(), menu.toXMLString());
+			assertEquals("test should not change the XML data", XMLData.registerHTML.toXMLString(), register.toXMLString());
+		}
+		
+		
 		
 		public function testSimpleSteps():void
 		{
-			
-			var data:XML = XMLData.foodMenuXML;
+		
 			// all of these queries should have the same results
 			var paths:Array = ["breakfast-menu/food/name",
 							"breakfast-menu//name",
@@ -88,23 +117,22 @@ package memorphic.xpath {
 							"*/*/name"];
 			var result:XMLList;
 			var n:int = paths.length;
-			var expected:String = data.food.name.toXMLString();
+			var expected:String = menu.food.name.toXMLString();
 			for(var i:int=0; i<n; i++){
 
-				result = XPathQuery.execQuery(data, paths[i]) as XMLList;
+				result = XPathQuery.execQuery(menu, paths[i]) as XMLList;
 				assertTrue(i+" result should be XMLList", result is XMLList);
 				assertEquals(i+" should select 5 items", 5, result.length());
 				assertEquals(i+" should select a <name> node", "name", result[0].name());
 				assertEquals(i+" should match the expected result", expected, result.toXMLString());
+//				assertEquals(i+" should be the same node as expected", expected, result);
 
 			}
-			
 		}
 		
 		
 		public function testPosition():void
 		{
-			var data:XML = XMLData.foodMenuXML;
 			
 			var paths:Array = [
 							"breakfast-menu/food[2]/name",
@@ -113,17 +141,16 @@ package memorphic.xpath {
 							"breakfast-menu/food[(2+2)-(5 *3-13)]/name",
 							"breakfast-menu/food[position() = 2]/name",
 							"breakfast-menu/food[position()=2]/name",
-							"breakfast-menu/food[last()-3]/name",
-							"breakfast-menu/food/name[string() = 'Strawberry Belgian Waffles']"];
+							"breakfast-menu/food[last()-3]/name"];
 			
 			var result:XMLList;
 			var n:int = paths.length;
-			var expected:String = data.food.name.toXMLString();
+			var expected:String = menu.food.name.toXMLString();
 			for(var i:int=0; i<n; i++){
-				result = XPathQuery.execQuery(data, paths[i]);
+				result = XPathQuery.execQuery(menu, paths[i]);
 				assertEquals(i+" should be only one element", 1, result.length());
 				assertEquals(i+" check name", "Strawberry Belgian Waffles", result.toString());
-				assertEquals(i+" should be second element", data.food.name[1], result[0]);
+				assertEquals(i+" should be second element", menu.food.name[1], result[0]);
 				
 				
 			}
@@ -133,11 +160,9 @@ package memorphic.xpath {
 		
 		public function testNamespaces():void
 		{
-			var data:XML = XMLData.adobeHomeXHTML;
-			
 			var xpath:XPathQuery = new XPathQuery("//xhtml:head");
 			xpath.context.namespaces.xhtml = "http://www.w3.org/1999/xhtml";
-			var result:XMLList = xpath.exec(data);
+			var result:XMLList = xpath.exec(xhtml);
 			
 			assertEquals("only select one node", 1, result.length());
 			assertEquals("local name should be <head>", "head", result[0].localName());
@@ -146,10 +171,8 @@ package memorphic.xpath {
 		
 		public function testWildCardNamespace():void
 		{
-			var data:XML = XMLData.adobeHomeXHTML;
-			
 			var xpath:XPathQuery = new XPathQuery("//*:head");
-			var result:XMLList = xpath.exec(data);
+			var result:XMLList = xpath.exec(xhtml);
 			
 			assertEquals("only select one node", 1, result.length());
 			assertEquals("local name should be <head>", "head", result[0].localName());
@@ -158,21 +181,20 @@ package memorphic.xpath {
 		
 		public function testOpenAllNamespaces():void
 		{
-			var data:XML = XMLData.adobeHomeXHTML;
 			
 			var xpath:XPathQuery = new XPathQuery("//head");
-			var result:XMLList = xpath.exec(data);
+			var result:XMLList = xpath.exec(xhtml);
 			
 			assertEquals("Shouldn't match anything - I didn't map the namespace", 0, result.length());
 			
 			xpath.context.openAllNamespaces = true;
-			var result2:XMLList = xpath.exec(data);
+			var result2:XMLList = xpath.exec(xhtml);
 			assertEquals("only select one node", 1, result2.length());
 			assertEquals("local name should be <head>", "head", result2[0].localName());
 			
 			
 			xpath.context.openAllNamespaces = false;
-			var result3:XMLList = xpath.exec(data);
+			var result3:XMLList = xpath.exec(xhtml);
 			assertEquals("Shouldn't match anything - I didn't map the namespace", 0, result3.length());
 			
 			
@@ -181,7 +203,6 @@ package memorphic.xpath {
 		
 		public function testVariables():void
 		{
-			var menu:XML = XMLData.foodMenuXML;
 			var context:XPathContext = new XPathContext();
 			context.variables = {a:1};
 			var xpath:XPathQuery = new XPathQuery("breakfast-menu/food[$a]/name/text()", context);
@@ -208,7 +229,6 @@ package memorphic.xpath {
 		public function testFilterExpr():void
 		{
 			
-			var data:XML = XMLData.foodMenuXML;
 			var xpath:XPathQuery = new XPathQuery( "breakfast-menu/food[secondNode(.)[1]=.]/name");
 			xpath.context.functions.secondNode = function (context:XPathContext, nodeset:XMLList):XMLList
 			{
@@ -218,7 +238,7 @@ package memorphic.xpath {
 					return new XMLList();
 				}
 			}
-			var result:XMLList = xpath.exec(data);
+			var result:XMLList = xpath.exec(menu);
 			assertEquals("only select one node", 1, result.length());
 			assertEquals("check name", "Strawberry Belgian Waffles", result.toString());
 		}
@@ -226,18 +246,16 @@ package memorphic.xpath {
 		
 		public function testDescendants():void
 		{
-			var data:XML = XMLData.cdCatalogXML;
 			var xpath:XPathQuery = new XPathQuery( "//*[1]/attribute::id");
-			assertEquals("check id att", "cd1", xpath.exec(data));
+			assertEquals("check id att", "cd1", xpath.exec(cds));
 		}
 		
 		public function testAttribute():void
 		{
-			var data:XML = XMLData.cdCatalogXML;
 			var xpath:XPathQuery = new XPathQuery( "CATALOG/CD[1]/attribute::id");
-			assertEquals("1 check id att", "cd1", xpath.exec(data));
+			assertEquals("1 check id att", "cd1", xpath.exec(cds));
 			xpath = new XPathQuery( "CATALOG/CD[1]/@id");
-			assertEquals("2 check id att", "cd1", xpath.exec(data));
+			assertEquals("2 check id att", "cd1", xpath.exec(cds));
 			
 		}
 		

@@ -54,7 +54,8 @@ package memorphic.xpath.model
 		public function filter(nodeList:XMLList, baseContext:XPathContext):XMLList
 		{
 			var n:int = predicates.length;
-			var context:XPathContext = baseContext.copy(false);
+			// Apparently no need to clone the context here
+			var context:XPathContext = baseContext;
 			for(var i:int=0; i<n; i++){
 				nodeList = filterByPredicate(nodeList, context, predicates[i] as Predicate);
 			}
@@ -70,7 +71,6 @@ package memorphic.xpath.model
 			var contextLength:int = nodeList.length();
 			for(var i:int=0; i<contextLength; i++){
 				node = nodeList[i];
-				// context = baseContext.copy(false);
 				context.contextNode = node;
 				context.contextPosition = i;
 				context.contextSize = contextLength;

@@ -34,8 +34,6 @@ package memorphic.xpath.model
 			context.contextPosition = 0;
 			context.contextSize = 1;
 			
-			context.documentWrapper = documentWrapper;
-			
 			var result:Object = expr.exec(context);
 			
 			// undo the ugliness so the XML is not permanently affected

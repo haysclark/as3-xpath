@@ -666,9 +666,7 @@ package memorphic.xpath.parser
 				while(true){
 					state = getState();
 					if(nextToken().value == "or"){
-						if(AndExpr() ){
-							
-						}else{
+						if(!AndExpr()){
 							break;
 						}
 					}else{

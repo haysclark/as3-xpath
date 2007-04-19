@@ -102,7 +102,7 @@ package memorphic.xpath.model
 		internal var contextSize:int;
 
 
-		internal var documentWrapper:XML;
+		// internal var documentWrapper:XML;
 		
 		
 		

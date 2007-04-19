@@ -38,52 +38,61 @@ package memorphic.xpath.fixtures
 	{
 
 
-		public static function get adobeBlogsRDF():XML{
-			return XPATH_FLASH_RDF.copy();
+		public static function get adobeBlogsRDF():XML
+		{
+			return new XML(adobeBlogsRDFString);
 		}
-
+		
+		
 		public static function get adobeHomeXHTML():XML{
-			return ADOBE_HOME.copy();
+			return new XML(adobeHomeXHTMLString);
 		}
 
 		public static function get foodMenuXML():XML{
-			return MENU.copy();
+			return new XML(foodMenuString);
 		}
 
 		public static function get cdCatalogXML():XML{
-			return CD_CAT.copy();
+			return new XML(cdCatalogXMLString);
 		}
 		public static function get registerHTML():XML{
-			return REGISTER.copy();
+			return new XML(registerHTMLString);
 		}
 
 
 
 		[Embed(source="flash_xpath.rdf", mimeType="application/octet-stream")]
 		private static const XPATH_FLASH_RDF_RAW:Class;
-		private static const XPATH_FLASH_RDF:XML = parseXML(new XPATH_FLASH_RDF_RAW());
+		
+		public static const adobeBlogsRDFString:String = getString(new XPATH_FLASH_RDF_RAW());
 
 		[Embed(source="adobe.xhtml", mimeType="application/octet-stream")]
 		private static const ADOBE_HOME_RAW:Class;
-		private static const ADOBE_HOME:XML = parseXML(new ADOBE_HOME_RAW());
+		
+		public static const adobeHomeXHTMLString:String = getString(new ADOBE_HOME_RAW());
 
 		[Embed(source="cd_catalog.xml", mimeType="application/octet-stream")]
 		private static const CD_CAT_RAW:Class;
-		private static const CD_CAT:XML = parseXML(new CD_CAT_RAW());
+		
+		public static const cdCatalogXMLString:String = getString(new CD_CAT_RAW());
 
 		[Embed(source="menu.xml", mimeType="application/octet-stream")]
 		private static const MENU_RAW:Class;
-		private static const MENU:XML = parseXML(new MENU_RAW());
+		
+		public static const foodMenuString:String = getString(new MENU_RAW());
 
 
 		[Embed(source="register.html", mimeType="application/octet-stream")]
 		private static const REGISTER_RAW:Class;
-		private static const REGISTER:XML = parseXML(new REGISTER_RAW());
+		
+		public static const registerHTMLString:String = getString(new REGISTER_RAW());
 
 
-		private static function parseXML(data:ByteArray):XML{
-			return new XML(data.readUTFBytes(data.length));
+		private static function getString(data:ByteArray):String
+		{
+			return data.readUTFBytes(data.length);
 		}
+
 
 
 	}

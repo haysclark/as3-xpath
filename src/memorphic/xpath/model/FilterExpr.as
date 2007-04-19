@@ -32,6 +32,15 @@
 
 package memorphic.xpath.model
 {
+	
+	/**
+	 * 
+	 * A filter expression is any expression that may return a node-set, but is not a LocationPath.
+	 * If there are no predicates then there is no point treating this differently from another
+	 * expression. In fact, the presence of predicates is the only way we can tell that we need to
+	 * use a FilterExpr at all. So, while this class is named FilterExpr for consistency with the
+	 * spec, it is really a PredicatedExpression - or something like that anyway...
+	 */ 
 	final public class FilterExpr implements IExpression
 	{
 		

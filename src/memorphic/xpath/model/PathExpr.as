@@ -57,7 +57,7 @@ package memorphic.xpath.model
 			var result:XMLList = new XMLList();
 			var filterExprResult:XMLList = XMLList(filterExpr.exec(context));
 			var len:int = filterExprResult.length();
-			context = context.copy(false);
+			// context = context.copy(false);
 			context.contextSize = len;
 			for(var i:int=0; i<len; i++){
 				context.contextNode = filterExprResult[i];
