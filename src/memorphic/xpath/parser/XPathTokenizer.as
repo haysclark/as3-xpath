@@ -378,8 +378,13 @@ package memorphic.xpath.parser
 		*/
 		private function resolveNCName(value:String, sourceIndex:int):Token
 		{
+			// I'm not really sure about this....
 			if(AxisNames.isAxisName(value)){
-				return new XPathToken(XPathToken.AXIS_NAME, value, sourceIndex);
+				if(lookAhead(1).value == "::"){
+					// skipAhead(1);
+					return new XPathToken(XPathToken.AXIS_NAME, value, sourceIndex);
+				}
+				// else, I don't think it's an axis name...
 			}
 			
 			var prev:Token = this.token;
@@ -407,9 +412,9 @@ package memorphic.xpath.parser
 					return new XPathToken(XPathToken.FUNCTION_NAME, value, sourceIndex);
 				}
 				
-			}else if(next1.value == "::"){
-				skipAhead(1);
-				return new XPathToken(XPathToken.AXIS_NAME, value, sourceIndex);
+//			}else if(next1.value == "::"){
+//				skipAhead(1);
+//				return new XPathToken(XPathToken.AXIS_NAME, value, sourceIndex);
 				
 			}else if(next1.value == ":"){
 				var next2:Token = lookAhead(2);

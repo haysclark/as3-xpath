@@ -120,7 +120,7 @@ package memorphic.xpath.model
 		
 		
 		
-		internal function getNamespace(prefix:String):String
+		internal final function getNamespace(prefix:String):String
 		{
 			if(namespaces.hasOwnProperty(prefix)){
 				return namespaces[prefix];
@@ -136,7 +136,7 @@ package memorphic.xpath.model
 		 * @param name Can be a String or QName
 		 * @throws ReferenceError if the variable is not found
 		 */		 
-		internal function getVariable(name:*):Object
+		internal final function getVariable(name:*):Object
 		{
 			var value:* = variables[name];
 			if(value == null){
@@ -154,7 +154,7 @@ package memorphic.xpath.model
 		 * @param name Can be a String or QName
 		 * 
 		 */	
-		internal function getFunction(name:*):Function
+		internal final function getFunction(name:*):Function
 		{
 			if(functions.hasOwnProperty(name)){
 				return functions[name] as Function;
@@ -168,7 +168,7 @@ package memorphic.xpath.model
 		 * @param name Can be a String or QName
 		 * 
 		 */	
-		internal function callFunction(name:Object, args:Array=null):Object
+		internal final function callFunction(name:Object, args:Array=null):Object
 		{
 			var applyArgs:Array = [this];
 			if(args != null){
@@ -221,7 +221,7 @@ package memorphic.xpath.model
 		 * 
 		 * This method is provided for use within custom functions.
 		 */ 
-		public function position():int
+		public final function position():int
 		{
 			//return contextPosition;
 			return zeroIndexPosition ? contextPosition : contextPosition + 1;
@@ -231,7 +231,7 @@ package memorphic.xpath.model
 		 * Inside a predicate, last() represents the size of the current node set and the maximum value of <code>position()>/code>.
 		 * This method is provided for use within custom functions.
 		 */ 
-		public function last():int
+		public final function last():int
 		{
 			return contextSize;
 		}
@@ -240,7 +240,7 @@ package memorphic.xpath.model
 		 * Inside a predicate, node() represents the current node, on which the predicate is acting.
 		 * This method is provided for use within custom functions.
 		 */ 
-		public function node():XML
+		public final function node():XML
 		{
 			return contextNode;
 		}

@@ -38,6 +38,7 @@ package memorphic.xpath {
 	import flexunit.framework.TestResult;
 	import memorphic.xpath.model.XPathContext;
 	import flash.utils.getTimer;
+	import flash.utils.describeType;
 	
 	
 	public class XPathTests extends TestCase {
@@ -67,10 +68,7 @@ package memorphic.xpath {
 		}
 		
 		public override function tearDown():void
-		{
-			// after each test, make sure it hasn't affected the XML itself
-			checkXMLUnaffected();
-			
+		{			
 			cds = null;
 			menu = null;
 			xhtml = null;
@@ -79,6 +77,27 @@ package memorphic.xpath {
 			
 		}
 
+		
+		
+		/*
+		This test was added after bug report
+		*/
+		public function testIdenticalNodes():void
+		{			
+			var tree3:XML = <Root attr="test">
+								<Child>
+									<X attr="test"/>
+									<X attr="test"><InnerX />
+									</X>
+									<X attr="test"><InnerX />
+									</X>
+								</Child>
+							</Root>;
+			var xpath:XPathQuery = new XPathQuery("//InnerX");
+			var result:XMLList = xpath.exec(tree3) as XMLList;
+			assertEquals("length should be 2", 2, result.length());
+			
+		}
 
 
 		private function checkXMLUnaffected():void
@@ -128,6 +147,7 @@ package memorphic.xpath {
 //				assertEquals(i+" should be the same node as expected", expected, result);
 
 			}
+			checkXMLUnaffected();
 		}
 		
 		
@@ -154,7 +174,7 @@ package memorphic.xpath {
 				
 				
 			}
-			
+			checkXMLUnaffected();
 		}
 		
 		
@@ -167,6 +187,7 @@ package memorphic.xpath {
 			assertEquals("only select one node", 1, result.length());
 			assertEquals("local name should be <head>", "head", result[0].localName());
 			
+			checkXMLUnaffected();
 		}
 		
 		public function testWildCardNamespace():void
@@ -177,6 +198,7 @@ package memorphic.xpath {
 			assertEquals("only select one node", 1, result.length());
 			assertEquals("local name should be <head>", "head", result[0].localName());
 			
+			checkXMLUnaffected();
 		}
 		
 		public function testOpenAllNamespaces():void
@@ -197,6 +219,7 @@ package memorphic.xpath {
 			var result3:XMLList = xpath.exec(xhtml);
 			assertEquals("Shouldn't match anything - I didn't map the namespace", 0, result3.length());
 			
+			checkXMLUnaffected();
 			
 		}
 		
@@ -222,6 +245,28 @@ package memorphic.xpath {
 			}
 			assertNotNull("3 This should throw an error because no variable", error);
 			
+			checkXMLUnaffected();
+		}
+
+
+		public function testAxisNamesCanBeNCNames():void
+		{
+			// just make sure that /foo/self is allowed as an equivalent to /foo/child::self
+			// and "self" is not interpreted as an axis
+		}
+
+		public function _testSubPathsInFilterExpressions():void
+		{
+			// this is to make sure that I really only have to use context.copy() in Location Paths
+			var xpath:XPathQuery = new XPathQuery("contextSizeTest(breakfast-menu/food, count(/breakfast-menu/food)))");
+			xpath.context.functions.contextSizeTest = function (context:XPathContext, nodeset1:XMLList, num:int):Boolean
+			{
+				return context.last() == num;
+			}
+			
+			assertTrue("xxx", xpath.exec(menu));
+			
+			checkXMLUnaffected();
 		}
 
 
@@ -241,6 +286,8 @@ package memorphic.xpath {
 			var result:XMLList = xpath.exec(menu);
 			assertEquals("only select one node", 1, result.length());
 			assertEquals("check name", "Strawberry Belgian Waffles", result.toString());
+			
+			checkXMLUnaffected();
 		}
 		
 		
@@ -248,6 +295,8 @@ package memorphic.xpath {
 		{
 			var xpath:XPathQuery = new XPathQuery( "//*[1]/attribute::id");
 			assertEquals("check id att", "cd1", xpath.exec(cds));
+			
+			checkXMLUnaffected();
 		}
 		
 		public function testAttribute():void
@@ -257,6 +306,7 @@ package memorphic.xpath {
 			xpath = new XPathQuery( "CATALOG/CD[1]/@id");
 			assertEquals("2 check id att", "cd1", xpath.exec(cds));
 			
+			checkXMLUnaffected();
 		}
 		
 		public function testAssociativity():void
@@ -274,6 +324,8 @@ package memorphic.xpath {
 			assertEquals("make sure that the opposite associativity is different- mod", 12, xpath.exec(null));
 			xpath = new XPathQuery("6 * 2 mod 3");
 			assertEquals("should be left-associative- mod", 0, xpath.exec(null));
+			
+			checkXMLUnaffected();
 		}
 		
 

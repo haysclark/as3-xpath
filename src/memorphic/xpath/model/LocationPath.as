@@ -59,6 +59,13 @@ package memorphic.xpath.model
 			var numSteps:int = steps.length;
 			var step:Step;
 			var result:XMLList = <></> + chooseContext(context.contextNode);
+			
+			// need to clone the context in case this LocationPath is part of a sub-expresssion
+			// In most other places the same object can be re-used because it is modified in 
+			// sequence. LocationPaths have the possibility of evaluating a whole other path
+			// in between steps
+			context = context.copy(false);
+			
 			for(var i:int=0; i<numSteps; i++){
 				step = steps[i] as Step;
 				result = applyStep(result, step, context);
@@ -76,7 +83,6 @@ package memorphic.xpath.model
 			var result:XMLList = new XMLList();
 			var n:int = nodes.length();
 			for(var i:int=0; i<n; i++){
-				context = context.copy(false);
 				context.contextNode = nodes[i];
 				context.contextPosition = i;
 				context.contextSize = n;

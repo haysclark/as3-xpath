@@ -51,11 +51,9 @@ package memorphic.xpath.model
 		}
 		
 			
-		public function filter(nodeList:XMLList, baseContext:XPathContext):XMLList
+		public function filter(nodeList:XMLList, context:XPathContext):XMLList
 		{
 			var n:int = predicates.length;
-			// Apparently no need to clone the context here
-			var context:XPathContext = baseContext;
 			for(var i:int=0; i<n; i++){
 				nodeList = filterByPredicate(nodeList, context, predicates[i] as Predicate);
 			}

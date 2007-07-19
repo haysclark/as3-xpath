@@ -233,14 +233,17 @@ package memorphic.xpath.parser
 		rule function AxisSpecifier():Boolean
 		{
 			startRule(AXIS_SPECIFIER);
+			var axisNameToken:Token;
 			//var state:SyntaxTreeState = getState();
 			try {
 				if(nextToken().tokenType == XPathToken.AXIS_NAME){
+					axisNameToken = token;
 					if(nextToken().value == "::"){
 						discardToken();
 						return match();
 					}else{
-						throw new SyntaxError("Found Axis name '" + token.value + "' without '::'");
+						throw new SyntaxError("Found Axis name '" + axisNameToken.value + "' without '::'. If '"+axisNameToken.value+"'" + 
+								"is meant to be an XML node name, it's a reserved word, and perhaps you meant to use '/child::"+axisNameToken.value+"'");
 					}
 				}
 			}catch(e:EOFError){

@@ -144,16 +144,15 @@ package memorphic.xpath.model
 			var axisNode:XML;
 			var axisLength:int = nodeSet.length();
 			
-//			var nodeTestContext:XPathContext = context.copy(false);
-			// tests show we can re-use the same context instance
-			var nodeTestContext:XPathContext = context;
-			
 			for (var i:int=0; i<axisLength; i++){
 				axisNode = nodeSet[i];
-				nodeTestContext.contextNode = axisNode;
-				nodeTestContext.contextPosition = i;
-				nodeTestContext.contextSize = axisLength;
-				if(nodeTest.test(nodeTestContext)){
+				
+				// re-use the same context object
+				context.contextNode = axisNode;
+				context.contextPosition = i;
+				context.contextSize = axisLength;
+				
+				if(nodeTest.test(context)){
 					result += axisNode;
 				}
 			}	
