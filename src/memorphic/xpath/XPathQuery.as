@@ -100,8 +100,13 @@ package memorphic.xpath
 		 * If you plan to execute the same XPath query multiple times, it is more efficient to create an instance of
 		 * <code>XPathQuery</code> and call <code>exec</code> each time, to prevent the path string being parsed
 		 * each time.
+		 * 
+		 * The node may be the root node of an XML document or
+		 * any other XML node. If the node is not the root then relative paths will be evaluated
+		 * relative to that node; however, absolute paths will still be evaluated from the root of
+		 * the document to which the node belongs.
 		 *
-		 * @param xml The root document in which to execute the XPath query
+		 * @param xml The root document or XML node on which to execute the XPath query
 		 * @param path The XPath query string
 		 *
 		 * @return The result of executing the XPath statement. If the statement is a Path expression, this will be an XMLList
@@ -116,8 +121,12 @@ package memorphic.xpath
 
 
 		/**
-		 *
-		 * @param xml The root document in which to execute the XPath query
+		 * Execute an XML query on an XML node. The node may be the root node of an XML document or
+		 * any other XML node. If the node is not the root then relative paths will be evaluated
+		 * relative to that node; however, absolute paths will still be evaluated from the root of
+		 * the document to which the node belongs.
+		 * 
+		 * @param xml The root document or XML node on which to execute the XPath query
 		 * @param context An optional context in which just this query will execute. You can use this to define namespaces, variables and functions
 		 *
 		 * @return The result of executing the XPath statement. If the statement is a Path expression, this will be an XMLList
