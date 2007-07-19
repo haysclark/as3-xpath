@@ -50,11 +50,29 @@ package memorphic.utils
 		public static function concatXMLLists(a:XMLList, b:XMLList):XMLList
 		{
 			for each(var node:XML in b){
-				if(!a.contains(node)){
+			//	if(!a.contains(node)){
+			//		a += node;
+			//	}
+				if(!contains(a, node)){
 					a += node;
 				}
+			
 			}
 			return a;
+		}
+		
+		
+		/**
+		 * @param a May be XML or XMLList
+		 */
+		public static function contains(a:*, b:XML):Boolean
+		{
+			for each(var x:XML in a){
+				if(x === b){
+					return true;
+				}
+			}
+			return false;
 		}
 		
 		
