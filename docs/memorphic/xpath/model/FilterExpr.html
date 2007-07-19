@@ -42,7 +42,13 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 </table>
 <p></p>
-<p></p>
+  
+  A filter expression is any expression that may return a node-set, but is not a LocationPath.
+  If there are no predicates then there is no point treating this differently from another
+  expression. In fact, the presence of predicates is the only way we can tell that we need to
+  use a FilterExpr at all. So, while this class is named FilterExpr for consistency with the
+  spec, it is really a PredicatedExpression - or something like that anyway...
+  <p></p>
 <br>
 <hr>
 </div>
@@ -152,9 +158,7 @@ showHideInherited();
 <hr>
 <br>
 <p></p>
-<center class="copyright">
-<footer> 
-</footer>
+<center class="copyright"> 
 </center>
 </div>
 </body>

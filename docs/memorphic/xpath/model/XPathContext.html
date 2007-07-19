@@ -4,7 +4,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
-<meta content="XPathContext,memorphic.xpath.model.XPathContext,defaultNamespaces,defaultFunctions,variables,namespaces,functions,zeroIndexPosition,openAllNamespaces,contextNode,contextPosition,contextSize,documentWrapper,getNamespace,getVariable,getFunction,callFunction,copy,position,last,node" name="keywords">
+<meta content="XPathContext,memorphic.xpath.model.XPathContext,defaultNamespaces,defaultFunctions,variables,namespaces,functions,zeroIndexPosition,openAllNamespaces,contextNode,contextPosition,contextSize,getNamespace,getVariable,getFunction,callFunction,copy,position,last,node" name="keywords">
 <title>memorphic.xpath.model.XPathContext</title>
 </head>
 <body>
@@ -68,10 +68,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#defaultNamespaces">defaultNamespaces</a> : Object<div class="summaryTableDescription">[static]</div>
-</td><td class="summaryTableOwnerCol">XPathContext</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#documentWrapper">documentWrapper</a> : XML<div class="summaryTableDescription"></div>
 </td><td class="summaryTableOwnerCol">XPathContext</td>
 </tr>
 <tr class="">
@@ -240,15 +236,6 @@ showHideInherited();
 <div class="detailBody">
 <code>public static var defaultNamespaces:Object</code>
 </div>
-<a name="documentWrapper"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">documentWrapper</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public var documentWrapper:XML</code>
-</div>
 <a name="functions"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -339,7 +326,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function callFunction(name:Object, args:Array = null):Object</code><p>
+<code>public final function callFunction(name:Object, args:Array = null):Object</code><p>
    
    </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -393,7 +380,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function getFunction(name:*):Function</code><p>
+<code>public final function getFunction(name:*):Function</code><p>
    
    </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -418,7 +405,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function getNamespace(prefix:String):String</code><span class="label">Parameters</span>
+<code>public final function getNamespace(prefix:String):String</code><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">prefix</span>:String</code></td>
@@ -439,13 +426,12 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function getVariable(name:*):Object</code><p>
+<code>public final function getVariable(name:*):Object</code><p>
    
    </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">name</span>:*</code> &mdash; Can be a String or QName
-   
    </td>
 </tr>
 </table>
@@ -456,6 +442,14 @@ showHideInherited();
 <td width="20"></td><td><code>Object</code></td>
 </tr>
 </table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code></code> &mdash; if the variable is not found
+   </td>
+</tr>
+</table>
 </div>
 <a name="last()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -464,7 +458,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function last():int</code><p>
+<code>public final function last():int</code><p>
    Inside a predicate, last() represents the size of the current node set and the maximum value of <code>position()>/code>.
    This method is provided for use within custom functions.
    </p><p></p>
@@ -482,7 +476,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function node():XML</code><p>
+<code>public final function node():XML</code><p>
    Inside a predicate, node() represents the current node, on which the predicate is acting.
    This method is provided for use within custom functions.
    </p><p></p>
@@ -500,7 +494,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function position():int</code><p>
+<code>public final function position():int</code><p>
    Inside a predicate, position() represents the index of the current context node, within the node set.
    According to the w3c spec, position() is 1-indexed, so the first node will have index 1. 
    
@@ -522,9 +516,7 @@ showHideInherited();
 <hr>
 <br>
 <p></p>
-<center class="copyright">
-<footer> 
-</footer>
+<center class="copyright"> 
 </center>
 </div>
 </body>

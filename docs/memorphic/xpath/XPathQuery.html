@@ -4,7 +4,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="XPathQuery,memorphic.xpath.XPathQuery,defaultContext,context,path,execQuery,exec" name="keywords">
+<meta content="XPathQuery,memorphic.xpath.XPathQuery,defaultContext,context,path,execQuery,exec,pathToNode" name="keywords">
 <title>memorphic.xpath.XPathQuery</title>
 </head>
 <body>
@@ -39,8 +39,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 </table>
 <p></p>
-  
-  <p></p>
+    <p></p>
 <br>
 <hr>
 </div>
@@ -53,7 +52,8 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#context">context</a> : <a href="model/XPathContext.html">XPathContext</a>
-<div class="summaryTableDescription"></div>
+<div class="summaryTableDescription">
+      </div>
 </td><td class="summaryTableOwnerCol">XPathQuery</td>
 </tr>
 <tr class="">
@@ -81,17 +81,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#XPathQuery()">XPathQuery</a>(path:String, context:<a href="model/XPathContext.html">XPathContext</a> = null)</div>
 <div class="summaryTableDescription">
-   
-   </div>
+      </div>
 </td><td class="summaryTableOwnerCol">XPathQuery</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#exec()">exec</a>(xml:XML, context:<a href="model/XPathContext.html">XPathContext</a> = null):*</div>
+<a class="signatureLink" href="#exec()">exec</a>(xml:XML):*</div>
 <div class="summaryTableDescription">
-   
-   </div>
+      </div>
 </td><td class="summaryTableOwnerCol">XPathQuery</td>
 </tr>
 <tr class="">
@@ -99,8 +97,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#execQuery()">execQuery</a>(xml:XML, path:String):*</div>
 <div class="summaryTableDescription">[static]
-   
-   Convenience method.</div>
+      Convenience method.</div>
+</td><td class="summaryTableOwnerCol">XPathQuery</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#pathToNode()">pathToNode</a>(node:XML, useAbbreviatedSyntax:Boolean = true, useNodeNames:Boolean = true, startNode:XML = null):String</div>
+<div class="summaryTableDescription">[static]
+   Creates an absolute path to the node, or a relative path starting from the optional startNode.</div>
 </td><td class="summaryTableOwnerCol">XPathQuery</td>
 </tr>
 </table>
@@ -119,8 +124,8 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public var context:<a href="model/XPathContext.html">XPathContext</a></code>
-</div>
+<code>public var context:<a href="model/XPathContext.html">XPathContext</a></code><p>
+      </p></div>
 <a name="defaultContext"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -156,13 +161,11 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public function XPathQuery(path:String, context:<a href="model/XPathContext.html">XPathContext</a> = null)</code><p>
-   
-   </p><span class="label">Parameters</span>
+      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">path</span>:String</code> &mdash; The XPath statement that will be executed when you call <code>exec</code>
-   
-   </td>
+      </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
@@ -181,20 +184,11 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function exec(xml:XML, context:<a href="model/XPathContext.html">XPathContext</a> = null):*</code><p>
-   
-   </p><span class="label">Parameters</span>
+<code>public function exec(xml:XML):*</code><p>
+      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">xml</span>:XML</code> &mdash; The root document in which to execute the XPath query
-   </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">context</span>:<a href="model/XPathContext.html">XPathContext</a></code> (default = <code>null</code>)<code></code> &mdash; An optional context in which just this query will execute. You can use this to define namespaces, variables and functions
-   
    </td>
 </tr>
 </table>
@@ -203,8 +197,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code>*</code> &mdash; The result of executing the XPath statement. If the statement is a Path expression, this will be an XMLList
-   
-   </td>
+      </td>
 </tr>
 </table>
 </div>
@@ -216,13 +209,11 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public static function execQuery(xml:XML, path:String):*</code><p>
-   
-   Convenience method. Executes an XPath query on a context.
+      Convenience method. Executes an XPath query on a context.
    If you plan to execute the same XPath query multiple times, it is more efficient to create an instance of
    <code>XPathQuery</code> and call <code>exec</code> each time, to prevent the path string being parsed
    each time.
-   
-   </p><span class="label">Parameters</span>
+      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">xml</span>:XML</code> &mdash; The root document in which to execute the XPath query
@@ -233,8 +224,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">path</span>:String</code> &mdash; The XPath query string
-   
-   </td>
+      </td>
 </tr>
 </table>
 <p></p>
@@ -242,8 +232,49 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code>*</code> &mdash; The result of executing the XPath statement. If the statement is a Path expression, this will be an XMLList
-   
-   </td>
+      </td>
+</tr>
+</table>
+</div>
+<a name="pathToNode()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">pathToNode</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function pathToNode(node:XML, useAbbreviatedSyntax:Boolean = true, useNodeNames:Boolean = true, startNode:XML = null):String</code><p>
+   Creates an absolute path to the node, or a relative path starting from the optional startNode. If startNode does not have
+   the same XML root element as node then an error is thrown.
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">node</span>:XML</code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">useAbbreviatedSyntax</span>:Boolean</code> (default = <code>true</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">useNodeNames</span>:Boolean</code> (default = <code>true</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">startNode</span>:XML</code> (default = <code>null</code>)<code></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>String</code></td>
 </tr>
 </table>
 </div>
@@ -252,9 +283,7 @@ showHideInherited();
 <hr>
 <br>
 <p></p>
-<center class="copyright">
-<footer> 
-</footer>
+<center class="copyright"> 
 </center>
 </div>
 </body>
