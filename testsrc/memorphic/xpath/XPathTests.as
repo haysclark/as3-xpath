@@ -328,6 +328,26 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
+		
+		public function testAttributeExistence():void
+		{
+			var c:XPathContext = new XPathContext();
+			c.namespaces.h = "http://www.w3.org/1999/xhtml";
+			var xpath:XPathQuery = new XPathQuery( "count(//h:img[@alt='' or string-length(@alt)>0])", c);
+			var numImgWithAlt:int = xpath.exec(register);
+			assertEquals("Reference check for number of alt tags", 6, numImgWithAlt);
+			
+			xpath = new XPathQuery( "count(//h:img[@alt=''])", c);
+			var numImgWithEmptyAlt:int = xpath.exec(register);
+			assertEquals("Reference check for number of empty alt tags", 4, numImgWithEmptyAlt);
+			
+			xpath = new XPathQuery( "count(//h:img[@alt])", c);
+			assertEquals("Num images with alt attribute should be "+numImgWithAlt, numImgWithAlt, xpath.exec(register));
+			
+			xpath = new XPathQuery( "count(//h:img[@alt and string-length(@alt)=0])", c);
+			assertEquals("Num images with empty alt attribute should be "+numImgWithEmptyAlt, numImgWithEmptyAlt, xpath.exec(register));
+			checkXMLUnaffected();
+		}
 
 	}
 		
