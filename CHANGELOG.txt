@@ -1,0 +1,8 @@
+
+*** 0.2.4
+	* Added XPathUtils.findPath() method
+	* Fixed bug #9 - Paths that begin with "../" actually select grandparent instead of parent
+
+
+*** 0.2.3a
+No changes were logged up to this version
