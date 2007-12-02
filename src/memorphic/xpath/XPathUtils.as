@@ -10,6 +10,7 @@ package memorphic.xpath
 		public static function findPath(toNode:*, fromNode:XML=null, context:XPathContext=null):String
 		{
 			var path:String = "";
+			var pathPrefix:String = "";
 			var currentNode:XML;
 			if(toNode is XMLList){
 				if(toNode.length() == 0){
@@ -33,6 +34,25 @@ package memorphic.xpath
 			}
 			if(context == null){
 				context = new XPathContext();
+			}
+			
+			if(fromNode.parent() != null){
+				var commonAncestor:XML = XMLUtil.commonAncestor(fromNode, toNode); 
+				if(commonAncestor==null){
+					throw new ArgumentError("The supplied arguments 'fromNode' and 'toNode' were not from the same XML document.");
+				}
+				if(commonAncestor !== fromNode.parent()){
+					while(commonAncestor != fromNode.parent()) {
+						pathPrefix = "../" + pathPrefix;
+						fromNode = fromNode.parent();
+					}
+					//while(toNode.contains(fromNode));	
+					if(toNode == fromNode){
+						return pathPrefix + "self::node()";
+					}	
+				}else{
+					pathPrefix = ".";
+				}
 			}
 			if(toNode.nodeKind() == "attribute"){
 				path = "/@" + toNode.name();
@@ -60,11 +80,7 @@ package memorphic.xpath
 				}
 				currentNode = currentNode.parent();
 			}
-			if(fromNode.parent() != null){
-				// if it's a relative path, make sure it starts from the right node
-				path = ".";
-			}
-			return path;
+			return pathPrefix + path;
 		}
 		
 		
@@ -83,5 +99,6 @@ package memorphic.xpath
 			}
 			return "[" + (i + (context.zeroIndexPosition ? 0 : 1)) + "]";
 		}
+		
 	}
 }

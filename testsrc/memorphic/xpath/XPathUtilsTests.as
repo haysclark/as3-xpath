@@ -87,7 +87,14 @@ package memorphic.xpath {
 			var path:String = XPathUtils.findPath(maggieWayCountry);
 			var selected:XML = XPathQuery.execQuery(cds, path)[0];
 			assertTrue("Verify reference node is correct", maggieWayCountry.parent().@id == "cd8");
-			assertEquals("Path should select the same node.", maggieWayCountry, selected);
+			assertEquals("Path should select the same node. 1", maggieWayCountry, selected);
+			
+			var childOfTarget:XML = maggieWayCountry;
+			var target:XML = maggieWayCountry.parent();
+			path = XPathUtils.findPath(target, childOfTarget);
+			selected = XPathQuery.execQuery(childOfTarget, path)[0];
+			assertEquals("Path should select the same node. 2", target, selected);
+			
 			checkXMLUnaffected();
 		}
 

@@ -32,6 +32,8 @@
 
 package memorphic.utils
 {
+	import flash.utils.Dictionary;
+	
 	public class XMLUtil
 	{
 		
@@ -85,6 +87,40 @@ package memorphic.utils
 			} // otherwise prevSibling is null, so it will be inserted as first child
 			parent.insertChildAfter(prevSibling, child);
 			return parent.children().length();
+		}
+		
+		
+		/**
+		 * Replacement for builtin (broken?) XML.contains() method
+		 */
+		public static function elementIsAncestorOf(element:XML, child:XML):Boolean
+		{
+			var p:XML = child;
+			while((p=p.parent())){
+				if(p === element){
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		
+		public static function commonAncestor(node1:XML, node2:XML):XML
+		{
+			var node1Ancestors:Array = new Array();
+			var p:XML = node1;
+			// first make a list of all of node1's ancestors
+			while((p=p.parent())){
+				node1Ancestors.push(p);
+			}
+			p = node2;
+			// then compare node2's ancestors in order
+			while((p=p.parent())){
+				if(node1Ancestors.indexOf(p) > -1){
+					return p;
+				}
+			}
+			return null;
 		}
 	}
 }

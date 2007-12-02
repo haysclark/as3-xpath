@@ -144,12 +144,19 @@ package memorphic.xpath {
 				assertEquals(i+" should select 5 items", 5, result.length());
 				assertEquals(i+" should select a <name> node", "name", result[0].name());
 				assertEquals(i+" should match the expected result", expected, result.toXMLString());
-//				assertEquals(i+" should be the same node as expected", expected, result);
-
 			}
 			checkXMLUnaffected();
 		}
 		
+		// added to verify fix bug #9
+		public function testAncestor():void
+		{			
+			var xpath:XPathQuery = new XPathQuery("../self::node()");
+			var startNode:XML = menu.food[3].price[0];
+			var resultNode:XML = xpath.exec(startNode)[0];
+			assertEquals("Should be parent of the node we started with", startNode.parent(), resultNode);
+			checkXMLUnaffected();
+		}
 		
 		public function testPosition():void
 		{
