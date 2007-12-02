@@ -8,6 +8,7 @@
 
 	<mx:Script>
 		<![CDATA[
+			import memorphic.xpath.XPathUtilsTests;
 			/*
 				Copyright (c) 2007 Memorphic Ltd. All rights reserved.
 				
@@ -60,6 +61,7 @@
 			
 				ts.addTestSuite(XPathTests);
 				ts.addTestSuite(StandardFunctionsTests);
+				ts.addTestSuite(XPathUtilsTests);
 				return ts;
 			}
 
