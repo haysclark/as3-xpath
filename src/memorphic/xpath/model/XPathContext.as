@@ -100,10 +100,6 @@ package memorphic.xpath.model
 		internal var contextNode:XML;
 		internal var contextPosition:int;
 		internal var contextSize:int;
-
-
-		// internal var documentWrapper:XML;
-		
 		
 		
 		public function XPathContext()
@@ -111,8 +107,7 @@ package memorphic.xpath.model
 			variables = new Object();
 			namespaces = new Object();
 			functions = new Object();
-			
-			
+						
 		}
 
 

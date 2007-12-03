@@ -1,3 +1,4 @@
+
 /*
 	Copyright (c) 2007 Memorphic Ltd. All rights reserved.
 	
@@ -82,10 +83,10 @@ package memorphic.xpath.model
 		{
 			var result:XMLList = new XMLList();
 			var n:int = nodes.length();
+			context.contextSize = n;
 			for(var i:int=0; i<n; i++){
 				context.contextNode = nodes[i];
 				context.contextPosition = i;
-				context.contextSize = n;
 				result = XMLUtil.concatXMLLists(result, step.selectXMLList(context));
 			}
 			return result;

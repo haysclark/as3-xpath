@@ -39,7 +39,7 @@ package memorphic.xpath.model
 		public static const ZERO:PrimitiveValue = new PrimitiveValue(0);
 		
 		
-		private var value:Object;
+		public var value:Object;
 		
 		public function PrimitiveValue(value:Object)
 		{

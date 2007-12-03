@@ -26,6 +26,7 @@ package memorphic.xpath.model
 				xmlIsRoot = (xml == xmlRoot);
 			} 
 			if(xmlIsRoot){
+				// contextNode = <xml-document xmlns="http://www.memorphic.com/ns/2007/xpath-as3#internal"/>;
 				contextNode = <xml-document/>;
 				contextNode.appendChild(xmlRoot.copy());
 			}else{
@@ -35,8 +36,7 @@ package memorphic.xpath.model
 			context.contextPosition = 0;
 			context.contextSize = 1;
 			
-			var result:Object = expr.exec(context);
-			return result;
+			return expr.exec(context);
 		}
 	}
 }

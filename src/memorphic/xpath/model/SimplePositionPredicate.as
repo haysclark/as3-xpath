@@ -32,35 +32,30 @@
 
 package memorphic.xpath.model
 {
-	public class Operators
+	/**
+	 * A simpler version of Predicate, which filters by position, without having
+	 * to evaluate against every node in the node-set
+	 */
+	final public class SimplePositionPredicate
 	{
+		private var position:uint;
 		
-		public static const OR:String = "or";
-		public static const AND:String = "and";
-		public static const EQUALS:String = "=";
-		public static const NOT_EQUALS:String = "!=";
-		public static const MULTIPLY:String = "*";
-		public static const DIVIDE:String = "div";
-		public static const MODULO:String = "mod";
-		public static const ADD:String = "+";
-		public static const SUBTRACT:String = "-";
-		public static const LESS_THAN:String = "<"; 
-		public static const GREATER_THAN:String = ">"; 
-		public static const LESS_THAN_OR_EQUAL:String = "<=";
-		public static const GREATER_THAN_OR_EQUAL:String = ">=";  
-		public static const UNION:String = "|"; 
+		public function SimplePositionPredicate(position:uint)
+		{
+			this.position = position;
+		}
 		
-		public static function isOperator(value:String):Boolean{
-			switch(value){
-			case OR: case AND: case EQUALS: case NOT_EQUALS:
-			case MULTIPLY: case DIVIDE: case MODULO: case ADD:
-			case SUBTRACT: case LESS_THAN: case GREATER_THAN:
-			case LESS_THAN_OR_EQUAL: case GREATER_THAN_OR_EQUAL:
-			case UNION:
-				return true;
-			default:
-				return false;
+		public function filterXMLList(nodeList:XMLList, context:XPathContext):XMLList
+		{
+			var pos:int = context.zeroIndexPosition ? position : position -1;
+			if(pos < nodeList.length()){
+				return <></>+nodeList[pos];
+			}else{
+				return <></>;
 			}
 		}
+		
+
+
 	}
 }

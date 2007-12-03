@@ -57,6 +57,7 @@ package memorphic.xpath.parser
 	import memorphic.parser.TokenMetrics;
 	import memorphic.parser.Token;
 	import memorphic.xpath.model.Operators;
+	import memorphic.xpath.model.SimplePositionPredicate;
 
 	final public class XPathParser
 	{
@@ -292,12 +293,10 @@ package memorphic.xpath.parser
 		
 		private function collectPredicates(children:Array):PredicateList
 		{
-			var pred:Predicate;
 			var predicates:Array = new Array();
 			var n:int = children.length;
 			for(var i:int=0; i<n; i++){
-				pred = Predicate(getModel(children[i]));
-				predicates.push(pred);
+				predicates.push(getModel(children[i]));
 			}
 			if(predicates.length > 0){
 				return new PredicateList(predicates);
@@ -340,7 +339,12 @@ package memorphic.xpath.parser
 		private function parsePredicate():void
 		{
 			var expr:IExpression = getModel(currentToken.children[0]) as IExpression;
-			setModel(new Predicate(expr));
+			var primExpr:PrimitiveValue;
+			if((primExpr = (expr as PrimitiveValue)) && primExpr.value is uint){
+				setModel(new SimplePositionPredicate(uint(primExpr.value)));
+			}else{
+				setModel(new Predicate(expr));
+			}
 		}
 		
 
