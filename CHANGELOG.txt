@@ -2,6 +2,8 @@
 *** 0.2.4
 	* Added XPathUtils.findPath() method
 	* Fixed bug #9 - Paths that begin with "../" actually select grandparent instead of parent
+	* Fixed issue #10 - optimization for numeric predicates
+	* Fixed bug #11 - RTE when using "following" axis on document root
 
 
 *** 0.2.3a
