@@ -178,10 +178,13 @@ package memorphic.xpath.model
 		{
 			var following:XMLList = new XMLList();
 			var i:int = node.childIndex();
-			var allSiblings:XMLList = node.parent().children();
-			var n:int = allSiblings.length();
-			for(; i<n; i++){
-				following += allSiblings[i];
+			var p:XML = node.parent();
+			if(p){
+				var allSiblings:XMLList = p.children();
+				var n:int = allSiblings.length();
+				for(; i<n; i++){
+					following += allSiblings[i];
+				}
 			}
 			return following;
 		}
@@ -190,9 +193,12 @@ package memorphic.xpath.model
 		{
 			var preceding:XMLList = new XMLList();
 			var i:int = node.childIndex();
-			var allSiblings:XMLList = node.parent().children();
-			while(i--){
-				preceding += allSiblings[i];
+			var p:XML = node.parent();
+			if(p){
+				var allSiblings:XMLList = p.children();
+				while(i--){
+					preceding += allSiblings[i];
+				}
 			}
 			return preceding;
 		}
