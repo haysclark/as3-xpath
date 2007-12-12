@@ -7,6 +7,25 @@ package memorphic.xpath
 	public class XPathUtils
 	{
 		
+		
+		/**
+		 * <p>Generates an XPath path that will find <code>toNode</code>, starting at <code>fromNode</code>.
+		 * If <code>fromNode</code> is omitted then the XML root will be used as a starting point.</p>
+		 * 
+		 * <p>The path always uses abbreviated notation, and will be of one of the following forms:
+		 * <ul><li><code>"/a[1]/b[1]c[3]"</code> for absolute paths (starting at the document root).</li>
+		 * <li><code>"./a[1]/b[1]c[3]"</code> for relative paths (starting at an ancestor node of the target).</li>
+		 * <li><code>"../a[1]/b[1]c[3]"</code> for relative paths (starting at a node that is not an ancestor of the target).</li>
+		 * <li><code>"path1|path2|path3"</code> where the target is an XMLList of length > 1. Each pathN will be one of the forms above.</li>
+		 * </ul>
+		 * </p>
+		 * 
+		 * @param toNode Can be either XML or XMLList.
+		 * @param fromNode The node to start from. Defaults to the XML root
+		 * @param context Provide this if the XPathContext will affect the way the path should be built. Currently,
+		 * 		that will only be if the context uses (non-standard) zero-indexed position, so you probably won't 
+		 * 		need to use this argument.
+		 */
 		public static function findPath(toNode:*, fromNode:XML=null, context:XPathContext=null):String
 		{
 			var path:String = "";

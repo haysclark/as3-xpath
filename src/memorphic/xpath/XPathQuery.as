@@ -155,18 +155,6 @@ package memorphic.xpath
 
 
 
-		/**
-		 * Creates an absolute path to the node, or a relative path starting from the optional startNode. If startNode does not have
-		 * the same XML root element as node then an error is thrown.
-		 *
-		 * @param
-		 *
-		 */
-		public static function pathToNode(node:XML, useAbbreviatedSyntax:Boolean=true, useNodeNames:Boolean=true, startNode:XML=null):String
-		{
-
-			return null;
-		}
 
 	}
 }
