@@ -46,12 +46,14 @@ package memorphic.xpath.model
 			context.contextNode = contextNode;
 			context.contextPosition = 0;
 			context.contextSize = 1;
-			
-			var result:Object = expr.exec(context);
-			
-			if(rootWrapped){
-				delete docRoot.children()[0];
-			}
+		
+			try{
+				var result:Object = expr.exec(context);
+			}finally{
+				if(rootWrapped){
+					delete docRoot.children()[0];
+				}				
+			}		
 			return result;
 		}
 	}
