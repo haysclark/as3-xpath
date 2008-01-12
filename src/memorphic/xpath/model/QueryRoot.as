@@ -16,7 +16,6 @@ package memorphic.xpath.model
 		public function execRoot(xml:XML, context:XPathContext):Object
 		{
 			var xmlRoot:XML
-			var xmlIsRoot:Boolean = false;
 			var contextNode:XML;
 			// xpath requires root "/" to be the document root, which is not represented in e4x, so we
 			// have to do a a little bit of ugliness. In fact, that's really what this class is for
@@ -25,7 +24,6 @@ package memorphic.xpath.model
 			var rootWrapped:Boolean = false;
 			if(xml != null){
 				xmlRoot = XMLUtil.rootNode(xml);
-				xmlIsRoot = (xml == xmlRoot);
 				
 				if(docRoot.localName() == xmlRoot.localName()){
 					docRoot = xmlRoot;
@@ -33,7 +31,7 @@ package memorphic.xpath.model
 					docRoot.appendChild(xmlRoot);
 					rootWrapped = true;
 				}
-				if(xmlIsRoot){
+				if(xml == xmlRoot){
 					contextNode = docRoot;
 				}else{
 					contextNode = xml;

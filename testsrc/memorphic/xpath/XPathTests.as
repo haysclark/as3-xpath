@@ -33,13 +33,10 @@
 package memorphic.xpath {
 
 	import flexunit.framework.TestCase;
-	import flexunit.framework.TestSuite;
-	import memorphic.xpath.fixtures.XMLData;
 	import flexunit.framework.TestResult;
-	import memorphic.xpath.model.XPathContext;
-	import flash.utils.getTimer;
-	import flash.utils.describeType;
 	
+	import memorphic.xpath.fixtures.XMLData;
+	import memorphic.xpath.model.XPathContext;
 	
 	public class XPathTests extends TestCase {
 		
@@ -136,14 +133,15 @@ package memorphic.xpath {
 							"*/*/name"];
 			var result:XMLList;
 			var n:int = paths.length;
-			var expected:String = menu.food.name.toXMLString();
+			var expected:XMLList = menu.food.name;
 			for(var i:int=0; i<n; i++){
 
 				result = XPathQuery.execQuery(menu, paths[i]) as XMLList;
 				assertTrue(i+" result should be XMLList", result is XMLList);
 				assertEquals(i+" should select 5 items", 5, result.length());
 				assertEquals(i+" should select a <name> node", "name", result[0].name());
-				assertEquals(i+" should match the expected result", expected, result.toXMLString());
+				// after issue #12, this is now checking instance equality instead of toXMLString equality
+				assertEquals(i+" should match the expected result", expected, result);
 			}
 			checkXMLUnaffected();
 		}
@@ -354,6 +352,32 @@ package memorphic.xpath {
 			xpath = new XPathQuery( "count(//h:img[@alt and string-length(@alt)=0])", c);
 			assertEquals("Num images with empty alt attribute should be "+numImgWithEmptyAlt, numImgWithEmptyAlt, xpath.exec(register));
 			checkXMLUnaffected();
+		}
+		
+		
+		
+		public function testAbsolutePathFromChildStartNode():void
+		{
+			var xpath:XPathQuery = new XPathQuery( "/CATALOG/CD[1]/@id");
+			var child:XML = cds.CD[3].COUNTRY[0];
+			assertEquals("sanity check", "cd1", xpath.exec(cds));
+			assertEquals("results should be the same because it's absolute", "cd1", xpath.exec(child));
+			checkXMLUnaffected();
+		}
+		
+		
+		public function testCustomFunctionExecsPath():void
+		{
+			var path:String = "/CATALOG/CD[last()]";
+			var context:XPathContext = new XPathContext();
+			context.functions.lastCD = function(context:XPathContext):XMLList
+			{
+				return XPathQuery.execQuery(context.node(), path);
+			}
+			XPathQuery.defaultContext = context;
+			assertTrue("sanity check", XPathQuery.execQuery(cds, path + " = " + path));
+			assertTrue("call 'out' should not affect absolute paths", XPathQuery.execQuery(cds, path + " = lastCD()"));
+			
 		}
 
 	}
