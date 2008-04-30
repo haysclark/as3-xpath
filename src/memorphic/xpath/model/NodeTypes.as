@@ -59,7 +59,7 @@ package memorphic.xpath.model
 			switch(kind){
 			case COMMENT: case TEXT: case PROCESSING_INSTRUCTION:
 				return kind;
-			case "element":
+			case "element": case "attribute":
 				return NODE;
 			default:
 				// including "attribute" which is handled as an Axis in XPath

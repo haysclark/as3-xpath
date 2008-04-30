@@ -355,6 +355,26 @@ package memorphic.xpath {
 		}
 		
 		
+		// added to verify fix to bug #13 (brought up on Flashcoders mailing list)
+		public function testAttributeSelfAxis():void
+		{
+			
+			var data:XML = <p>
+			  <a href="http://www.memorphic.com">link 1</a>
+			  <a href="http://www.google.com">link 2</a>
+			</p>;
+			var url:String;
+			url = XPathQuery.execQuery(data, "/p/a/@href[string(.) = 'http://www.memorphic.com']");
+			assertEquals("1 should match just the memorphic url", "http://www.memorphic.com", url);
+			url = XPathQuery.execQuery(data, "/p/a/@href[string() = 'http://www.memorphic.com']");
+			assertEquals("1.1 should match just the memorphic url", "http://www.memorphic.com", url);
+			url = XPathQuery.execQuery(data, "/p/a/@href[contains(self::node(),'memorphic')]");
+			assertEquals("2 should match just the memorphic url", "http://www.memorphic.com", url);
+			
+			assertEquals("3 check id att", "cd4", XPathQuery.execQuery(cds, "//@id[contains(.,'cd4')]"));
+			checkXMLUnaffected();
+		}
+		
 		
 		public function testAbsolutePathFromChildStartNode():void
 		{

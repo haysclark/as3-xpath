@@ -4,10 +4,13 @@ package memorphic.xpath.model
 	
 	final public class QueryRoot
 	{
-
+		
+		private namespace tmpRootNS = "http://www.memorphic.com/ns/2007/xpath-as3#tmpRoot";
+		private const tmpRootLocalName:String = "document-root";
+		
 		private var expr:IExpression;
-		
-		
+
+
 		public function QueryRoot(rootExpr:IExpression)
 		{
 			expr = rootExpr;
@@ -18,16 +21,20 @@ package memorphic.xpath.model
 			var xmlRoot:XML
 			var contextNode:XML;
 			// xpath requires root "/" to be the document root, which is not represented in e4x, so we
-			// have to do a a little bit of ugliness. In fact, that's really what this class is for
-			// docRoot = <xml-document xmlns="http://www.memorphic.com/ns/2007/xpath-as3#internal"/>;
-			var docRoot:XML = <xpathas3-document-root/>
+			// have to wrap it in a temporary root node. 
+			var docRoot:XML;
 			var rootWrapped:Boolean = false;
 			if(xml != null){
 				xmlRoot = XMLUtil.rootNode(xml);
 				
-				if(docRoot.localName() == xmlRoot.localName()){
+				// Make sure it isn't already wrapped. This could happen if a custom xpath function executes
+				// another Xpath query on the same XML object 
+				if(xmlRoot.localName() == tmpRootLocalName && xmlRoot.namespace() == tmpRootNS){
 					docRoot = xmlRoot;
 				}else{
+					docRoot = <{tmpRootLocalName}/>;
+					// namespace must be added after, otherwise it contaminates toXMLString() for child nodes (AS3 bug?)
+					docRoot.setNamespace(tmpRootNS);
 					docRoot.appendChild(xmlRoot);
 					rootWrapped = true;
 				}
@@ -49,6 +56,7 @@ package memorphic.xpath.model
 				var result:Object = expr.exec(context);
 			}finally{
 				if(rootWrapped){
+					// remove the wrapper if we added it
 					delete docRoot.children()[0];
 				}				
 			}		
