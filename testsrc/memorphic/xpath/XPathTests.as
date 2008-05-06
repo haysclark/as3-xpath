@@ -263,21 +263,14 @@ package memorphic.xpath {
 		{
 			// just make sure that /foo/self is allowed as an equivalent to /foo/child::self
 			// and "self" is not interpreted as an axis
+			var data:XML = <foo><self>hello</self></foo>;
+			xpath = new XPathQuery("/foo/self");
+			result = xpath.exec(data);
+			
+			assertEquals("Axis names should be allowed as NCNames if the context is right",
+					result.toString(), "hello");
 		}
 
-		public function _testSubPathsInFilterExpressions():void
-		{
-			// this is to make sure that I really only have to use context.copy() in Location Paths
-			var xpath:XPathQuery = new XPathQuery("contextSizeTest(breakfast-menu/food, count(/breakfast-menu/food)))");
-			xpath.context.functions.contextSizeTest = function (context:XPathContext, nodeset1:XMLList, num:int):Boolean
-			{
-				return context.last() == num;
-			}
-			
-			assertTrue("xxx", xpath.exec(menu));
-			
-			checkXMLUnaffected();
-		}
 
 
 
