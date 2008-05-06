@@ -49,6 +49,9 @@ package memorphic.xpath {
 		private var register:XML;
 		private var rdf:XML;
 		
+		private var xpath:XPathQuery;
+		private var result:*;
+		
 	    public function XPathTests( methodName:String = null) {
 			super( methodName );
         }
@@ -72,6 +75,8 @@ package memorphic.xpath {
 			rdf = null;
 			register = null;
 			
+			xpath = null;
+			result = null;
 		}
 
 		
@@ -331,6 +336,82 @@ package memorphic.xpath {
 			assertEquals("should be left-associative- mod", 0, xpath.exec(null));
 			
 			checkXMLUnaffected();
+		}
+		
+		
+		public function testNumbers():void
+		{
+			
+			xpath = new XPathQuery("1");
+			result = xpath.exec(null);
+			assertEquals("1", 1, result);
+			
+			xpath = new XPathQuery("2");
+			result = xpath.exec(null);
+			assertEquals("2", 2, result);
+			
+			xpath = new XPathQuery("0");
+			result = xpath.exec(null);
+			assertEquals("0", 0, result);
+			
+			xpath = new XPathQuery("-0");
+			result = xpath.exec(null);
+			assertEquals("-0", 0, result);
+			
+			xpath = new XPathQuery("1.0");
+			result = xpath.exec(null);
+			assertEquals("1.0", 1, result);
+			
+			xpath = new XPathQuery("0.1");
+			result = xpath.exec(null);
+			assertEquals("0.1", 0.1, result);
+			
+			xpath = new XPathQuery("-2");
+			result = xpath.exec(null);
+			assertEquals("-2", -2, result);
+			
+			// build 0.2.4 stopped parsing after 1 decimal place.
+			xpath = new XPathQuery("0.0000001");
+			result = xpath.exec(null);
+			assertEquals("0.0000001", 0.0000001, result);
+			
+			xpath = new XPathQuery("29.99");
+			result = xpath.exec(null);
+			assertEquals("29.99", 29.99, result);
+			
+		}
+		
+		public function testNumberRelations():void
+		{
+			xpath = new XPathQuery("1 = 1");
+			assertTrue("1 = 1", xpath.exec(null));
+			xpath = new XPathQuery("1 > 1");
+			assertFalse("1 > 1", xpath.exec(null));
+			xpath = new XPathQuery("1 = 1");
+			assertTrue("1 = 1", xpath.exec(null));
+			xpath = new XPathQuery("1 >= 1");
+			assertTrue("1 >= 1", xpath.exec(null));
+			xpath = new XPathQuery("1 >= 1");
+			assertTrue("1 <= 1", xpath.exec(null));
+			
+			xpath = new XPathQuery("-1 = -1");
+			assertTrue("-1 = -1", xpath.exec(null));
+			xpath = new XPathQuery("-1 > -1");
+			assertFalse("-1 > -1", xpath.exec(null));
+			xpath = new XPathQuery("1 = 1");
+			assertTrue("-1 = -1", xpath.exec(null));
+			xpath = new XPathQuery("-1 >= -1");
+			assertTrue("-1 >= -1", xpath.exec(null));
+			xpath = new XPathQuery("-1 <= -1");
+			assertTrue("-1 <= -1", xpath.exec(null));
+			
+			xpath = new XPathQuery("1 = -1");
+			assertFalse("1 = -1", xpath.exec(null));
+			
+			// This failed in 0.2.4. It's parsed as if it is just "29.9"
+			xpath = new XPathQuery("29.99 = 30");
+			assertFalse("29.99 = 30", xpath.exec(null));
+			
 		}
 		
 		
