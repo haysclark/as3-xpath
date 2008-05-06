@@ -6,7 +6,6 @@
 3. processing-instruction(name) NodeTest is not yet implemented
 4. General performance enhancements
 5. Error handling - need more useful messages
-6. Issue #14 - Certain Syntax errors are ignored instead of throwing an error, and the an incomplete expression is evaluated
 
 
 # FOL differences from the w3c spec

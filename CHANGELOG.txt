@@ -1,6 +1,7 @@
 *** 0.2.5
 	* Fixed issue #12 - XPath result is a copy of the original XML object
 	* Fixed issue #13 - Error thrown when you refer to "self" in a predicate when the context is an attribute node
+	* Fixed issue #14 - No errors for bad syntax - constructs a valid truncated path
 	* Fixed issue #15 - Path cuts off after more than one decimal place in numbers
 
 *** 0.2.4
