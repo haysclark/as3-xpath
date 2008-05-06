@@ -35,6 +35,7 @@ package memorphic.xpath {
 	import flexunit.framework.TestCase;
 	import flexunit.framework.TestResult;
 	
+	import memorphic.parser.ParseError;
 	import memorphic.xpath.fixtures.XMLData;
 	import memorphic.xpath.model.XPathContext;
 	
@@ -372,6 +373,8 @@ package memorphic.xpath {
 			result = xpath.exec(null);
 			assertEquals("29.99", 29.99, result);
 			
+			// TODO: Test edge cases for max and min values (according to both AS3 and XPath)
+			
 		}
 		
 		public function testNumberRelations():void
@@ -401,10 +404,10 @@ package memorphic.xpath {
 			xpath = new XPathQuery("1 = -1");
 			assertFalse("1 = -1", xpath.exec(null));
 			
-			// This failed in 0.2.4. It's parsed as if it is just "29.9"
+			// This failed in 0.2.4. It's parsed as if it is just "29.9" (issue #15)
 			xpath = new XPathQuery("29.99 = 30");
 			assertFalse("29.99 = 30", xpath.exec(null));
-			
+
 		}
 		
 		
@@ -472,6 +475,34 @@ package memorphic.xpath {
 			assertTrue("sanity check", XPathQuery.execQuery(cds, path + " = " + path));
 			assertTrue("call 'out' should not affect absolute paths", XPathQuery.execQuery(cds, path + " = lastCD()"));
 			
+		}
+		
+		// added to fix bug #14. We need to have decent error handling around syntax errors
+		// Need to nail down and test the different error objects that could be produced, as well as messages
+		public function testMalformedPaths():void
+		{
+			var errorPaths:Array = ["a b", "//self::node())", 
+				"/x/y[contains(self::node())", "/x/y[contains(self::node()]",
+				"***", 
+				"text::a" // because text is not an axis
+			];
+			var n:int = errorPaths.length;
+			for(var i:int=0; i<n; i++){
+				assertTrue(pathHasError(errorPaths[i]));
+			}
+			
+		}
+		private function pathHasError(path:String):Boolean
+		{
+			var xpath:XPathQuery
+			try {
+				xpath = new XPathQuery(path);
+			}catch(e:ParseError){
+				return true;
+			}catch(e:SyntaxError){
+				return true;
+			}
+			return false;
 		}
 
 	}

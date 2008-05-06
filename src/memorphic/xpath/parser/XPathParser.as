@@ -87,6 +87,7 @@ package memorphic.xpath.parser
 				modelMap = new Dictionary();
 				tokenizer.rawData = source;
 				treeRoot = syntaxTree.getTree();
+				syntaxTree.verifyTree();
 				treeWalker = new TreeWalker(treeRoot);
 				walkTree();
 				var path:IExpression = IExpression( getModel(treeRoot) );

@@ -79,7 +79,11 @@ package memorphic.parser
 			return stack[0] as SyntaxTreeItem;
 		}
 
-		protected function verifyTree():void
+
+		/**
+		 * Will throw a ParseError if there are unused tokens
+		 */
+		public function verifyTree():void
 		{
 			if(stack.length > 1){
 				throw new ParseError("Some parsing went awry",
