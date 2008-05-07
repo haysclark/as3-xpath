@@ -481,16 +481,16 @@ package memorphic.xpath {
 		// Need to nail down and test the different error objects that could be produced, as well as messages
 		public function testMalformedPaths():void
 		{
-			var errorPaths:Array = ["a b",
+			var errorPaths:Array = ["\\\\a\\b","a b",
 				"//self::node())", // extra ")"
 				"/x/y[contains(self::node())", // missing "]"
 				 "/x/y[contains(self::node()]", // missing ")"
-				"***", 
+				"***", "///", 
 				"text::a" // because text is not an axis
 			];
 			var n:int = errorPaths.length;
 			for(var i:int=0; i<n; i++){
-				assertTrue(pathHasError(errorPaths[i]));
+				assertTrue("Should throw an error: " + errorPaths[i], pathHasError(errorPaths[i]));
 			}
 			
 		}
