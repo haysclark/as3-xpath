@@ -50,7 +50,6 @@
 						
 			private function onCreationComplete():void
 			{
-				//TestResult.rethrowErrors = true;
 				testRunner.test = createSuite();
 				testRunner.startTest();	
 			}
