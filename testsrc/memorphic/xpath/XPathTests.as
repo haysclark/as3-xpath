@@ -479,7 +479,9 @@ package memorphic.xpath {
 		// Need to nail down and test the different error objects that could be produced, as well as messages
 		public function testMalformedPaths():void
 		{
-			var errorPaths:Array = ["\\\\a\\b","a b",
+			var errorPaths:Array = [
+				// "\\\\a\\b",
+				"a b",
 				"//self::node())", // extra ")"
 				"/x/y[contains(self::node())", // missing "]"
 				 "/x/y[contains(self::node()]", // missing ")"
