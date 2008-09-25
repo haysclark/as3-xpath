@@ -4,13 +4,13 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
-<meta content="StandardFunctions,memorphic.xpath.model.StandardFunctions,last,position,count,id,name,string,concat,contains,substring,translate,boolean,not,lang,number,sum,floor,ceiling,round,print" name="keywords">
+<meta content="StandardFunctions,memorphic.xpath.model.StandardFunctions,boolean,ceiling,concat,contains,count,floor,id,lang,last,name,not,number,position,print,round,string,substring,sum,translate" name="keywords">
 <title>memorphic.xpath.model.StandardFunctions</title>
 </head>
 <body>
 <script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
 <!--
-				asdocTitle = 'StandardFunctions - Adobe ActionScript 3.0 Library - xpath-as3';
+				asdocTitle = 'StandardFunctions - xpath-as3';
 				var baseRef = '../../../';
 				window.onload = configPage;
 			--></script>
@@ -90,7 +90,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#concat()">concat</a>(context:<a href="XPathContext.html">XPathContext</a>, s1:*, s2:*, ... rest):String</div>
+<a class="signatureLink" href="#concat()">concat</a>(context:<a href="XPathContext.html">XPathContext</a>, ... s1, s2:*, rest:*):String</div>
 <div class="summaryTableDescription">
    The concat function returns the string concatenation of its arguments.</div>
 </td><td class="summaryTableOwnerCol">StandardFunctions</td>
@@ -343,7 +343,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function concat(context:<a href="XPathContext.html">XPathContext</a>, s1:*, s2:*, ... rest):String</code><p>
+<code>public function concat(context:<a href="XPathContext.html">XPathContext</a>, ... s1, s2:*, rest:*):String</code><p>
    The concat function returns the string concatenation of its arguments.
    </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -354,7 +354,7 @@ showHideInherited();
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">s1</span>:*</code></td>
+<td width="20px"></td><td><code>... <span class="label">s1</span></code></td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
@@ -366,7 +366,7 @@ showHideInherited();
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code>... <span class="label">rest</span></code></td>
+<td width="20px"></td><td><code><span class="label">rest</span>:*</code></td>
 </tr>
 </table>
 <p></p>

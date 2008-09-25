@@ -4,13 +4,13 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
-<meta content="XPathSyntaxTree,memorphic.xpath.parser.XPathSyntaxTree,LOCATION_PATH,ABSOLUTE_LOCATION_PATH,RELATIVE_LOCATION_PATH,STEP,AXIS_SPECIFIER,NODE_TEST,PREDICATE,PREDICATE_EXPR,ABBREVIATED_ABSOLUTE_LOCATION_PATH,ABBREVIATED_RELATIVE_LOCATION_PATH,ABBREVIATED_STEP,ABBREVIATED_AXIS_SPECIFIER,EXPR,PRIMARY_EXPR,FUNCTION_CALL,ARGUMENT,UNION_EXPR,PATH_EXPR,FILTER_EXPR,OR_EXPR,AND_EXPR,EQUALITY_EXP,RELATIONAL_EXP,ADDITIVE_EXPR,MULTIPLICATIVE_EXPR,UNARY_EXPR,QNAME,NAME_TEST,getTree,LocationPath,AbsoluteLocationPath,RelativeLocationPath,Step,AxisSpecifier,NodeTest,Predicate,PredicateExpr,AbbreviatedAbsoluteLocationPath,AbbreviatedRelativeLocationPath,AbbreviatedStep,AbbreviatedAxisSpecifier,Expr,PrimaryExpr,FunctionCall,Argument,UnionExpr,PathExpr,FilterExpr,OrExpr,AndExpr,EqualityExpr,RelationalExpr,AdditiveExpr,MultiplicativeExpr,UnaryExpr,ruleMatched,ruleMatched,ruleMatched" name="keywords">
+<meta content="XPathSyntaxTree,memorphic.xpath.parser.XPathSyntaxTree,ABBREVIATED_ABSOLUTE_LOCATION_PATH,ABBREVIATED_AXIS_SPECIFIER,ABBREVIATED_RELATIVE_LOCATION_PATH,ABBREVIATED_STEP,ABSOLUTE_LOCATION_PATH,ADDITIVE_EXPR,AND_EXPR,ARGUMENT,AXIS_SPECIFIER,EQUALITY_EXP,EXPR,FILTER_EXPR,FUNCTION_CALL,LOCATION_PATH,MULTIPLICATIVE_EXPR,NAME_TEST,NODE_TEST,OR_EXPR,PATH_EXPR,PREDICATE,PREDICATE_EXPR,PRIMARY_EXPR,QNAME,RELATIONAL_EXP,RELATIVE_LOCATION_PATH,STEP,UNARY_EXPR,UNION_EXPR,AbbreviatedAbsoluteLocationPath,AbbreviatedAxisSpecifier,AbbreviatedRelativeLocationPath,AbbreviatedStep,AbsoluteLocationPath,AdditiveExpr,AndExpr,Argument,AxisSpecifier,EqualityExpr,Expr,FilterExpr,FunctionCall,LocationPath,MultiplicativeExpr,NodeTest,OrExpr,PathExpr,Predicate,PredicateExpr,PrimaryExpr,RelationalExpr,RelativeLocationPath,Step,UnaryExpr,UnionExpr,getTree,ruleMatched" name="keywords">
 <title>memorphic.xpath.parser.XPathSyntaxTree</title>
 </head>
 <body>
 <script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
 <!--
-				asdocTitle = 'XPathSyntaxTree - Adobe ActionScript 3.0 Library - xpath-as3';
+				asdocTitle = 'XPathSyntaxTree - xpath-as3';
 				var baseRef = '../../../';
 				window.onload = configPage;
 			--></script>
@@ -126,6 +126,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summaryTableDescription"></div>
 </td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
 </tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../parser/SyntaxTree.html#verifyTree()">verifyTree</a>():void</div>
+<div class="summaryTableDescription">
+   Will throw a ParseError if there are unused tokens
+   </div>
+</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
+</tr>
 </table>
 </div>
 <a name="protectedMethodSummary"></a>
@@ -236,23 +245,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
    </div>
 </td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
 </tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#ruleMatched()">ruleMatched</a>(item:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>):void</div>
-<div class="summaryTableDescription">
-   From my understanding...</div>
-</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="#ruleMatched()">ruleMatched</a>(item:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>):void</div>
-<div class="summaryTableDescription">
-   
-   </div>
-</td><td class="summaryTableOwnerCol">XPathSyntaxTree</td>
-</tr>
 <tr class="hideInheritedProtectedMethod">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
@@ -266,13 +258,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="../../parser/SyntaxTree.html#startRule()">startRule</a>(ruleName:String):void</div>
 <div class="summaryTableDescription">
    Indicate that a new rule has begun executing.</div>
-</td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
-</tr>
-<tr class="hideInheritedProtectedMethod">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
-<div class="summarySignature">
-<a class="signatureLink" href="../../parser/SyntaxTree.html#verifyTree()">verifyTree</a>():void</div>
-<div class="summaryTableDescription"></div>
 </td><td class="summaryTableOwnerCol"><a href="../../parser/SyntaxTree.html">SyntaxTree</a></td>
 </tr>
 </table>
@@ -950,42 +935,6 @@ showHideInherited();
 <div class="seeAlso">
 <a href="../parser/XPathSyntaxTree.html#createToken()" target="">createToken()</a>
 </div>
-</div>
-<a name="ruleMatched()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">ruleMatched</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>protected override function ruleMatched(item:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>):void</code><p>
-   From my understanding...
-   
-     QName ::= 
-      NCName ':' NCName
-      | NCName
-   </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">item</span>:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a></code></td>
-</tr>
-</table>
-</div>
-<a name="ruleMatched()"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">ruleMatched</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>protected override function ruleMatched(item:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a>):void</code><p>
-   
-   </p><span class="label">Parameters</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20px"></td><td><code><span class="label">item</span>:<a href="../../parser/SyntaxTreeItem.html">SyntaxTreeItem</a></code></td>
-</tr>
-</table>
 </div>
 <a name="Step()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
