@@ -33,7 +33,6 @@
 package memorphic.xpath {
 
 	import flexunit.framework.TestCase;
-	import flexunit.framework.TestResult;
 	
 	import memorphic.parser.ParseError;
 	import memorphic.xpath.fixtures.XMLData;
@@ -508,6 +507,46 @@ package memorphic.xpath {
 				return false;
 			}
 			return false;
+		}
+		
+		
+		public function testW3CXMLNamespace():void
+		{
+			xpath = new XPathQuery("breakfast-menu/food[@xml:id = '4']/name/text()");
+			assertEquals("should have selected first food node", "French Toast", xpath.exec(menu));
+			
+			var context:XPathContext = new XPathContext();
+			context.namespaces["xhtml"] = "http://www.w3.org/1999/xhtml";
+			xpath = new XPathQuery("xhtml:html/@xml:lang", context);
+			assertEquals("Testing xml:lang attribute", "en", xpath.exec(xhtml));
+			
+			checkXMLUnaffected();
+		}
+		
+		public function testUseSourceNamespaceDefaultNS():void
+		{
+			xpath = new XPathQuery("//head");
+			xpath.context.useSourceNamespacePrefixes = true;
+			var result:XMLList = xpath.exec(xhtml);
+			
+			assertEquals("only select one node", 1, result.length());
+			assertEquals("local name should be <head>", "head", result[0].localName());
+			
+			xpath = new XPathQuery("//div[@id='globalnav-noscript']/a[@href]/text()");
+			xpath.context.useSourceNamespacePrefixes = true;
+			var result2:String = xpath.exec(xhtml);
+			assertEquals("more complex query with default NS", "site requirements", result2);
+			
+			checkXMLUnaffected();
+		}
+		
+		public function testUseSourceNamespacePrefixes():void
+		{
+			xpath = new XPathQuery("rdf:RDF/channel/items/rdf:Seq/rdf:li[1]/@rdf:resource");
+			xpath.context.useSourceNamespacePrefixes = true;
+			var result:String = xpath.exec(rdf);
+			assertEquals("Should match the first resource listed in the RDF", "http://www.trajiklyhip.com/blog/index.cfm/2006/9/12/Flex-Web-Services-Question", result);
+			checkXMLUnaffected();
 		}
 
 	}

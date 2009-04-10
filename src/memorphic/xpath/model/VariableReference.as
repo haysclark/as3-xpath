@@ -56,7 +56,7 @@ package memorphic.xpath.model
 		private function getVarName(context:XPathContext):Object
 		{
 			if(prefix){
-				return new QName(context.getNamespace(prefix), localName);
+				return new QName(context.getNamespaceURI(prefix), localName);
 			}else{
 				return localName;
 			}

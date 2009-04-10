@@ -58,30 +58,43 @@ package memorphic.xpath.model
 		public function test(context:XPathContext):Boolean
 		{
 			var node:XML = context.contextNode;
+			
+			// only elements and attributes can have names
 			if(!(node.nodeKind() == "element" || node.nodeKind() == "attribute")){
-				// XXX: or processing-instruction?? - or do I even need to check?????
+				// XXX: what about processing-instruction??
 				return false;
 			}
+			
+			// before we look at namespaces, eliminate cases where the local name is different...
+			if(localName != "*" && node.localName() != localName){
+				return false;
+			}
+			// ...so from now on, we are just looking at namespaces
+			
+			// in these cases the namespace can be ignored
 			if(context.openAllNamespaces || prefix=="*"){
-				if(localName == "*"){
-					return true;
-				}else {
-					return node.localName() == localName;
-				}
-			}else if(!prefix){
-				return localName == "*" || node.name() == localName;
-			}else{
-				var uri:String = context.namespaces[prefix];
-				if(uri == null){
-					// TODO: find a better error type
-					throw new Error("There is no namespace mapped to the prefix '"+prefix+"'.");
-					
-				}else if(localName == "*" || localName == node.localName()){
-					
-					return node.namespace().uri == uri;
-				}else{
-					return false;
-				}
+				return true;
+			}
+
+			var nodeNsURI:String = (node.name() as QName).uri;
+			
+			// NOTE: This will only check that the namespace of node has the correct URI, irrespective
+			// of the prefix used. The actual prefix information cannot be discovered for that
+			// particular node and, if the document has multiple declarations for the same namespace, we
+			// cannot distinguish between them. This should only be a problem if namespaces are used in 
+			// way which undamentally misunderstands the purpose and rationale for namespaces (ie treating
+			// the prefix as the unique 
+			if(prefix)
+			{
+				return nodeNsURI == context.getNamespaceURI(prefix);
+			}
+			else
+			{
+				// if you don't use a prefix in the XPath NameTest then you will match either the default
+				// namespace or the empty namespace (which are usually the same thing).
+				// We will check for the empty NS first, since getDefaultNamespaceURI() is relatively more 
+				// expensive when context.useSourceNamespacePrefixes is set to true.
+				return nodeNsURI == "" || nodeNsURI == context.getDefaultNamespaceURI();
 			}
 		}
 		

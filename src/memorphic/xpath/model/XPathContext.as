@@ -38,9 +38,9 @@ package memorphic.xpath.model
 		
 		
 
-		internal static var defaultNamespaces:Object = new StandardNamespaces();
+		private static var defaultNamespaces:Object = new StandardNamespaces();
 		
-		internal static var defaultFunctions:Object = new StandardFunctions();
+		private static var defaultFunctions:Object = new StandardFunctions();
 		
 		
 		
@@ -91,9 +91,15 @@ package memorphic.xpath.model
 		
 		
 		/**
-		 * 
+		 * Causes all namespaces to be opened, so no prefixes are required in XPath statements.
 		 */ 
 		public var openAllNamespaces:Boolean = false;
+		
+		
+		/**
+		 * Automatically declare namespaces so that the prefixes match declarations in the source XML.
+		 */		
+		public var useSourceNamespacePrefixes:Boolean = false;
 		
 				
 		
@@ -114,14 +120,69 @@ package memorphic.xpath.model
 
 		
 		
-		
-		internal final function getNamespace(prefix:String):String
+		/**
+		 * 
+		 * Finds the namespace URI that matches the prefix, in the current context. If the same prefix is used
+		 * for different namespaces in different parts of the document, it will find the one defined on the
+		 * nearest ancestor of the current node.
+		 * 
+		 * @param prefix
+		 * @return The namespace URI for a given prefix
+		 * 
+		 */		
+		internal final function getNamespaceURI(prefix:String):String
 		{
 			if(namespaces.hasOwnProperty(prefix)){
 				return namespaces[prefix];
-			}else{
+			}else if(defaultNamespaces.hasOwnProperty(prefix)){
 				return defaultNamespaces[prefix];
+			}else if(useSourceNamespacePrefixes){
+				return getNamespaceFromElementDeclaration(node(), prefix);
 			}
+			throw new Error("No namespace was defined with prefix '" + prefix + "'.");
+		}
+		
+		
+		/**
+		 * 
+		 * Finds the URI for the default namespace in the current context. If multiple default namespaces are
+		 * used in the document it will find the one defined on the nearest ancestor of the current node.
+		 * 
+		 * @return The namespace URI for the default namespace in the current context
+		 * 
+		 */		
+		internal function getDefaultNamespaceURI():String
+		{
+			if(useSourceNamespacePrefixes){
+				try{
+					return getNamespaceFromElementDeclaration(node(), "");
+				}catch(e:Error){
+					// default namespace is "", and it's not an error if it isn't defined
+				}
+			}
+			return "";
+		}
+		
+		/**
+		 * Examine node (and recursively examine node's ancestors) to find the namespace declaration matching
+		 * the prefix, from the source XML, then return the URI for that namespace.
+		 *  
+		 * @param node
+		 * @param prefix
+		 * @return Namespace URI
+		 * 
+		 */		
+		private function getNamespaceFromElementDeclaration(node:XML, prefix:String):String
+		{
+			for each(var ns:Namespace in node.namespaceDeclarations()){
+				if(ns.prefix == prefix){
+					return ns.uri;
+				}
+			}
+			if(node.parent() is XML){
+				return getNamespaceFromElementDeclaration(node.parent() as XML, prefix);
+			}
+			throw new Error("The document does not contain a namespace declaration with prefix '" + prefix + "'.");
 		}
 		
 		
@@ -194,6 +255,7 @@ package memorphic.xpath.model
 			context.contextSize = contextSize;
 			context.zeroIndexPosition = zeroIndexPosition;
 			context.openAllNamespaces = openAllNamespaces;
+			context.useSourceNamespacePrefixes = useSourceNamespacePrefixes;
 			return context;
 		}
 		
