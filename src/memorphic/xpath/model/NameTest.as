@@ -53,8 +53,12 @@ package memorphic.xpath.model
 		}
 		
 		
-		
-		
+		/**
+		 * 
+		 * @param context
+		 * @return true if the context node's name matches prefix and localName; otherwise false
+		 * 
+		 */		
 		public function test(context:XPathContext):Boolean
 		{
 			var node:XML = context.contextNode;
@@ -69,6 +73,10 @@ package memorphic.xpath.model
 			if(localName != "*" && node.localName() != localName){
 				return false;
 			}
+			// See issue #19 (http://code.google.com/p/xpath-as3/issues/detail?id=19)
+			if(localName == "*" && !prefix){
+				return true;
+			}
 			// ...so from now on, we are just looking at namespaces
 			
 			// in these cases the namespace can be ignored
@@ -81,9 +89,9 @@ package memorphic.xpath.model
 			// NOTE: This will only check that the namespace of node has the correct URI, irrespective
 			// of the prefix used. The actual prefix information cannot be discovered for that
 			// particular node and, if the document has multiple declarations for the same namespace, we
-			// cannot distinguish between them. This should only be a problem if namespaces are used in 
-			// way which undamentally misunderstands the purpose and rationale for namespaces (ie treating
-			// the prefix as the unique 
+			// cannot distinguish between them. This should only be a problem if namespaces are used in a
+			// way which fundamentally misunderstands the purpose and rationale for namespaces (ie treating
+			// the prefix as the namespace, rather than as a document-local shortcut for it).
 			if(prefix)
 			{
 				return nodeNsURI == context.getNamespaceURI(prefix);
