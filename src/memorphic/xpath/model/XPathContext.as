@@ -38,9 +38,9 @@ package memorphic.xpath.model
 		
 		
 
-		private static var defaultNamespaces:Object = new StandardNamespaces();
+		private static var standardNamespaces:Object = new StandardNamespaces();
 		
-		private static var defaultFunctions:Object = new StandardFunctions();
+		private static var standardFunctions:Object = new StandardFunctions();
 		
 		
 		
@@ -56,9 +56,16 @@ package memorphic.xpath.model
 		
 		
 		/**
-		 * 
+		 * A table of namespace URI's. The keys are the prefixes that should be expanded to each namespace.
 	 	 */		
 		public var namespaces:Object;
+		
+		
+		/**
+		 * The URI of a namespace to use as the default; i.e. without a prefix.
+		 */		
+		public var defaultNamespace:String;
+		
 		
 		
 		/**
@@ -132,12 +139,15 @@ package memorphic.xpath.model
 		 */		
 		internal final function getNamespaceURI(prefix:String):String
 		{
+			if(!prefix){
+				return getDefaultNamespaceURI();
+			}
 			if(namespaces.hasOwnProperty(prefix)){
 				return namespaces[prefix];
-			}else if(defaultNamespaces.hasOwnProperty(prefix)){
-				return defaultNamespaces[prefix];
+			}else if(standardNamespaces.hasOwnProperty(prefix)){
+				return standardNamespaces[prefix];
 			}else if(useSourceNamespacePrefixes){
-				return getNamespaceFromElementDeclaration(node(), prefix);
+				return getNamespaceURIFromElementDeclaration(node(), prefix);
 			}
 			throw new Error("No namespace was defined with prefix '" + prefix + "'.");
 		}
@@ -155,10 +165,13 @@ package memorphic.xpath.model
 		{
 			if(useSourceNamespacePrefixes){
 				try{
-					return getNamespaceFromElementDeclaration(node(), "");
+					return getNamespaceURIFromElementDeclaration(node(), "");
 				}catch(e:Error){
 					// default namespace is "", and it's not an error if it isn't defined
 				}
+			}else{
+				// in case the user has set defaultNamespace to null, return "" instead
+				return defaultNamespace || "";
 			}
 			return "";
 		}
@@ -172,7 +185,7 @@ package memorphic.xpath.model
 		 * @return Namespace URI
 		 * 
 		 */		
-		private function getNamespaceFromElementDeclaration(node:XML, prefix:String):String
+		private function getNamespaceURIFromElementDeclaration(node:XML, prefix:String):String
 		{
 			for each(var ns:Namespace in node.namespaceDeclarations()){
 				if(ns.prefix == prefix){
@@ -180,7 +193,7 @@ package memorphic.xpath.model
 				}
 			}
 			if(node.parent() is XML){
-				return getNamespaceFromElementDeclaration(node.parent() as XML, prefix);
+				return getNamespaceURIFromElementDeclaration(node.parent() as XML, prefix);
 			}
 			throw new Error("The document does not contain a namespace declaration with prefix '" + prefix + "'.");
 		}
@@ -215,7 +228,7 @@ package memorphic.xpath.model
 			if(functions.hasOwnProperty(name)){
 				return functions[name] as Function;
 			}else{
-				return defaultFunctions[name] as Function;
+				return standardFunctions[name] as Function;
 			}
 		}
 
@@ -256,6 +269,7 @@ package memorphic.xpath.model
 			context.zeroIndexPosition = zeroIndexPosition;
 			context.openAllNamespaces = openAllNamespaces;
 			context.useSourceNamespacePrefixes = useSourceNamespacePrefixes;
+			context.defaultNamespace = defaultNamespace;
 			return context;
 		}
 		

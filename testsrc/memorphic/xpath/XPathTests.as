@@ -548,6 +548,15 @@ package memorphic.xpath {
 			assertEquals("Should match the first resource listed in the RDF", "http://www.trajiklyhip.com/blog/index.cfm/2006/9/12/Flex-Web-Services-Question", result);
 			checkXMLUnaffected();
 		}
+		
+		public function testDefaultNamespace():void
+		{
+			xpath = new XPathQuery("//channel/title/text()");
+			xpath.context.defaultNamespace = "http://purl.org/rss/1.0/";
+			var result:String = xpath.exec(rdf);
+			assertEquals("Should match the first resource listed in the RDF", "Search Results For 'xpath flash'", result);
+			checkXMLUnaffected();
+		}
 
 	}
 		

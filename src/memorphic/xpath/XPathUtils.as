@@ -1,7 +1,6 @@
 package memorphic.xpath
 {
 	import memorphic.utils.XMLUtil;
-	import flash.xml.XMLNodeType;
 	import memorphic.xpath.model.XPathContext;
 	
 	public class XPathUtils
@@ -103,6 +102,7 @@ package memorphic.xpath
 		}
 		
 		
+		
 		private static function getPeerPositionPredicate(node:XML, context:XPathContext):String
 		{
 			var parent:XML = node.parent();
@@ -117,6 +117,41 @@ package memorphic.xpath
 				}
 			}
 			return "[" + (i + (context.zeroIndexPosition ? 0 : 1)) + "]";
+		}
+		
+		
+		
+		/**
+		 * 
+		 * @param element to delete from it's parent
+		 * 
+		 * Returns true if the element was successfully deleted; otherwise false
+		 */		
+		public static function deleteXML(element:XML):Boolean
+		{
+			if(element.parent()){
+				delete element.parent().children()[element.childIndex()];
+				return true;
+			}else{
+				return false;
+			}
+		}
+		
+		/**
+		 * 
+		 * @param xmlList
+		 * @return XMLList containing all elements that could NOT be deleted
+		 * 
+		 */		
+		public static function deleteXMLList(xmlList:XMLList):XMLList
+		{
+			var notDeleted:XMLList = new XMLList();
+			for each(var xml:XML in xmlList){
+				if(!deleteXML(xml)){
+					notDeleted +=  xml;
+				}
+			}
+			return notDeleted;
 		}
 		
 	}
