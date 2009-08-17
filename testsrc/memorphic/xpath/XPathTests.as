@@ -574,6 +574,7 @@ package memorphic.xpath {
 			assertEquals("@lang should not match anything because it's the document wrapper not the root node", "", result);
 			var result2:String = xpath.exec(xhtml, xhtml); 
 			assertEquals("@lang should match because I explicitly set the startNode to be the doc root", "en", result2);
+			checkXMLUnaffected();
 		}
 
 	}
