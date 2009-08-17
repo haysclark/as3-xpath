@@ -16,7 +16,7 @@ package memorphic.xpath.model
 			expr = rootExpr;
 		}
 		
-		public function execRoot(xml:XML, context:XPathContext):Object
+		public function execRoot(xml:XML, startingNode:XML, context:XPathContext):Object
 		{
 			var xmlRoot:XML
 			var contextNode:XML;
@@ -38,11 +38,13 @@ package memorphic.xpath.model
 					docRoot.appendChild(xmlRoot);
 					rootWrapped = true;
 				}
-				if(xml == xmlRoot){
+				if(startingNode!=null){
+					contextNode = startingNode;
+				}else if(xml == xmlRoot){
 					contextNode = docRoot;
 				}else{
 					contextNode = xml;
-				}			
+				}		
 			}else{
 				// use an empty XML object instead of null, to reduce RTE's
 				contextNode = new XML();

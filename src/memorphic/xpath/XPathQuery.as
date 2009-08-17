@@ -33,8 +33,6 @@
 package memorphic.xpath
 {
 
-	import memorphic.xpath.model.IExpression;
-	import memorphic.xpath.model.LocationPath;
 	import memorphic.xpath.model.QueryRoot;
 	import memorphic.xpath.model.XPathContext;
 	import memorphic.xpath.parser.XPathParser;
@@ -126,15 +124,19 @@ package memorphic.xpath
 		 * relative to that node; however, absolute paths will still be evaluated from the root of
 		 * the document to which the node belongs.
 		 * 
+		 * <strong>Important</strong>: When using the result of another expression as the document, you should ensure to
+		 * also set <code>startingNode</code> to that element. Otherwise, if the other expressions selects the root element, relative 
+		 * paths may not be evaluated correctly.
+		 * 
 		 * @param xml The root document or XML node on which to execute the XPath query
-		 * @param context An optional context in which just this query will execute. You can use this to define namespaces, variables and functions
+		 * @param startingNode An optional XML node, which should be part of the xml document. Relative paths will begin at this element.
 		 *
 		 * @return The result of executing the XPath statement. If the statement is a Path expression, this will be an XMLList
 		 *
 		 */
-		public function exec(xml:XML):*
+		public function exec(xml:XML, startingNode:XML=null):*
 		{
-			return expression.execRoot(xml, context);
+			return expression.execRoot(xml, startingNode, context);
 		}
 
 

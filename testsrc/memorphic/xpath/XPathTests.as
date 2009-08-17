@@ -557,6 +557,24 @@ package memorphic.xpath {
 			assertEquals("Should match the first resource listed in the RDF", "Search Results For 'xpath flash'", result);
 			checkXMLUnaffected();
 		}
+		
+		
+		/**
+		 * 
+		 * Issue #23
+		 * This is due to the fact that the document must be wrapped in an extra node. the problem is that, in some circumstances,
+		 * this can cause relative paths to be evaluated incorrectly from the root node. To get around this, we added the extra
+		 * constructor parameter; startNode; which can be used to start paths from the root element rather than the document wrapper.
+		 * 
+		 */		
+		public function testRelativePathFromRoot():void
+		{
+			xpath = new XPathQuery("./@lang");
+			var result:String = xpath.exec(xhtml);
+			assertEquals("@lang should not match anything because it's the document wrapper not the root node", "", result);
+			var result2:String = xpath.exec(xhtml, xhtml); 
+			assertEquals("@lang should match because I explicitly set the startNode to be the doc root", "en", result2);
+		}
 
 	}
 		
