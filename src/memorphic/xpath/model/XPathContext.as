@@ -254,23 +254,37 @@ package memorphic.xpath.model
 		public function copy(deepCopy:Boolean=true):XPathContext
 		{
 			var context:XPathContext = new XPathContext();
-			if(deepCopy){
-				copyDynamicProps(functions, context.functions);
-				copyDynamicProps(namespaces, context.namespaces);
-				copyDynamicProps(variables, context.variables);
-			}else{
-				context.functions = functions;
-				context.namespaces = namespaces;
-				context.variables = variables;
-			}
-			context.contextNode = contextNode;
-			context.contextPosition = contextPosition;
-			context.contextSize = contextSize;
-			context.zeroIndexPosition = zeroIndexPosition;
-			context.openAllNamespaces = openAllNamespaces;
-			context.useSourceNamespacePrefixes = useSourceNamespacePrefixes;
-			context.defaultNamespace = defaultNamespace;
+			copyProperties( context, deepCopy );
 			return context;
+		}
+		
+		
+		/**
+		 * Copies the properties of this context to a different instance of XPathContext. This is useful when overriding the copy()
+		 * method in a subclass of XPathContext.
+		 *  
+		 * @param newContext
+		 * @param deepCopy
+		 * 
+		 */		
+		protected function copyProperties( newContext:XPathContext, deepCopy:Boolean ):void
+		{
+			if(deepCopy){
+				copyDynamicProps(functions, newContext.functions);
+				copyDynamicProps(namespaces, newContext.namespaces);
+				copyDynamicProps(variables, newContext.variables);
+			}else{
+				newContext.functions = functions;
+				newContext.namespaces = namespaces;
+				newContext.variables = variables;
+			}
+			newContext.contextNode = contextNode;
+			newContext.contextPosition = contextPosition;
+			newContext.contextSize = contextSize;
+			newContext.zeroIndexPosition = zeroIndexPosition;
+			newContext.openAllNamespaces = openAllNamespaces;
+			newContext.useSourceNamespacePrefixes = useSourceNamespacePrefixes;
+			newContext.defaultNamespace = defaultNamespace;
 		}
 		
 		
