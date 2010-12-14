@@ -213,7 +213,12 @@ package memorphic.parser
 		{
 			//var t:Object;
 			var marker:RuleMarker;
-			while(!(marker = (stack.pop() as RuleMarker)));
+			do
+			{
+				marker = stack.pop() as RuleMarker;
+			}
+			while( marker == null );
+			
 			restoreState(marker.treeState);
 			return marker;
 		}
