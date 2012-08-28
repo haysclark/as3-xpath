@@ -112,7 +112,7 @@ package memorphic.xpath
 			var peers:XMLList = node.parent()[node.name()];
 			var n:int = peers.length();
 			for(var i:int=0; i<n; i++){
-				if(peers[i] == node){
+				if(peers[i] === node){
 					break;
 				}
 			}

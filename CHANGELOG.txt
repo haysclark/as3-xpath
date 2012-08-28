@@ -1,3 +1,7 @@
+*** 0.2.6
+        * Fixed issue #26 - XPathUtils.findPath() - element index incorrect for equal XML elements with same parent
+
+
 *** 0.2.5
 	* Fixed issue #12 - XPath result is a copy of the original XML object
 	* Fixed issue #13 - Error thrown when you refer to "self" in a predicate when the context is an attribute node
