@@ -116,7 +116,7 @@ package memorphic.xpath
 					break;
 				}
 			}
-			return "[" + (i + (context.zeroIndexPosition ? 0 : 1)) + "]";
+			return "[" + (context.zeroIndexPosition ? i : i+1) + "]";
 		}
 		
 		

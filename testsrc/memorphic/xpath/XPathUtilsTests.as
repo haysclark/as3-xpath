@@ -95,6 +95,27 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 
+		/**
+		 * Issue #26
+		 */
+		public function testTwoChildrenOfSameName():void
+		{
+			var xml:XML = <body>
+			  <hr/>
+			  <div>text</div>
+			  <hr/>
+			</body>;
+			var hr1:XML = xml.hr[0];
+			var hr2:XML = xml.hr[1];
+			
+			var path1:String = XPathUtils.findPath(hr1);
+			var path2:String = XPathUtils.findPath(hr2);
+			
+			assertTrue("Paths should be different: " + path1, path1 != path2);
+			assertEquals("First path should find the first <hr> element", hr1, XPathQuery.execQuery(xml, path1)[0]);
+			assertEquals("First path should find the first <hr> element", hr2, XPathQuery.execQuery(xml, path2)[0]);
+			
+		}
 
 		private function checkXMLUnaffected():void
 		{
