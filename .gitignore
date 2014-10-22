@@ -1,8 +1,12 @@
-# FlashBuilder
+# Flash Builder Artifacts
 src/FlexUnitApplication.as
 src/FlexUnitCompilerApplication.as
 .FlexUnitSettings/
 .settings/
 
-# Build artifiacts
+# Build Artifacts
 bin/
+
+# Unit Test Artifacts
+target/
+Flash Player Debugger.app/
