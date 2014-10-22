@@ -36,7 +36,7 @@ package memorphic.xpath.model
 	import memorphic.xpath.fixtures.XMLData;
 	import memorphic.xpath.XPathQuery;
 
-	public class StandardFunctionsTests extends TestCase
+	public class StandardFunctionsTest extends TestCase
 	{
 		
 		private var feed:XML;

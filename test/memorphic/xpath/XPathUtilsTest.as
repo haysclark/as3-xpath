@@ -43,7 +43,7 @@ package memorphic.xpath {
 	import memorphic.xpath.model.XPathContext;
 	
 	
-	public class XPathUtilsTests extends TestCase {
+	public class XPathUtilsTest extends TestCase {
 				
 		private var cds:XML;
 		private var menu:XML;
@@ -51,7 +51,7 @@ package memorphic.xpath {
 		private var register:XML;
 		private var rdf:XML;
 		
-	    public function XPathUtilsTests( methodName:String = null) {
+	    public function XPathUtilsTest( methodName:String = null) {
 			super( methodName );
         }
 

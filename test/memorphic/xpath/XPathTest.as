@@ -38,7 +38,7 @@ package memorphic.xpath {
 	import memorphic.xpath.fixtures.XMLData;
 	import memorphic.xpath.model.XPathContext;
 	
-	public class XPathTests extends TestCase {
+	public class XPathTest extends TestCase {
 		
 				
 		private var cds:XML;
@@ -50,7 +50,7 @@ package memorphic.xpath {
 		private var xpath:XPathQuery;
 		private var result:*;
 		
-	    public function XPathTests( methodName:String = null) {
+	    public function XPathTest( methodName:String = null) {
 			super( methodName );
         }
 

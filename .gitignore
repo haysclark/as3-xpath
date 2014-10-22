@@ -1,0 +1,8 @@
+# FlashBuilder
+src/FlexUnitApplication.as
+src/FlexUnitCompilerApplication.as
+.FlexUnitSettings/
+.settings/
+
+# Build artifiacts
+bin/
