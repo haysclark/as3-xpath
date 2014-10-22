@@ -75,9 +75,7 @@ package memorphic.xpath {
 			register = null;
 			
 		}
-
 		
-	
 		public function testFindPath():void
 		{			
 			var maggieWayCountry:XML = cds..CD.(@id=="cd8").COUNTRY[0];

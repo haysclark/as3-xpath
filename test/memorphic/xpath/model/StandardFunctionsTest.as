@@ -32,21 +32,28 @@
 
 package memorphic.xpath.model
 {
-	import flexunit.framework.TestCase;
-	import memorphic.xpath.fixtures.XMLData;
 	import memorphic.xpath.XPathQuery;
+	import memorphic.xpath.fixtures.XMLData;
+	
+	import org.flexunit.asserts.assertEquals;
+	import org.flexunit.asserts.assertFalse;
+	import org.flexunit.asserts.assertTrue;
 
-	public class StandardFunctionsTest extends TestCase
-	{
-		
+	public class StandardFunctionsTest
+	{	
 		private var feed:XML;
 		private var cds:XML;
 		private var reg:XML;
 		private var menu:XML;
 		private var xpath:XPathQuery;
 		
-		public override function setUp():void
-		{
+		//--------------------------------------------------------------------------
+		//
+		//  SETUP
+		//
+		//--------------------------------------------------------------------------
+		[Before]
+		public function setUp():void {
 			feed = XMLData.adobeBlogsRDF;
 			cds = XMLData.cdCatalogXML;
 			reg = XMLData.registerHTML;
@@ -58,23 +65,26 @@ package memorphic.xpath.model
 			XPathQuery.defaultContext = context;
 		}
 		
-		public override function tearDown():void
-		{
+		[After]
+		public function tearDown():void {
 			xpath = null;
 			feed = null;
 		}
 		
-		
-		public function testPosition():void
-		{
+		//--------------------------------------------------------------------------
+		//
+		//  TESTS
+		//
+		//--------------------------------------------------------------------------
+		[Test]
+		public function testPosition():void {
 			xpath = new XPathQuery("/rdf:RDF/rss:item[position()=8]/rss:title");
 			var title:String = xpath.exec(feed).toString();
 			assertEquals("title should match", "Daniel Dura on Apollo", title);
 		}
 		
-		
-		public function testLast():void
-		{
+		[Test]
+		public function testLast():void {
 			// item whose position is 2 less than the last one
 			xpath = new XPathQuery("/rdf:RDF/rss:item[position()=last()-2]/rss:title");
 			var title:String = xpath.exec(feed).toString();
@@ -86,9 +96,8 @@ package memorphic.xpath.model
 			assertEquals("title should match", "How to Wow with Flash", title);
 		}
 		
-		public function testCount():void
-		{
-			
+		[Test]
+		public function testCount():void {
 			xpath = new XPathQuery("count(rdf:RDF/rss:item)");
 			var numItems:int = xpath.exec(feed);
 			assertEquals("should be 15 items", 15, numItems);
@@ -111,17 +120,16 @@ package memorphic.xpath.model
 			assertEquals("testing count() on empty node set", 0, num);
 		}
 		
-		public function testID():void
-		{
+		[Test]
+		public function testID():void {
 			var cdData:XML = XMLData.cdCatalogXML;
 			xpath = new XPathQuery("id('cd10')/TITLE");
 			var result:XMLList = xpath.exec(cdData);
 			assertEquals("title should be Percy Sledge classic", "When a man loves a woman", result.toString());
 		}
 		
-		
-		public function testNamesWithNamespaces():void
-		{
+		[Test]
+		public function testNamesWithNamespaces():void {
 			xpath = new XPathQuery("local-name(/rdf:RDF/child::node()[2])");
 			var localName:String = xpath.exec(feed);
 			assertEquals("localName should match", "item", localName);
@@ -133,12 +141,10 @@ package memorphic.xpath.model
 			xpath = new XPathQuery("name(/rdf:RDF/child::node()[2])");
 			var name:String = xpath.exec(feed);
 			assertEquals("name should match", "http://purl.org/rss/1.0/:item", name);
-		
 		}
 		
-		public function testNamesWithoutNamespaces():void
-		{
-			
+		[Test]
+		public function testNamesWithoutNamespaces():void {
 			xpath = new XPathQuery("local-name(CATALOG/CD[1])");
 			var localName:String = xpath.exec(cds);
 			assertEquals("localName should match", "CD", localName);
@@ -153,8 +159,8 @@ package memorphic.xpath.model
 		
 		}
 		
-		public function testString():void
-		{
+		[Test]
+		public function testString():void {
 			xpath = new XPathQuery("string(CATALOG/CD[(position() > 2) and (position() < 7)]/ARTIST)");
 			assertEquals("string() should only act on the first node in the set", "Dolly Parton", xpath.exec(cds));
 			
@@ -171,8 +177,8 @@ package memorphic.xpath.model
 			assertEquals("string() should convert a false to 'false'", "false", xpath.exec(null));
 		}
 		
-		public function testConcat():void
-		{
+		[Test]
+		public function testConcat():void {
 			xpath = new XPathQuery("concat('a','b')");
 			assertEquals("should concat into one string", "ab", xpath.exec(null));
 			xpath = new XPathQuery("concat('a','b', '')");
@@ -181,12 +187,11 @@ package memorphic.xpath.model
 			assertEquals("should concat into one string", "b", xpath.exec(null));
 			
 			xpath = new XPathQuery("concat(CATALOG/CD[1]/COUNTRY, CATALOG/CD[2]/COUNTRY, CATALOG/CD[3]/COUNTRY)");
-			assertEquals("should concat into one string", "USAUKUSA", xpath.exec(cds));
-			
+			assertEquals("should concat into one string", "USAUKUSA", xpath.exec(cds));	
 		}
 		
-		public function testStartsWith():void
-		{
+		[Test]
+		public function testStartsWith():void {
 			xpath = new XPathQuery("starts-with('a','b')");
 			assertEquals("should be false", false, xpath.exec(null));
 			
@@ -209,8 +214,8 @@ package memorphic.xpath.model
 			assertEquals("should be false", false, xpath.exec(null));
 		}
 
-		public function testContains():void
-		{
+		[Test]
+		public function testContains():void {
 			xpath = new XPathQuery("contains('a','b')");
 			assertEquals("should be false", false, xpath.exec(null));
 			
@@ -242,11 +247,10 @@ package memorphic.xpath.model
 			// tests TypeConversions:xmlToString() (pretty printing consideration)
 			xpath = new XPathQuery("contains(/CATALOG, /CATALOG/CD[1])");
 			assertEquals("should be true", true, xpath.exec(cds));
-			
 		}
 		
-		public function testSubstringBefore():void
-		{
+		[Test]
+		public function testSubstringBefore():void {
 			// [From spec] For example, substring-before("1999/04/01","/") returns 1999.
 			xpath = new XPathQuery("substring-before('1999/04/01','/')");
 			assertEquals("result should match example in spec", "1999", xpath.exec(null));
@@ -255,8 +259,8 @@ package memorphic.xpath.model
 			assertEquals("only first two words of 'One night only'", "One night", xpath.exec(cds));
 		}
 		
-		public function testSubstringAfter():void
-		{
+		[Test]
+		public function testSubstringAfter():void {
 			// [From spec] For example, substring-after("1999/04/01","/") returns 04/01, 
 			xpath = new XPathQuery("substring-after('1999/04/01','/')");
 			assertEquals("result should match example in spec", "04/01", xpath.exec(null));
@@ -266,11 +270,10 @@ package memorphic.xpath.model
 			
 			xpath = new XPathQuery('substring-after("Peter Piper picked a peck of pickled pepper","pepper")');
 			assertEquals("result should be empty", "", xpath.exec(null));
-			
 		}
 		
-		public function testSubstring():void
-		{
+		[Test]
+		public function testSubstring():void {
 			//[From spec] For example, substring("12345",2) returns "2345".
 			xpath = new XPathQuery("substring('12345',2)");
 			assertEquals("result should match example in spec", "2345", xpath.exec(null));
@@ -279,9 +282,8 @@ package memorphic.xpath.model
 			assertEquals("result should match example in spec", "234", xpath.exec(null));
 		}
 		
-		
-		public function testStringLength():void
-		{
+		[Test]
+		public function testStringLength():void {
 			xpath = new XPathQuery("string-length($str)");
 			xpath.context.variables.str = "";
 			assertEquals("0. Length should be correct", 0, xpath.exec(null));
@@ -292,12 +294,10 @@ package memorphic.xpath.model
 			
 			xpath = new XPathQuery("//food/name[string-length() = string-length('French Toast')]");
 			assertEquals("3. Testing no-args", 'French Toast', xpath.exec(menu));
-			
 		}
 		
-		
-		public function testNormalizeSpace():void
-		{
+		[Test]
+		public function testNormalizeSpace():void {
 			var result:String;
 			xpath = new XPathQuery("normalize-space(' \t\n I had      my\r\r\r\n spaces  removed        \n\t\n')");
 			result = xpath.exec(null);
@@ -315,12 +315,10 @@ package memorphic.xpath.model
 					"client – along with a whole truckload of developer tools and documentation. " + 
 					"Apollo is an interesting proposition, a platform that mixes Flash (though you " + 
 					"do need to use code that's …", result);
-
 		}
 		
-		
-		public function testTranslate():void
-		{
+		[Test]
+		public function testTranslate():void {
 			// testing to example at http://www.zvon.org/xxl/XSLTreference/OutputExamples/example_2_57_frame.html
 			var x:XML = <AAA > <BBB>bbb </BBB>  <CCC>ccc </CCC> </AAA>;
 			xpath = new XPathQuery("translate('ABCABCABC',$a1,$a2)");
@@ -342,12 +340,10 @@ package memorphic.xpath.model
 			assertEquals("5", "THE QUICK BROWN FOX.", xpath.exec(null));
 			xpath = new XPathQuery("translate('The quick brown fox.', 'brown', 'red')");
 			assertEquals("5", "The quick red fdx.", xpath.exec(null));
-			
 		}
 		
-		
-		public function testBools():void
-		{
+		[Test]
+		public function testBools():void {
 			xpath = new XPathQuery("true()");
 			assertEquals("1", true, xpath.exec(null));
 			xpath = new XPathQuery("false()");
@@ -362,7 +358,7 @@ package memorphic.xpath.model
 			var values:Array = 	[1,		0,		-1,		NaN, 	2,		{},		"",		" ", 	"true", "false",true, false];
 			var results:Array = [true,	false,	true, 	false,	true,	true,	false,	true, 	true, 	true, 	true, false];
 			xpath = new XPathQuery("boolean($test)");
-			for(var i:int=0; i<values.length; i++){
+			for(var i:int=0; i<values.length; i++) {
 				xpath.context.variables.test = values[i];
 				assertEquals("a"+i, results[i], xpath.exec(null));
 			}
