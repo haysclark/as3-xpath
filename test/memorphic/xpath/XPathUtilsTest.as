@@ -30,34 +30,29 @@
 	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-package memorphic.xpath {
-
-	import flash.utils.describeType;
-	import flash.utils.getTimer;
-	
-	import flexunit.framework.TestCase;
-	import flexunit.framework.TestResult;
-	import flexunit.framework.TestSuite;
-	
+package memorphic.xpath
+{
 	import memorphic.xpath.fixtures.XMLData;
 	import memorphic.xpath.model.XPathContext;
 	
+	import org.flexunit.asserts.assertEquals;
+	import org.flexunit.asserts.assertTrue;
 	
-	public class XPathUtilsTest extends TestCase {
-				
+	public class XPathUtilsTest
+	{			
 		private var cds:XML;
 		private var menu:XML;
 		private var xhtml:XML;
 		private var register:XML;
 		private var rdf:XML;
 		
-	    public function XPathUtilsTest( methodName:String = null) {
-			super( methodName );
-        }
-
-		
-		public override function setUp():void
-		{
+		//--------------------------------------------------------------------------
+		//
+		//  SETUP
+		//
+		//--------------------------------------------------------------------------
+		[Before]
+		public function setUp():void {
 			XPathQuery.defaultContext = new XPathContext();
 			cds = XMLData.cdCatalogXML;
 			menu = XMLData.foodMenuXML;
@@ -66,18 +61,22 @@ package memorphic.xpath {
 			register = XMLData.registerHTML;
 		}
 		
-		public override function tearDown():void
-		{			
+		[After]
+		public function tearDown():void {	
 			cds = null;
 			menu = null;
 			xhtml = null;
 			rdf = null;
-			register = null;
-			
+			register = null;	
 		}
 		
-		public function testFindPath():void
-		{			
+		//--------------------------------------------------------------------------
+		//
+		//  TESTS
+		//
+		//--------------------------------------------------------------------------
+		[Test]
+		public function testFindPath():void {
 			var maggieWayCountry:XML = cds..CD.(@id=="cd8").COUNTRY[0];
 			var path:String = XPathUtils.findPath(maggieWayCountry);
 			var selected:XML = XPathQuery.execQuery(cds, path)[0];
@@ -93,11 +92,19 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 
+		private function checkXMLUnaffected():void {
+			assertEquals("test should not change the XML data", XMLData.adobeBlogsRDF.toXMLString(), rdf.toXMLString());
+			assertEquals("test should not change the XML data", XMLData.adobeHomeXHTML.toXMLString(), xhtml.toXMLString());
+			assertEquals("test should not change the XML data", XMLData.cdCatalogXML.toXMLString(), cds.toXMLString());
+			assertEquals("test should not change the XML data", XMLData.foodMenuXML.toXMLString(), menu.toXMLString());
+			assertEquals("test should not change the XML data", XMLData.registerHTML.toXMLString(), register.toXMLString());
+		}
+		
 		/**
 		 * Issue #26
 		 */
-		public function testTwoChildrenOfSameName():void
-		{
+		[Test]
+		public function testTwoChildrenOfSameName():void {
 			var xml:XML = <body>
 			  <hr/>
 			  <div>text</div>
@@ -112,20 +119,6 @@ package memorphic.xpath {
 			assertTrue("Paths should be different: " + path1, path1 != path2);
 			assertEquals("First path should find the first <hr> element", hr1, XPathQuery.execQuery(xml, path1)[0]);
 			assertEquals("First path should find the first <hr> element", hr2, XPathQuery.execQuery(xml, path2)[0]);
-			
 		}
-
-		private function checkXMLUnaffected():void
-		{
-			assertEquals("test should not change the XML data", XMLData.adobeBlogsRDF.toXMLString(), rdf.toXMLString());
-			assertEquals("test should not change the XML data", XMLData.adobeHomeXHTML.toXMLString(), xhtml.toXMLString());
-			assertEquals("test should not change the XML data", XMLData.cdCatalogXML.toXMLString(), cds.toXMLString());
-			assertEquals("test should not change the XML data", XMLData.foodMenuXML.toXMLString(), menu.toXMLString());
-			assertEquals("test should not change the XML data", XMLData.registerHTML.toXMLString(), register.toXMLString());
-		}
-		
-
-	
 	}
-		
 }
