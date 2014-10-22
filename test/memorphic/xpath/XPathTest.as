@@ -30,17 +30,19 @@
 	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-package memorphic.xpath {
-
-	import flexunit.framework.TestCase;
-	
+package memorphic.xpath
+{
 	import memorphic.parser.ParseError;
 	import memorphic.xpath.fixtures.XMLData;
 	import memorphic.xpath.model.XPathContext;
 	
-	public class XPathTest extends TestCase {
-		
-				
+	import org.flexunit.asserts.assertEquals;
+	import org.flexunit.asserts.assertFalse;
+	import org.flexunit.asserts.assertNotNull;
+	import org.flexunit.asserts.assertTrue;
+	
+	public class XPathTest
+	{	
 		private var cds:XML;
 		private var menu:XML;
 		private var xhtml:XML;
@@ -50,13 +52,13 @@ package memorphic.xpath {
 		private var xpath:XPathQuery;
 		private var result:*;
 		
-	    public function XPathTest( methodName:String = null) {
-			super( methodName );
-        }
-
-		
-		public override function setUp():void
-		{
+		//--------------------------------------------------------------------------
+		//
+		//  SETUP
+		//
+		//--------------------------------------------------------------------------
+		[Before]
+		public function setUp():void {		
 			XPathQuery.defaultContext = new XPathContext();
 			cds = XMLData.cdCatalogXML;
 			menu = XMLData.foodMenuXML;
@@ -65,8 +67,8 @@ package memorphic.xpath {
 			register = XMLData.registerHTML;
 		}
 		
-		public override function tearDown():void
-		{			
+		[After]
+		public function tearDown():void {			
 			cds = null;
 			menu = null;
 			xhtml = null;
@@ -77,13 +79,16 @@ package memorphic.xpath {
 			result = null;
 		}
 
-		
-		
+		//--------------------------------------------------------------------------
+		//
+		//  TESTS
+		//
+		//--------------------------------------------------------------------------
 		/*
 		This test was added after bug report
 		*/
-		public function testIdenticalNodes():void
-		{			
+		[Test]
+		public function testIdenticalNodes():void {			
 			var tree3:XML = <Root attr="test">
 								<Child>
 									<X attr="test"/>
@@ -99,9 +104,8 @@ package memorphic.xpath {
 			
 		}
 
-
-		private function checkXMLUnaffected():void
-		{
+		[Test]
+		private function checkXMLUnaffected():void {
 			assertEquals("test should not change the XML data", XMLData.adobeBlogsRDF.toXMLString(), rdf.toXMLString());
 			assertEquals("test should not change the XML data", XMLData.adobeHomeXHTML.toXMLString(), xhtml.toXMLString());
 			assertEquals("test should not change the XML data", XMLData.cdCatalogXML.toXMLString(), cds.toXMLString());
@@ -109,11 +113,8 @@ package memorphic.xpath {
 			assertEquals("test should not change the XML data", XMLData.registerHTML.toXMLString(), register.toXMLString());
 		}
 		
-		
-		
-		public function testSimpleSteps():void
-		{
-		
+		[Test]
+		public function testSimpleSteps():void {		
 			// all of these queries should have the same results
 			var paths:Array = ["breakfast-menu/food/name",
 							"breakfast-menu//name",
@@ -150,8 +151,8 @@ package memorphic.xpath {
 		}
 		
 		// added to verify fix bug #9
-		public function testAncestor():void
-		{			
+		[Test]
+		public function testAncestor():void {			
 			var xpath:XPathQuery = new XPathQuery("../self::node()");
 			var startNode:XML = menu.food[3].price[0];
 			var resultNode:XML = xpath.exec(startNode)[0];
@@ -159,9 +160,8 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		public function testPosition():void
-		{
-			
+		[Test]
+		public function testPosition():void {
 			var paths:Array = [
 							"breakfast-menu/food[2]/name",
 							"breakfast-menu/food[7-5]/name",
@@ -185,9 +185,8 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		
-		public function testNamespaces():void
-		{
+		[Test]
+		public function testNamespaces():void {
 			var xpath:XPathQuery = new XPathQuery("//xhtml:head");
 			xpath.context.namespaces.xhtml = "http://www.w3.org/1999/xhtml";
 			var result:XMLList = xpath.exec(xhtml);
@@ -198,8 +197,8 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		public function testWildCardNamespace():void
-		{
+		[Test]
+		public function testWildCardNamespace():void {
 			var xpath:XPathQuery = new XPathQuery("//*:head");
 			var result:XMLList = xpath.exec(xhtml);
 			
@@ -209,9 +208,8 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		public function testOpenAllNamespaces():void
-		{
-			
+		[Test]
+		public function testOpenAllNamespaces():void {
 			var xpath:XPathQuery = new XPathQuery("//head");
 			var result:XMLList = xpath.exec(xhtml);
 			
@@ -228,12 +226,10 @@ package memorphic.xpath {
 			assertEquals("Shouldn't match anything - I didn't map the namespace", 0, result3.length());
 			
 			checkXMLUnaffected();
-			
 		}
 		
-		
-		public function testVariables():void
-		{
+		[Test]
+		public function testVariables():void {
 			var context:XPathContext = new XPathContext();
 			context.variables = {a:1};
 			var xpath:XPathQuery = new XPathQuery("breakfast-menu/food[$a]/name/text()", context);
@@ -256,9 +252,8 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 
-
-		public function testAxisNamesCanBeNCNames():void
-		{
+		[Test]
+		public function testAxisNamesCanBeNCNames():void {
 			// just make sure that /foo/self is allowed as an equivalent to /foo/child::self
 			// and "self" is not interpreted as an axis
 			var data:XML = <foo><self>hello</self></foo>;
@@ -268,13 +263,9 @@ package memorphic.xpath {
 			assertEquals("Axis names should be allowed as NCNames if the context is right",
 					result.toString(), "hello");
 		}
-
-
-
-
-		public function testFilterExpr():void
-		{
-			
+		
+		[Test]
+		public function testFilterExpr():void {
 			var xpath:XPathQuery = new XPathQuery( "breakfast-menu/food[secondNode(.)[1]=.]/name");
 			xpath.context.functions.secondNode = function (context:XPathContext, nodeset:XMLList):XMLList
 			{
@@ -291,17 +282,16 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		
-		public function testDescendants():void
-		{
+		[Test]
+		public function testDescendants():void {
 			var xpath:XPathQuery = new XPathQuery( "//*[1]/attribute::id");
 			assertEquals("check id att", "cd1", xpath.exec(cds));
 			
 			checkXMLUnaffected();
 		}
 		
-		public function testAttribute():void
-		{
+		[Test]
+		public function testAttribute():void {
 			var xpath:XPathQuery = new XPathQuery( "CATALOG/CD[1]/attribute::id");
 			assertEquals("1 check id att", "cd1", xpath.exec(cds));
 			xpath = new XPathQuery( "CATALOG/CD[1]/@id");
@@ -310,8 +300,8 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		public function testAssociativity():void
-		{
+		[Test]
+		public function testAssociativity():void {
 			var xpath:XPathQuery = new XPathQuery("(3 > 2) > 1");
 			assertFalse("This is coerced left-associativity > ", xpath.exec(null));
 			xpath = new XPathQuery("3 > (2 > 1)");
@@ -329,10 +319,8 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		
-		public function testNumbers():void
-		{
-			
+		[Test]
+		public function testNumbers():void {	
 			xpath = new XPathQuery("1");
 			result = xpath.exec(null);
 			assertEquals("1", 1, result);
@@ -371,11 +359,10 @@ package memorphic.xpath {
 			assertEquals("29.99", 29.99, result);
 			
 			// TODO: Test edge cases for max and min values (according to both AS3 and XPath)
-			
 		}
 		
-		public function testNumberRelations():void
-		{
+		[Test]
+		public function testNumberRelations():void {
 			xpath = new XPathQuery("1 = 1");
 			assertTrue("1 = 1", xpath.exec(null));
 			xpath = new XPathQuery("1 > 1");
@@ -404,12 +391,10 @@ package memorphic.xpath {
 			// This failed in 0.2.4. It's parsed as if it is just "29.9" (issue #15)
 			xpath = new XPathQuery("29.99 = 30");
 			assertFalse("29.99 = 30", xpath.exec(null));
-
 		}
 		
-		
-		public function testAttributeExistence():void
-		{
+		[Test]
+		public function testAttributeExistence():void {
 			var c:XPathContext = new XPathContext();
 			c.namespaces.h = "http://www.w3.org/1999/xhtml";
 			var xpath:XPathQuery = new XPathQuery( "count(//h:img[@alt='' or string-length(@alt)>0])", c);
@@ -428,11 +413,9 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		
 		// added to verify fix to bug #13 (brought up on Flashcoders mailing list)
-		public function testAttributeSelfAxis():void
-		{
-			
+		[Test]
+		public function testAttributeSelfAxis():void {
 			var data:XML = <p>
 			  <a href="http://www.memorphic.com">link 1</a>
 			  <a href="http://www.google.com">link 2</a>
@@ -449,9 +432,8 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		
-		public function testAbsolutePathFromChildStartNode():void
-		{
+		[Test]
+		public function testAbsolutePathFromChildStartNode():void {
 			var xpath:XPathQuery = new XPathQuery( "/CATALOG/CD[1]/@id");
 			var child:XML = cds.CD[3].COUNTRY[0];
 			assertEquals("sanity check", "cd1", xpath.exec(cds));
@@ -459,9 +441,8 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		
-		public function testCustomFunctionExecsPath():void
-		{
+		[Test]
+		public function testCustomFunctionExecsPath():void {
 			var path:String = "/CATALOG/CD[last()]";
 			var context:XPathContext = new XPathContext();
 			context.functions.lastCD = function(context:XPathContext):XMLList
@@ -471,13 +452,12 @@ package memorphic.xpath {
 			XPathQuery.defaultContext = context;
 			assertTrue("sanity check", XPathQuery.execQuery(cds, path + " = " + path));
 			assertTrue("call 'out' should not affect absolute paths", XPathQuery.execQuery(cds, path + " = lastCD()"));
-			
 		}
 		
 		// added to fix bug #14. We need to have decent error handling around syntax errors
 		// Need to nail down and test the different error objects that could be produced, as well as messages
-		public function testMalformedPaths():void
-		{
+		[Test]
+		public function testMalformedPaths():void {
 			var errorPaths:Array = [
 				// "\\\\a\\b",
 				"a b",
@@ -488,13 +468,12 @@ package memorphic.xpath {
 				"text::a" // because text is not an axis
 			];
 			var n:int = errorPaths.length;
-			for(var i:int=0; i<n; i++){
+			for(var i:int=0; i<n; i++) {
 				assertTrue("Should throw an error: " + errorPaths[i], pathHasError(errorPaths[i]));
-			}
-			
+			}	
 		}
-		private function pathHasError(path:String):Boolean
-		{
+		
+		private function pathHasError(path:String):Boolean {
 			var xpath:XPathQuery
 			try {
 				xpath = new XPathQuery(path);
@@ -509,9 +488,8 @@ package memorphic.xpath {
 			return false;
 		}
 		
-		
-		public function testW3CXMLNamespace():void
-		{
+		[Test]
+		public function testW3CXMLNamespace():void {
 			xpath = new XPathQuery("breakfast-menu/food[@xml:id = '4']/name/text()");
 			assertEquals("should have selected first food node", "French Toast", xpath.exec(menu));
 			
@@ -523,8 +501,8 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		public function testUseSourceNamespaceDefaultNS():void
-		{
+		[Test]
+		public function testUseSourceNamespaceDefaultNS():void {
 			xpath = new XPathQuery("//head");
 			xpath.context.useSourceNamespacePrefixes = true;
 			var result:XMLList = xpath.exec(xhtml);
@@ -540,8 +518,8 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		public function testUseSourceNamespacePrefixes():void
-		{
+		[Test]
+		public function testUseSourceNamespacePrefixes():void {
 			xpath = new XPathQuery("rdf:RDF/channel/items/rdf:Seq/rdf:li[1]/@rdf:resource");
 			xpath.context.useSourceNamespacePrefixes = true;
 			var result:String = xpath.exec(rdf);
@@ -549,15 +527,14 @@ package memorphic.xpath {
 			checkXMLUnaffected();
 		}
 		
-		public function testDefaultNamespace():void
-		{
+		[Test]
+		public function testDefaultNamespace():void {
 			xpath = new XPathQuery("//channel/title/text()");
 			xpath.context.defaultNamespace = "http://purl.org/rss/1.0/";
 			var result:String = xpath.exec(rdf);
 			assertEquals("Should match the first resource listed in the RDF", "Search Results For 'xpath flash'", result);
 			checkXMLUnaffected();
 		}
-		
 		
 		/**
 		 * 
@@ -566,7 +543,8 @@ package memorphic.xpath {
 		 * this can cause relative paths to be evaluated incorrectly from the root node. To get around this, we added the extra
 		 * constructor parameter; startNode; which can be used to start paths from the root element rather than the document wrapper.
 		 * 
-		 */		
+		 */	
+		[Test]
 		public function testRelativePathFromRoot():void
 		{
 			xpath = new XPathQuery("./@lang");
@@ -576,7 +554,5 @@ package memorphic.xpath {
 			assertEquals("@lang should match because I explicitly set the startNode to be the doc root", "en", result2);
 			checkXMLUnaffected();
 		}
-
 	}
-		
 }
